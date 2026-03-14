@@ -1,0 +1,96 @@
+<div class="page-header section">
+  <span class="chip chip-secondary">
+    <i class="bi bi-arrows-move" aria-hidden="true"></i>
+    Slide Animations
+  </span>
+  <h1 class="section-title" style="background-image: linear-gradient(135deg, #00cec9, #81ecec)">Slide Animation</h1>
+  <p class="section-subtitle">
+    Directional enter/leave transitions using <code>translateX</code> and <code>translateY</code>.
+  </p>
+</div>
+
+<!-- Direction Picker -->
+<section class="demo-section section" aria-labelledby="direction-heading">
+  <h2 id="direction-heading" class="demo-section-title">Slide Direction</h2>
+  <div class="direction-picker" role="group" aria-label="Select slide direction">
+    @for (dir of directions; track dir.value) {
+      <button
+        class="dir-btn"
+        [class.active]="activeDirection() === dir.value"
+        (click)="setDirection(dir.value)"
+        [attr.aria-pressed]="activeDirection() === dir.value"
+        [attr.aria-label]="dir.label"
+      >
+        <i class="bi {{ dir.icon }}" aria-hidden="true"></i>
+        {{ dir.label }}
+      </button>
+    }
+  </div>
+</section>
+
+<!-- Live Stage -->
+<section class="demo-section section" aria-labelledby="slide-stage-heading">
+  <div class="demo-card">
+    <h2 id="slide-stage-heading" class="demo-section-title">Live Preview</h2>
+    <p class="demo-desc">
+      Active trigger: <code>@{{ getTrigger() }}</code>
+    </p>
+
+    <div class="demo-stage" aria-live="polite">
+      @if (visible()) {
+        @switch (activeDirection()) {
+          @case ('left') {
+            <div class="slide-box" [@slideLeft] aria-hidden="true">
+              <i class="bi bi-arrow-left-circle"></i>
+              <span>From Left</span>
+            </div>
+          }
+          @case ('right') {
+            <div class="slide-box box-secondary" [@slideRight] aria-hidden="true">
+              <i class="bi bi-arrow-right-circle"></i>
+              <span>From Right</span>
+            </div>
+          }
+          @case ('top') {
+            <div class="slide-box box-accent" [@slideTop] aria-hidden="true">
+              <i class="bi bi-arrow-up-circle"></i>
+              <span>From Top</span>
+            </div>
+          }
+          @case ('bottom') {
+            <div class="slide-box box-info" [@slideBottom] aria-hidden="true">
+              <i class="bi bi-arrow-down-circle"></i>
+              <span>From Bottom</span>
+            </div>
+          }
+        }
+      }
+    </div>
+
+    <button class="btn-control btn-secondary" (click)="replay()" aria-label="Replay animation">
+      <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+      Replay
+    </button>
+  </div>
+</section>
+
+<!-- All Directions Showcase -->
+<section class="demo-section section" aria-labelledby="all-directions-heading">
+  <div class="demo-card">
+    <h2 id="all-directions-heading" class="demo-section-title">All Directions</h2>
+    <p class="demo-desc">Click each card to slide it back in from its direction.</p>
+    <div class="grid-showcase">
+      @for (dir of directions; track dir.value) {
+        <button
+          class="dir-card"
+          (click)="setDirection(dir.value)"
+          [attr.aria-label]="'Slide from ' + dir.label"
+        >
+          <i class="bi {{ dir.icon }}" aria-hidden="true"></i>
+          <span>{{ dir.label }}</span>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,91 @@
+<div class="page-header section">
+  <span class="chip chip-accent">
+    <i class="bi bi-list-ul" aria-hidden="true"></i>
+    Stagger Animations
+  </span>
+  <h1 class="section-title" style="background-image: linear-gradient(135deg, #fd79a8, #fab1c7)">Stagger Animation</h1>
+  <p class="section-subtitle">
+    Use <code>query</code> + <code>stagger</code> to animate lists sequentially.
+  </p>
+</div>
+
+<!-- Stagger delay picker -->
+<section class="demo-section section" aria-labelledby="delay-heading">
+  <h2 id="delay-heading" class="demo-section-title">Stagger Delay</h2>
+  <div class="delay-picker" role="group" aria-label="Select stagger delay">
+    @for (d of delays; track d) {
+      <button
+        class="delay-btn"
+        [class.active]="staggerDelay() === d"
+        (click)="setDelay(d)"
+        [attr.aria-pressed]="staggerDelay() === d"
+        [attr.aria-label]="d + ' milliseconds stagger'"
+      >{{ d }}ms</button>
+    }
+  </div>
+</section>
+
+<!-- Stagger List -->
+<section class="demo-section section" aria-labelledby="list-heading">
+  <div class="demo-card">
+    <div class="card-header-row">
+      <h2 id="list-heading" class="demo-section-title">List Stagger</h2>
+      <div class="btn-group">
+        <button class="btn-control btn-sm" (click)="addItem()" aria-label="Add new item">
+          <i class="bi bi-plus-lg" aria-hidden="true"></i> Add
+        </button>
+        <button class="btn-control btn-sm btn-outline-ctrl" (click)="replayList()" aria-label="Replay list animation">
+          <i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Replay
+        </button>
+      </div>
+    </div>
+    <p class="demo-desc">Each item staggers by <strong>{{ staggerDelay() }}ms</strong>.</p>
+
+    <ul
+      class="stagger-list"
+      #listEl
+      aria-label="Staggered item list"
+    >
+      @for (item of items(); track item.id) {
+        <li class="stagger-item">
+          <div class="item-icon" aria-hidden="true">
+            <i class="bi {{ item.icon }}"></i>
+          </div>
+          <div class="item-text">
+            <span class="item-label">{{ item.label }}</span>
+            <span class="item-desc">{{ item.description }}</span>
+          </div>
+          <button
+            class="item-remove"
+            (click)="removeItem(item.id)"
+            [attr.aria-label]="'Remove ' + item.label"
+          >
+            <i class="bi bi-x" aria-hidden="true"></i>
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Stagger Grid -->
+<section class="demo-section section" aria-labelledby="grid-heading">
+  <div class="demo-card">
+    <div class="card-header-row">
+      <h2 id="grid-heading" class="demo-section-title">Grid Stagger</h2>
+      <button class="btn-control btn-sm" (click)="replayGrid()" aria-label="Replay grid animation">
+        <i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Replay
+      </button>
+    </div>
+    <p class="demo-desc">Scale-in with spring easing, staggered 60ms apart.</p>
+
+    <div class="stagger-grid" #gridEl aria-label="Staggered icon grid">
+      @for (item of gridItems(); track item.id) {
+        <div class="grid-icon" aria-hidden="true">
+          <i class="bi {{ item.icon }}"></i>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+

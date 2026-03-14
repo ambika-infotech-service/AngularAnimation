@@ -1,0 +1,227 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+// =============================================================================
+// Hero Section
+// =============================================================================
+.hero {
+  position: relative;
+  min-height: 90vh;
+  @include flex-center;
+  overflow: hidden;
+  padding: $spacing-4xl $spacing-md;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: $radius-full;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: float 8s ease-in-out infinite;
+
+  &.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: $primary;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  &.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: $secondary;
+    bottom: -80px;
+    right: -80px;
+    animation-delay: -3s;
+  }
+
+  &.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: $accent;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -6s;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.hero-chip {
+  font-size: $font-size-sm;
+
+  i { margin-right: $spacing-xs; }
+}
+
+.hero-title {
+  @include heading($font-size-3xl, $font-weight-black);
+  line-height: 1.1;
+
+  @include respond-to(md) {
+    font-size: $font-size-4xl;
+  }
+
+  .highlight {
+    @include gradient-text($gradient-hero);
+    display: block;
+  }
+}
+
+.hero-subtitle {
+  font-size: $font-size-md;
+  color: rgba($light, 0.65);
+  max-width: 560px;
+  line-height: $line-height-loose;
+}
+
+.hero-actions {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: $spacing-sm;
+}
+
+.btn-primary-gradient {
+  @include gradient-btn($gradient-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-base;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-xl;
+  border: 1.5px solid rgba($primary-light, 0.4);
+  border-radius: $radius-full;
+  color: $primary-light;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semi;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    background: rgba($primary, 0.1);
+    border-color: $primary-light;
+    color: $light;
+  }
+}
+
+// =============================================================================
+// Demo Cards Grid
+// =============================================================================
+.demos-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.demos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  position: relative;
+  overflow: hidden;
+  @include transition(all, $duration-normal, $easing-bounce);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: $gradient-primary;
+    opacity: 0;
+    @include transition(opacity);
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: $shadow-glow-primary;
+
+    &::before { opacity: 0.06; }
+
+    .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  > * { position: relative; z-index: 1; }
+}
+
+.card-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-lg;
+  @include flex-center;
+  font-size: $font-size-xl;
+
+  &.icon-gradient-primary   { background: rgba($primary, 0.15); color: $primary-light; }
+  &.icon-gradient-secondary { background: rgba($secondary, 0.15); color: $secondary-light; }
+  &.icon-gradient-accent    { background: rgba($accent, 0.15); color: $accent; }
+  &.icon-gradient-hero      { background: rgba($primary, 0.15); color: $primary-light; }
+}
+
+.card-body {
+  @include flex-column;
+  gap: $spacing-sm;
+  flex: 1;
+}
+
+.card-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $light;
+}
+
+.card-desc {
+  font-size: $font-size-sm;
+  color: rgba($light, 0.55);
+  line-height: $line-height-normal;
+}
+
+.card-arrow {
+  color: $primary-light;
+  font-size: $font-size-xl;
+  opacity: 0;
+  transform: translateX(-6px);
+  @include transition(all, $duration-fast);
+  align-self: flex-end;
+}

@@ -1,0 +1,157 @@
+@use 'sass:color';
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.demo-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: $spacing-sm;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $light;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  i { color: $primary-light; }
+}
+
+// Grid of keyframe cards
+.keyframe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(sm) { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to(lg) { grid-template-columns: repeat(3, 1fr); }
+}
+
+// Individual card
+.kf-card {
+  @include card;
+  padding: $spacing-xl;
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-md;
+  @include transition(transform box-shadow);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xl;
+  }
+
+  // Color variants
+  &--primary   { border-top: 2px solid $primary; }
+  &--secondary { border-top: 2px solid $secondary; }
+  &--accent    { border-top: 2px solid $accent; }
+  &--danger    { border-top: 2px solid $danger; }
+  &--info      { border-top: 2px solid $info; }
+  &--warning   { border-top: 2px solid $warning; }
+}
+
+.kf-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: $radius-xl;
+  @include flex-center;
+  font-size: $font-size-2xl;
+
+  .kf-card--primary   & { background: rgba($primary, 0.12);   color: $primary-light; }
+  .kf-card--secondary & { background: rgba($secondary, 0.12); color: $secondary-light; }
+  .kf-card--accent    & { background: rgba($accent, 0.12);    color: $accent; }
+  .kf-card--danger    & { background: rgba($danger, 0.12);    color: color.adjust($danger, $lightness: 20%); }
+  .kf-card--info      & { background: rgba($info, 0.12);      color: $info; }
+  .kf-card--warning   & { background: rgba($warning, 0.12);   color: $warning; }
+}
+
+.kf-body {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+}
+
+.kf-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $light;
+}
+
+.kf-desc {
+  font-size: $font-size-xs;
+  color: rgba($light, 0.5);
+  line-height: $line-height-normal;
+}
+
+.kf-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  border: none;
+  border-radius: $radius-full;
+  padding: $spacing-xs $spacing-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  @include transition(all, $duration-fast);
+
+  .kf-card--primary   & { background: rgba($primary, 0.18);   color: $primary-light; }
+  .kf-card--secondary & { background: rgba($secondary, 0.18); color: $secondary-light; }
+  .kf-card--accent    & { background: rgba($accent, 0.18);    color: $accent; }
+  .kf-card--danger    & { background: rgba($danger, 0.18);    color: color.adjust($danger, $lightness: 20%); }
+  .kf-card--info      & { background: rgba($info, 0.18);      color: $info; }
+  .kf-card--warning   & { background: rgba($warning, 0.18);   color: $warning; }
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+  }
+
+  &:active { transform: scale(0.97); }
+}
+
+// Info section
+.info-section {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+// Code block
+.code-block {
+  background: $dark-surface;
+  border: 1px solid rgba($primary, 0.15);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  overflow-x: auto;
+
+  pre {
+    margin: 0;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: $font-size-xs;
+    line-height: 1.7;
+    color: rgba($light, 0.75);
+  }
+
+  code { color: $primary-light; }
+}
+
+// sr-only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

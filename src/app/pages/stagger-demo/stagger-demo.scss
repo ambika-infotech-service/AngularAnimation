@@ -1,0 +1,210 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.demo-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: $spacing-sm;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $light;
+  margin-bottom: $spacing-sm;
+}
+
+.demo-desc {
+  font-size: $font-size-sm;
+  color: rgba($light, 0.55);
+  margin-bottom: $spacing-lg;
+
+  strong { color: $accent; }
+
+  code {
+    background: rgba($accent, 0.15);
+    color: $accent;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+// Delay picker
+.delay-picker {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.delay-btn {
+  background: $dark-card;
+  border: 1px solid rgba($accent, 0.2);
+  color: rgba($light, 0.65);
+  border-radius: $radius-full;
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    border-color: $accent;
+    color: $light;
+  }
+
+  &.active {
+    background: rgba($accent, 0.15);
+    border-color: $accent;
+    color: $accent;
+    box-shadow: $shadow-glow-accent;
+  }
+}
+
+// Card header row
+.card-header-row {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.btn-group {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+// Buttons
+.btn-control {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: $gradient-accent;
+  border: none;
+  color: $light;
+  border-radius: $radius-full;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  @include transition(transform box-shadow, $duration-fast);
+
+  &.btn-sm {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-xs;
+  }
+
+  &.btn-outline-ctrl {
+    background: transparent;
+    border: 1px solid rgba($accent, 0.3);
+    color: $accent;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-accent;
+  }
+
+  &:active { transform: translateY(0); }
+}
+
+// Stagger list
+.stagger-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.stagger-item {
+  @include flex-between;
+  background: rgba($dark-surface, 0.6);
+  border: 1px solid rgba($accent, 0.15);
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  gap: $spacing-md;
+
+  &:hover { border-color: rgba($accent, 0.35); }
+}
+
+.item-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: $radius-md;
+  background: rgba($accent, 0.12);
+  color: $accent;
+  @include flex-center;
+  font-size: $font-size-lg;
+  flex-shrink: 0;
+}
+
+.item-text {
+  flex: 1;
+  @include flex-column;
+  gap: 2px;
+}
+
+.item-label {
+  font-weight: $font-weight-semi;
+  font-size: $font-size-sm;
+  color: $light;
+}
+
+.item-desc {
+  font-size: $font-size-xs;
+  color: rgba($light, 0.45);
+}
+
+.item-remove {
+  background: transparent;
+  border: 1px solid rgba($danger, 0.25);
+  color: rgba($danger, 0.6);
+  border-radius: $radius-md;
+  width: 28px;
+  height: 28px;
+  @include flex-center;
+  cursor: pointer;
+  font-size: $font-size-base;
+  @include transition(all, $duration-fast);
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba($danger, 0.15);
+    border-color: $danger;
+    color: $danger;
+  }
+}
+
+// Grid stagger
+.stagger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.grid-icon {
+  height: 72px;
+  background: rgba($accent, 0.1);
+  border: 1px solid rgba($accent, 0.2);
+  border-radius: $radius-lg;
+  @include flex-center;
+  font-size: $font-size-2xl;
+  color: $accent;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    background: rgba($accent, 0.2);
+    transform: scale(1.05);
+    box-shadow: $shadow-glow-accent;
+  }
+}

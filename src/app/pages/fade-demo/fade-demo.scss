@@ -1,0 +1,125 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.demo-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: $spacing-sm;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $light;
+  margin-bottom: $spacing-sm;
+}
+
+.demo-desc {
+  font-size: $font-size-sm;
+  color: rgba($light, 0.55);
+  margin-bottom: $spacing-lg;
+
+  code {
+    background: rgba($primary, 0.15);
+    color: $primary-light;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+// Duration picker
+.duration-picker {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.dur-btn {
+  background: $dark-card;
+  border: 1px solid rgba($primary, 0.2);
+  color: rgba($light, 0.65);
+  border-radius: $radius-full;
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    border-color: $primary-light;
+    color: $light;
+  }
+
+  &.active {
+    background: rgba($primary, 0.2);
+    border-color: $primary;
+    color: $primary-light;
+    box-shadow: $shadow-glow-primary;
+  }
+}
+
+// Demo stage
+.demo-stage {
+  background: rgba($dark-surface, 0.6);
+  border: 1px dashed rgba($primary, 0.2);
+  border-radius: $radius-lg;
+  min-height: 160px;
+  @include flex-center;
+  margin-bottom: $spacing-lg;
+}
+
+// Fade boxes
+.fade-box {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-sm;
+  background: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  border-radius: $radius-xl;
+  padding: $spacing-xl $spacing-2xl;
+  color: $primary-light;
+  font-weight: $font-weight-semi;
+
+  i { font-size: $font-size-3xl; }
+
+  &.box-secondary {
+    background: rgba($secondary, 0.12);
+    border-color: rgba($secondary, 0.3);
+    color: $secondary-light;
+  }
+
+  &.box-accent {
+    background: rgba($accent, 0.12);
+    border-color: rgba($accent, 0.3);
+    color: $accent;
+  }
+}
+
+// Control button
+.btn-control {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: $gradient-primary;
+  border: none;
+  color: $light;
+  border-radius: $radius-full;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  @include transition(transform box-shadow, $duration-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-primary;
+  }
+
+  &:active { transform: translateY(0); }
+}

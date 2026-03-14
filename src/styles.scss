@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+// =============================================================================
+// Global Styles
+// =============================================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Base reset & body
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $dark-surface;
+  color: $light;
+  line-height: $line-height-normal;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Links
+a {
+  color: $primary-light;
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: $dark;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: $radius-full;
+}
+
+// =============================================================================
+// Shared Utility Classes
+// =============================================================================
+
+// Section wrapper
+.section {
+  padding: $spacing-4xl $spacing-md;
+
+  @include respond-to(md) {
+    padding: $spacing-4xl $spacing-2xl;
+  }
+}
+
+.section-title {
+  @include heading($font-size-3xl, $font-weight-bold);
+  @include gradient-text($gradient-primary);
+  text-align: center;
+  margin-bottom: $spacing-sm;
+}
+
+.section-subtitle {
+  font-size: $font-size-md;
+  color: $muted;
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+// Demo Card
+.demo-card {
+  @include card;
+  padding: $spacing-xl;
+  @include transition(transform box-shadow);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Tag/Badge chip
+.chip {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  &.chip-primary {
+    background: rgba($primary, 0.15);
+    color: $primary-light;
+    border: 1px solid rgba($primary, 0.3);
+  }
+
+  &.chip-secondary {
+    background: rgba($secondary, 0.15);
+    color: $secondary-light;
+    border: 1px solid rgba($secondary, 0.3);
+  }
+
+  &.chip-accent {
+    background: rgba($accent, 0.15);
+    color: $accent;
+    border: 1px solid rgba($accent, 0.3);
+  }
+}
+
+// Glow divider
+.glow-divider {
+  height: 2px;
+  background: $gradient-hero;
+  border: none;
+  border-radius: $radius-full;
+  opacity: 0.6;
+  margin: $spacing-2xl 0;
+}
+
+// =============================================================================
+// Keyframe Animations (global, reusable)
+// =============================================================================
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba($primary, 0.3); }
+  50%       { box-shadow: 0 0 30px rgba($primary, 0.7); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+

@@ -1,0 +1,101 @@
+// =============================================================================
+// Global SCSS Mixins & Utilities
+// =============================================================================
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// Flexbox helpers
+// -----------------------------------------------------------------------------
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+@mixin heading($size: $font-size-2xl, $weight: $font-weight-bold) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height-tight;
+}
+
+@mixin gradient-text($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// -----------------------------------------------------------------------------
+// Card
+// -----------------------------------------------------------------------------
+@mixin card($bg: $dark-card, $radius: $radius-lg, $shadow: $shadow-lg) {
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+// -----------------------------------------------------------------------------
+// Transitions
+// -----------------------------------------------------------------------------
+@mixin transition($props: all, $duration: $duration-normal, $easing: $easing-default) {
+  transition: $props $duration $easing;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+@mixin respond-to($bp) {
+  @if $bp == sm    { @media (min-width: $breakpoint-sm)  { @content; } }
+  @else if $bp == md  { @media (min-width: $breakpoint-md)  { @content; } }
+  @else if $bp == lg  { @media (min-width: $breakpoint-lg)  { @content; } }
+  @else if $bp == xl  { @media (min-width: $breakpoint-xl)  { @content; } }
+  @else if $bp == xxl { @media (min-width: $breakpoint-xxl) { @content; } }
+}
+
+// -----------------------------------------------------------------------------
+// Glassmorphism
+// -----------------------------------------------------------------------------
+@mixin glass($blur: 12px, $bg: rgba(255, 255, 255, 0.06)) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// -----------------------------------------------------------------------------
+// Gradient Button
+// -----------------------------------------------------------------------------
+@mixin gradient-btn($gradient: $gradient-primary) {
+  background: $gradient;
+  border: none;
+  color: #fff;
+  border-radius: $radius-full;
+  padding: $spacing-sm $spacing-xl;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  @include transition(transform box-shadow);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-primary;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

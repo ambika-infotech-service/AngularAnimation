@@ -1,0 +1,55 @@
+<nav class="app-navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-brand">
+    <a routerLink="/" class="brand-link" aria-label="Angular Animation Home">
+      <i class="bi bi-lightning-charge-fill brand-icon" aria-hidden="true"></i>
+      <span class="brand-text">NgAnimate</span>
+    </a>
+  </div>
+
+  <ul class="navbar-links" role="list">
+    @for (link of navLinks; track link.path) {
+      <li role="listitem">
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="nav-link"
+          [attr.aria-label]="link.label + ' demo'"
+        >
+          <i class="bi {{ link.icon }}" aria-hidden="true"></i>
+          <span>{{ link.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+
+  <button
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="mobile-menu"
+    aria-label="Toggle navigation menu"
+  >
+    <i class="bi" [class.bi-list]="!menuOpen()" [class.bi-x-lg]="menuOpen()" aria-hidden="true"></i>
+  </button>
+</nav>
+
+@if (menuOpen()) {
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    @for (link of navLinks; track link.path) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        class="mobile-nav-link"
+        role="menuitem"
+        (click)="toggleMenu()"
+        [attr.aria-label]="link.label + ' demo'"
+      >
+        <i class="bi {{ link.icon }}" aria-hidden="true"></i>
+        <span>{{ link.label }}</span>
+      </a>
+    }
+  </div>
+}
+

@@ -1,0 +1,139 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  @include glass(16px, rgba($dark-surface, 0.85));
+  border-bottom: 1px solid rgba($primary, 0.15);
+  padding: $spacing-sm $spacing-xl;
+  @include flex-between;
+
+  @include respond-to(md) {
+    padding: $spacing-sm $spacing-3xl;
+  }
+}
+
+// Brand
+.brand-link {
+  @include flex-center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.brand-icon {
+  font-size: $font-size-xl;
+  color: $primary-light;
+  filter: drop-shadow(0 0 6px rgba($primary, 0.6));
+}
+
+.brand-text {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  @include gradient-text($gradient-primary);
+}
+
+// Desktop nav links
+.navbar-links {
+  display: none;
+  list-style: none;
+  gap: $spacing-xs;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to(md) {
+    display: flex;
+  }
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  color: rgba($light, 0.7);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  @include transition(all, $duration-fast);
+  position: relative;
+
+  i { font-size: $font-size-sm; }
+
+  &:hover {
+    color: $light;
+    background: rgba($primary, 0.12);
+  }
+
+  &.active {
+    color: $primary-light;
+    background: rgba($primary, 0.18);
+    box-shadow: inset 0 0 0 1px rgba($primary, 0.3);
+  }
+}
+
+// Mobile toggle
+.menu-toggle {
+  display: flex;
+  background: rgba($primary, 0.1);
+  border: 1px solid rgba($primary, 0.25);
+  color: $light;
+  border-radius: $radius-md;
+  padding: $spacing-xs $spacing-sm;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  @include transition(background);
+
+  &:hover {
+    background: rgba($primary, 0.2);
+  }
+
+  @include respond-to(md) {
+    display: none;
+  }
+}
+
+// Mobile menu
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  @include glass(16px, rgba($dark-surface, 0.95));
+  border-bottom: 1px solid rgba($primary, 0.15);
+  padding: $spacing-sm $spacing-xl;
+  animation: slideDown $duration-normal $easing-ease-out both;
+
+  @include respond-to(md) {
+    display: none;
+  }
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  color: rgba($light, 0.8);
+  font-weight: $font-weight-medium;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    color: $light;
+    background: rgba($primary, 0.12);
+  }
+
+  &.active {
+    color: $primary-light;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,175 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.demo-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: $spacing-sm;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $light;
+  margin-bottom: $spacing-sm;
+}
+
+.demo-desc {
+  font-size: $font-size-sm;
+  color: rgba($light, 0.55);
+  margin-bottom: $spacing-lg;
+
+  code {
+    background: rgba($secondary, 0.15);
+    color: $secondary-light;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+// Direction picker
+.direction-picker {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.dir-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: $dark-card;
+  border: 1px solid rgba($secondary, 0.2);
+  color: rgba($light, 0.65);
+  border-radius: $radius-full;
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include transition(all, $duration-fast);
+
+  &:hover {
+    border-color: $secondary-light;
+    color: $light;
+  }
+
+  &.active {
+    background: rgba($secondary, 0.15);
+    border-color: $secondary;
+    color: $secondary-light;
+    box-shadow: $shadow-glow-secondary;
+  }
+}
+
+// Demo stage
+.demo-stage {
+  background: rgba($dark-surface, 0.6);
+  border: 1px dashed rgba($secondary, 0.2);
+  border-radius: $radius-lg;
+  min-height: 160px;
+  @include flex-center;
+  overflow: hidden;
+  margin-bottom: $spacing-lg;
+}
+
+// Slide boxes
+.slide-box {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-sm;
+  background: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  border-radius: $radius-xl;
+  padding: $spacing-xl $spacing-2xl;
+  color: $primary-light;
+  font-weight: $font-weight-semi;
+
+  i { font-size: $font-size-3xl; }
+
+  &.box-secondary {
+    background: rgba($secondary, 0.12);
+    border-color: rgba($secondary, 0.3);
+    color: $secondary-light;
+  }
+
+  &.box-accent {
+    background: rgba($accent, 0.12);
+    border-color: rgba($accent, 0.3);
+    color: $accent;
+  }
+
+  &.box-info {
+    background: rgba($info, 0.12);
+    border-color: rgba($info, 0.3);
+    color: $info;
+  }
+}
+
+// Control button
+.btn-control {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: $gradient-primary;
+  border: none;
+  color: $light;
+  border-radius: $radius-full;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  @include transition(transform box-shadow, $duration-fast);
+
+  &.btn-secondary {
+    background: $gradient-secondary;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-secondary;
+  }
+
+  &:active { transform: translateY(0); }
+}
+
+// All-directions grid
+.grid-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.dir-card {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-sm;
+  background: $dark-card;
+  border: 1px solid rgba($secondary, 0.2);
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  color: rgba($light, 0.65);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include transition(all, $duration-fast);
+
+  i { font-size: $font-size-2xl; }
+
+  &:hover {
+    background: rgba($secondary, 0.1);
+    border-color: $secondary;
+    color: $secondary-light;
+    transform: translateY(-3px);
+    box-shadow: $shadow-glow-secondary;
+  }
+}

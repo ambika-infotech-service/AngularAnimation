@@ -1,0 +1,95 @@
+<div class="page-header section">
+  <span class="chip chip-primary">
+    <i class="bi bi-eye-fill" aria-hidden="true"></i>
+    Fade Animations
+  </span>
+  <h1 class="section-title">Fade Animation</h1>
+  <p class="section-subtitle">
+    State-based opacity transitions using Angular's <code>trigger</code>, <code>state</code>, and <code>transition</code>.
+  </p>
+</div>
+
+<!-- Duration Picker -->
+<section class="demo-section section" aria-labelledby="duration-heading">
+  <h2 id="duration-heading" class="demo-section-title">Duration Control</h2>
+  <div class="duration-picker" role="group" aria-label="Select animation duration">
+    @for (d of durations; track d) {
+      <button
+        class="dur-btn"
+        [class.active]="duration() === d"
+        (click)="setDuration(d)"
+        [attr.aria-pressed]="duration() === d"
+        [attr.aria-label]="d + ' milliseconds'"
+      >{{ d }}ms</button>
+    }
+  </div>
+</section>
+
+<!-- Fade In / Out Demo -->
+<section class="demo-section section" aria-labelledby="fadeinout-heading">
+  <div class="demo-card">
+    <h2 id="fadeinout-heading" class="demo-section-title">Fade In / Out</h2>
+    <p class="demo-desc">Animates opacity between <code>visible</code> and <code>hidden</code> states.</p>
+
+    <div class="demo-stage" aria-live="polite" [attr.aria-label]="'Element is ' + fadeState()">
+      <div
+        class="fade-box"
+        [@fadeInOut]="{ value: fadeState(), params: { duration: duration() } }"
+        aria-hidden="true"
+      >
+        <i class="bi bi-moon-stars-fill"></i>
+        <span>Fade Me</span>
+      </div>
+    </div>
+
+    <button class="btn-control" (click)="toggleFade()" [attr.aria-label]="fadeState() === 'visible' ? 'Hide element' : 'Show element'">
+      <i class="bi" [class.bi-eye-slash]="fadeState() === 'visible'" [class.bi-eye]="fadeState() === 'hidden'" aria-hidden="true"></i>
+      {{ fadeState() === 'visible' ? 'Hide' : 'Show' }}
+    </button>
+  </div>
+</section>
+
+<!-- Fade + Scale Demo -->
+<section class="demo-section section" aria-labelledby="fadescale-heading">
+  <div class="demo-card">
+    <h2 id="fadescale-heading" class="demo-section-title">Fade + Scale</h2>
+    <p class="demo-desc">Enters with a spring-scale effect; leaves with a shrink-fade.</p>
+
+    <div class="demo-stage" aria-live="polite">
+      @if (showScaleBox()) {
+        <div class="fade-box box-secondary" [@fadeScale] aria-hidden="true">
+          <i class="bi bi-gem"></i>
+          <span>Scale &amp; Fade</span>
+        </div>
+      }
+    </div>
+
+    <button class="btn-control" (click)="toggleScale()" [attr.aria-label]="showScaleBox() ? 'Hide scale box' : 'Show scale box'">
+      <i class="bi" [class.bi-dash-circle]="showScaleBox()" [class.bi-plus-circle]="!showScaleBox()" aria-hidden="true"></i>
+      {{ showScaleBox() ? 'Remove' : 'Add' }}
+    </button>
+  </div>
+</section>
+
+<!-- Fade + Translate Up Demo -->
+<section class="demo-section section" aria-labelledby="fadeup-heading">
+  <div class="demo-card">
+    <h2 id="fadeup-heading" class="demo-section-title">Fade Up</h2>
+    <p class="demo-desc">Slides in from below while fading in; reverses on leave.</p>
+
+    <div class="demo-stage" aria-live="polite">
+      @if (showUpBox()) {
+        <div class="fade-box box-accent" [@fadeUp] aria-hidden="true">
+          <i class="bi bi-arrow-up-circle"></i>
+          <span>Fade Up</span>
+        </div>
+      }
+    </div>
+
+    <button class="btn-control" (click)="toggleUp()" [attr.aria-label]="showUpBox() ? 'Hide element' : 'Show element'">
+      <i class="bi" [class.bi-dash-circle]="showUpBox()" [class.bi-plus-circle]="!showUpBox()" aria-hidden="true"></i>
+      {{ showUpBox() ? 'Remove' : 'Add' }}
+    </button>
+  </div>
+</section>
+

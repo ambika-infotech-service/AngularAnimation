@@ -1,0 +1,77 @@
+<div class="page-header section">
+  <span class="chip chip-primary">
+    <i class="bi bi-stars" aria-hidden="true"></i>
+    Keyframe Animations
+  </span>
+  <h1 class="section-title">Keyframe Animation</h1>
+  <p class="section-subtitle">
+    Multi-step effects using Angular's <code>keyframes()</code> function.
+    Click each card to preview the animation.
+  </p>
+</div>
+
+<section class="demo-section section" aria-labelledby="keyframe-grid-heading">
+  <h2 id="keyframe-grid-heading" class="sr-only">Animation Cards</h2>
+  <div class="keyframe-grid">
+    @for (card of cards; track card.id) {
+      <div class="kf-card" [class]="'kf-card--' + card.color">
+        <div
+          class="kf-icon-wrap"
+          [@bounce]="card.id === 'bounce' ? getState(card.id) : null"
+          [@shake]="card.id === 'shake' ? getState(card.id) : null"
+          [@pulse]="card.id === 'pulse' ? getState(card.id) : null"
+          [@spin]="card.id === 'spin' ? getState(card.id) : null"
+          [@flip]="card.id === 'flip' ? getState(card.id) : null"
+          [@rubberBand]="card.id === 'rubberBand' ? getState(card.id) : null"
+          (@bounce.done)="card.id === 'bounce' && onDone(card.id)"
+          (@shake.done)="card.id === 'shake' && onDone(card.id)"
+          (@pulse.done)="card.id === 'pulse' && onDone(card.id)"
+          (@spin.done)="card.id === 'spin' && onDone(card.id)"
+          (@flip.done)="card.id === 'flip' && onDone(card.id)"
+          (@rubberBand.done)="card.id === 'rubberBand' && onDone(card.id)"
+          aria-hidden="true"
+        >
+          <i class="bi {{ card.icon }}"></i>
+        </div>
+
+        <div class="kf-body">
+          <h3 class="kf-title">{{ card.name }}</h3>
+          <p class="kf-desc">{{ card.description }}</p>
+        </div>
+
+        <button
+          class="kf-play-btn"
+          (click)="play(card.id)"
+          [attr.aria-label]="'Play ' + card.name + ' animation'"
+        >
+          <i class="bi bi-play-fill" aria-hidden="true"></i>
+          Play
+        </button>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Info Section -->
+<section class="info-section section" aria-labelledby="how-it-works">
+  <div class="demo-card">
+    <h2 id="how-it-works" class="demo-section-title">
+      <i class="bi bi-info-circle" aria-hidden="true"></i>
+      How keyframes() works
+    </h2>
+    <div class="code-block" role="region" aria-label="Code example">
+      <pre><code>trigger('bounce', [
+  transition('idle => bounce', [
+    animate('700ms ease', keyframes([
+      style(&#123; transform: 'translateY(0)',     offset: 0   &#125;),
+      style(&#123; transform: 'translateY(-30px)', offset: 0.3 &#125;),
+      style(&#123; transform: 'translateY(0)',     offset: 0.6 &#125;),
+      style(&#123; transform: 'translateY(-12px)', offset: 0.75&#125;),
+      style(&#123; transform: 'translateY(0)',     offset: 1   &#125;),
+    ])),
+  ]),
+])</code></pre>
+    </div>
+  </div>
+</section>
+

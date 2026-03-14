@@ -1,0 +1,130 @@
+// =============================================================================
+// Global SCSS Theme Variables
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Color Palette
+// -----------------------------------------------------------------------------
+$primary:         #6c5ce7;
+$primary-light:   #a29bfe;
+$primary-dark:    #4834d4;
+
+$secondary:       #00cec9;
+$secondary-light: #81ecec;
+$secondary-dark:  #00b894;
+
+$accent:          #fd79a8;
+$accent-light:    #fab1c7;
+$accent-dark:     #e84393;
+
+$success:         #00b894;
+$warning:         #fdcb6e;
+$danger:          #d63031;
+$info:            #74b9ff;
+
+$dark:            #2d3436;
+$dark-card:       #353b48;
+$dark-surface:    #1e272e;
+
+$light:           #f8f9fa;
+$muted:           #636e72;
+
+// -----------------------------------------------------------------------------
+// Gradient Definitions
+// -----------------------------------------------------------------------------
+$gradient-primary:   linear-gradient(135deg, $primary 0%, $primary-light 100%);
+$gradient-secondary: linear-gradient(135deg, $secondary-dark 0%, $secondary-light 100%);
+$gradient-accent:    linear-gradient(135deg, $accent-dark 0%, $accent 100%);
+$gradient-hero:      linear-gradient(135deg, $primary-dark 0%, $secondary 50%, $accent 100%);
+$gradient-dark:      linear-gradient(180deg, $dark-surface 0%, $dark 100%);
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+$font-family-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-size-xs:     0.75rem;   // 12px
+$font-size-sm:     0.875rem;  // 14px
+$font-size-base:   1rem;      // 16px
+$font-size-md:     1.125rem;  // 18px
+$font-size-lg:     1.25rem;   // 20px
+$font-size-xl:     1.5rem;    // 24px
+$font-size-2xl:    2rem;      // 32px
+$font-size-3xl:    2.5rem;    // 40px
+$font-size-4xl:    3rem;      // 48px
+
+$font-weight-light:   300;
+$font-weight-normal:  400;
+$font-weight-medium:  500;
+$font-weight-semi:    600;
+$font-weight-bold:    700;
+$font-weight-black:   900;
+
+$line-height-tight:  1.2;
+$line-height-normal: 1.5;
+$line-height-loose:  1.8;
+
+// -----------------------------------------------------------------------------
+// Spacing Scale
+// -----------------------------------------------------------------------------
+$spacing-xs:   0.25rem;  //  4px
+$spacing-sm:   0.5rem;   //  8px
+$spacing-md:   1rem;     // 16px
+$spacing-lg:   1.5rem;   // 24px
+$spacing-xl:   2rem;     // 32px
+$spacing-2xl:  3rem;     // 48px
+$spacing-3xl:  4rem;     // 64px
+$spacing-4xl:  6rem;     // 96px
+
+// -----------------------------------------------------------------------------
+// Border Radius
+// -----------------------------------------------------------------------------
+$radius-sm:   0.25rem;
+$radius-md:   0.5rem;
+$radius-lg:   1rem;
+$radius-xl:   1.5rem;
+$radius-full: 9999px;
+
+// -----------------------------------------------------------------------------
+// Shadows
+// -----------------------------------------------------------------------------
+$shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-md:   0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+$shadow-lg:   0 10px 28px rgba(0, 0, 0, 0.15), 0 6px 10px rgba(0, 0, 0, 0.1);
+$shadow-xl:   0 20px 40px rgba(0, 0, 0, 0.2);
+$shadow-glow-primary:   0 0 20px rgba($primary, 0.4);
+$shadow-glow-secondary: 0 0 20px rgba($secondary, 0.4);
+$shadow-glow-accent:    0 0 20px rgba($accent, 0.4);
+
+// -----------------------------------------------------------------------------
+// Animation / Transition Durations
+// -----------------------------------------------------------------------------
+$duration-fast:    150ms;
+$duration-normal:  300ms;
+$duration-slow:    500ms;
+$duration-slower:  800ms;
+$duration-slowest: 1200ms;
+
+$easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+$easing-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+$easing-sharp:   cubic-bezier(0.4, 0, 0.6, 1);
+$easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+$easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+// -----------------------------------------------------------------------------
+// Breakpoints
+// -----------------------------------------------------------------------------
+$breakpoint-sm:  576px;
+$breakpoint-md:  768px;
+$breakpoint-lg:  992px;
+$breakpoint-xl:  1200px;
+$breakpoint-xxl: 1400px;
+
+// -----------------------------------------------------------------------------
+// Z-Index Scale
+// -----------------------------------------------------------------------------
+$z-dropdown:  1000;
+$z-sticky:    1020;
+$z-fixed:     1030;
+$z-modal:     1050;
+$z-tooltip:   1070;
+$z-overlay:   9000;

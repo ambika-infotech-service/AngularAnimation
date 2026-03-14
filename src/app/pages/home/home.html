@@ -1,0 +1,70 @@
+<section class="hero" [@heroEnter]>
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="chip chip-primary hero-chip" aria-label="Angular 21 project">
+      <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+      Angular 21 + Bootstrap
+    </span>
+
+    <h1 class="hero-title">
+      Beautiful
+      <span class="highlight">Animations</span>
+      in Angular
+    </h1>
+
+    <p class="hero-subtitle">
+      Explore interactive demos of Angular's powerful animation system —
+      fade, slide, stagger, and keyframe effects with a dark glassmorphism theme.
+    </p>
+
+    <div class="hero-actions">
+      <a routerLink="/fade" class="btn-primary-gradient" aria-label="Explore animation demos">
+        <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
+        Explore Demos
+      </a>
+      <a
+        href="https://angular.dev/guide/animations"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline"
+        aria-label="Angular Animations documentation (opens in new tab)"
+      >
+        <i class="bi bi-book-fill" aria-hidden="true"></i>
+        Docs
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="demos-section section" aria-labelledby="demos-heading">
+  <h2 id="demos-heading" class="section-title">Animation Demos</h2>
+  <p class="section-subtitle">Click any card to explore that animation type</p>
+
+  <div class="demos-grid" [@cardsEnter]>
+    @for (demo of demos; track demo.path) {
+      <a
+        [routerLink]="demo.path"
+        class="demo-card card-link"
+        [attr.aria-label]="'Go to ' + demo.title"
+      >
+        <div class="card-icon-wrap" [class]="'icon-' + demo.gradient" aria-hidden="true">
+          <i class="bi {{ demo.icon }}"></i>
+        </div>
+        <div class="card-body">
+          <span [class]="'chip ' + demo.chipClass">{{ demo.chip }}</span>
+          <h3 class="card-title">{{ demo.title }}</h3>
+          <p class="card-desc">{{ demo.description }}</p>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <i class="bi bi-arrow-right-circle"></i>
+        </div>
+      </a>
+    }
+  </div>
+</section>
+
