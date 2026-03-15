@@ -1,0 +1,55 @@
+:host {
+	display: contents;
+}
+
+.constellation {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+
+	.star {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: var(--color-primary-light);
+		box-shadow: 0 0 14px color-mix(in srgb, var(--color-primary-light) 75%, transparent);
+		animation: starPulse 3.5s ease-in-out infinite;
+	}
+
+	.link {
+		position: absolute;
+		height: 1px;
+		transform-origin: left center;
+		background: linear-gradient(
+			90deg,
+			color-mix(in srgb, var(--color-primary) 5%, transparent) 0%,
+			color-mix(in srgb, var(--color-primary) 24%, transparent) 50%,
+			color-mix(in srgb, var(--color-primary) 5%, transparent) 100%
+		);
+		animation: linkBlink 4.2s ease-in-out infinite;
+	}
+}
+
+@media (max-width: 768px) {
+	.constellation .link {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.constellation .star,
+	.constellation .link {
+		animation: none;
+	}
+}
+
+@keyframes starPulse {
+	0%, 100% { transform: scale(1); opacity: 0.8; }
+	50% { transform: scale(1.7); opacity: 1; }
+}
+
+@keyframes linkBlink {
+	0%, 100% { opacity: 0.35; }
+	50% { opacity: 0.8; }
+}

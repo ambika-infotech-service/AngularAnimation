@@ -1,0 +1,64 @@
+:host {
+	display: contents;
+}
+
+.radar {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	display: grid;
+	place-items: center;
+
+	.core {
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--color-secondary-light);
+		box-shadow: 0 0 16px color-mix(in srgb, var(--color-secondary) 65%, transparent);
+	}
+
+	.ring {
+		position: absolute;
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		border: 1px solid color-mix(in srgb, var(--color-secondary) 25%, transparent);
+		animation: radarWave 4.6s linear infinite;
+	}
+
+	.ring-2 { animation-delay: 1.2s; }
+	.ring-3 { animation-delay: 2.4s; }
+
+	.sweep {
+		position: absolute;
+		width: 220px;
+		height: 220px;
+		border-radius: 50%;
+		background: conic-gradient(
+			from 0deg,
+			transparent 0deg,
+			color-mix(in srgb, var(--color-secondary) 35%, transparent) 45deg,
+			transparent 85deg
+		);
+		mask: radial-gradient(circle, transparent 0 34%, black 36% 100%);
+		animation: radarRotate 5s linear infinite;
+		opacity: 0.8;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.radar .ring,
+	.radar .sweep {
+		animation: none;
+	}
+}
+
+@keyframes radarWave {
+	0% { transform: scale(0.45); opacity: 0.85; }
+	100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes radarRotate {
+	to { transform: rotate(360deg); }
+}

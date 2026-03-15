@@ -1,0 +1,67 @@
+:host {
+	display: contents;
+}
+
+.glitch-stripes {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+
+	.stripes {
+		position: absolute;
+		inset: 0;
+		background-image: repeating-linear-gradient(
+			90deg,
+			transparent 0 14px,
+			color-mix(in srgb, var(--color-accent) 10%, transparent) 14px 16px,
+			transparent 16px 30px
+		);
+		opacity: 0.45;
+		animation: stripesShift 7s linear infinite;
+	}
+
+	.scan {
+		position: absolute;
+		left: -20%;
+		width: 140%;
+		height: 18px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			color-mix(in srgb, var(--color-accent) 45%, transparent),
+			transparent
+		);
+		filter: blur(4px);
+		opacity: 0.65;
+	}
+
+	.scan-a {
+		top: 18%;
+		animation: scanDrop 4.2s ease-in-out infinite;
+	}
+
+	.scan-b {
+		top: 52%;
+		animation: scanDrop 5.4s ease-in-out infinite reverse;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.glitch-stripes .stripes,
+	.glitch-stripes .scan {
+		animation: none;
+	}
+}
+
+@keyframes stripesShift {
+	from { transform: translateX(0); }
+	to { transform: translateX(30px); }
+}
+
+@keyframes scanDrop {
+	0%, 100% { transform: translateY(-40px); opacity: 0; }
+	15% { opacity: 0.75; }
+	50% { transform: translateY(120px); opacity: 0.6; }
+	85% { opacity: 0.2; }
+}

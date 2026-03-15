@@ -1,0 +1,20 @@
+<div class="constellation" aria-hidden="true">
+	@for (star of stars; track star.id) {
+		<div
+			class="star"
+			[style.left.%]="star.left"
+			[style.top.%]="star.top"
+			[style.animation-delay]="star.delay + 's'"
+		></div>
+	}
+
+	@for (link of links; track link.id) {
+		<div
+			class="link"
+			[style.left.%]="link.left"
+			[style.top.%]="link.top"
+			[style.width.px]="link.width"
+			[style.transform]="'rotate(' + link.angle + 'deg)'"
+		></div>
+	}
+</div>

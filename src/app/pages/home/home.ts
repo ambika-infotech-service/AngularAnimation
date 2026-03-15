@@ -5,13 +5,13 @@ import {
   signal,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FloatingShapes } from '../../components/floating-shapes/floating-shapes';
-import { HeroParticles } from '../../components/hero-particles/hero-particles';
-import { HeroShimmer } from '../../components/hero-shimmer/hero-shimmer';
-import { GeometricShapes } from '../../components/geometric-shapes/geometric-shapes';
-import { GlowNodes } from '../../components/glow-nodes/glow-nodes';
-import { LightRays } from '../../components/light-rays/light-rays';
-import { DepthLayers } from '../../components/depth-layers/depth-layers';
+import { FloatingShapes } from '../../components/background-layers/floating-shapes/floating-shapes';
+import { HeroParticles } from '../../components/background-layers/hero-particles/hero-particles';
+import { HeroShimmer } from '../../components/background-layers/hero-shimmer/hero-shimmer';
+import { GeometricShapes } from '../../components/background-layers/geometric-shapes/geometric-shapes';
+import { GlowNodes } from '../../components/background-layers/glow-nodes/glow-nodes';
+import { LightRays } from '../../components/background-layers/light-rays/light-rays';
+import { DepthLayers } from '../../components/background-layers/depth-layers/depth-layers';
 import {
   trigger,
   transition,

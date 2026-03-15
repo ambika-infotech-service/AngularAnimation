@@ -1,0 +1,63 @@
+:host {
+	display: contents;
+}
+
+.mesh-gradient {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+
+	.blob {
+		position: absolute;
+		width: 42vw;
+		height: 42vw;
+		min-width: 260px;
+		min-height: 260px;
+		border-radius: 50%;
+		filter: blur(52px);
+		mix-blend-mode: screen;
+	}
+
+	.blob-a {
+		top: -16%;
+		left: -12%;
+		background: color-mix(in srgb, var(--color-primary) 35%, transparent);
+		animation: meshDriftA 18s ease-in-out infinite;
+	}
+
+	.blob-b {
+		right: -15%;
+		bottom: -18%;
+		background: color-mix(in srgb, var(--color-secondary) 30%, transparent);
+		animation: meshDriftB 21s ease-in-out infinite;
+	}
+
+	.blob-c {
+		top: 24%;
+		left: 30%;
+		background: color-mix(in srgb, var(--color-accent) 26%, transparent);
+		animation: meshDriftC 24s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mesh-gradient .blob {
+		animation: none;
+	}
+}
+
+@keyframes meshDriftA {
+	0%, 100% { transform: translate(0, 0) scale(1); }
+	50% { transform: translate(12%, 8%) scale(1.15); }
+}
+
+@keyframes meshDriftB {
+	0%, 100% { transform: translate(0, 0) scale(1); }
+	50% { transform: translate(-8%, -10%) scale(1.2); }
+}
+
+@keyframes meshDriftC {
+	0%, 100% { transform: translate(0, 0) scale(1); }
+	50% { transform: translate(-10%, 12%) scale(1.12); }
+}

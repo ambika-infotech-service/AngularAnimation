@@ -1,15 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FloatingShapes } from '../../components/floating-shapes/floating-shapes';
-import { HeroParticles } from '../../components/hero-particles/hero-particles';
-import { HeroShimmer } from '../../components/hero-shimmer/hero-shimmer';
-import { GeometricShapes } from '../../components/geometric-shapes/geometric-shapes';
-import { GlowNodes } from '../../components/glow-nodes/glow-nodes';
-import { LightRays } from '../../components/light-rays/light-rays';
-import { DepthLayers } from '../../components/depth-layers/depth-layers';
-import { StarfieldBg } from '../../components/starfield-bg/starfield-bg';
-import { AuroraBg } from '../../components/aurora-bg/aurora-bg';
-import { NeonGridBg } from '../../components/neon-grid-bg/neon-grid-bg';
-import { BubblesBg } from '../../components/bubbles-bg/bubbles-bg';
+import { FloatingShapes } from '../../components/background-layers/floating-shapes/floating-shapes';
+import { HeroParticles } from '../../components/background-layers/hero-particles/hero-particles';
+import { HeroShimmer } from '../../components/background-layers/hero-shimmer/hero-shimmer';
+import { GeometricShapes } from '../../components/background-layers/geometric-shapes/geometric-shapes';
+import { GlowNodes } from '../../components/background-layers/glow-nodes/glow-nodes';
+import { LightRays } from '../../components/background-layers/light-rays/light-rays';
+import { DepthLayers } from '../../components/background-layers/depth-layers/depth-layers';
+import { StarfieldBg } from '../../components/background-layers/starfield-bg/starfield-bg';
+import { AuroraBg } from '../../components/background-layers/aurora-bg/aurora-bg';
+import { NeonGridBg } from '../../components/background-layers/neon-grid-bg/neon-grid-bg';
+import { BubblesBg } from '../../components/background-layers/bubbles-bg/bubbles-bg';
+import { MeshGradientBg } from '../../components/background-layers/mesh-gradient-bg/mesh-gradient-bg';
+import { ConstellationBg } from '../../components/background-layers/constellation-bg/constellation-bg';
+import { RadarRingsBg } from '../../components/background-layers/radar-rings-bg/radar-rings-bg';
+import { GlitchStripesBg } from '../../components/background-layers/glitch-stripes-bg/glitch-stripes-bg';
 
 @Component({
   selector: 'app-bg-demo',
@@ -17,6 +21,7 @@ import { BubblesBg } from '../../components/bubbles-bg/bubbles-bg';
     FloatingShapes, HeroParticles, HeroShimmer,
     GeometricShapes, GlowNodes, LightRays, DepthLayers,
     StarfieldBg, AuroraBg, NeonGridBg, BubblesBg,
+    MeshGradientBg, ConstellationBg, RadarRingsBg, GlitchStripesBg,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
