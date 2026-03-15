@@ -1,0 +1,50 @@
+:host {
+  display: contents;
+}
+
+.light-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+
+  .ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 300px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 204, 255, 0.3), transparent);
+    transform-origin: top center;
+    animation: rotateRays 40s linear infinite;
+
+    &:nth-child(1) { transform: rotate(0deg);   }
+    &:nth-child(2) { transform: rotate(60deg);  }
+    &:nth-child(3) { transform: rotate(120deg); }
+    &:nth-child(4) { transform: rotate(180deg); }
+    &:nth-child(5) { transform: rotate(240deg); }
+    &:nth-child(6) { transform: rotate(300deg); }
+  }
+}
+
+@media (max-width: 768px) {
+  .light-rays {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light-rays .ray {
+    animation: none;
+  }
+}
+
+@keyframes rotateRays {
+  0%   { transform: rotate(0deg);   }
+  100% { transform: rotate(360deg); }
+}

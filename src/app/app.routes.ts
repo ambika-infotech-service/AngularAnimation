@@ -26,5 +26,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/keyframe-demo/keyframe-demo').then(m => m.KeyframeDemo),
   },
+  {
+    path: 'backgrounds',
+    loadComponent: () =>
+      import('./pages/bg-demo/bg-demo').then(m => m.BgDemo),
+  },
   { path: '**', redirectTo: '' },
 ];

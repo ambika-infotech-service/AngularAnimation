@@ -1,0 +1,31 @@
+:host {
+  display: contents;
+}
+
+.shimmer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 70%
+  );
+  animation: shimmer 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%)  translateY(100%)  rotate(45deg); }
+}

@@ -1,0 +1,157 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+
+  code {
+    background: rgba($primary, 0.15);
+    color: $primary-light;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.875em;
+  }
+}
+
+.bg-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $light;
+  margin-bottom: $spacing-lg;
+}
+
+.combo-note {
+  color: rgba($light, 0.55);
+  font-size: $font-size-sm;
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+// ── Individual grid ────────────────────────────────────────────────────────
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}
+
+.bg-card {
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: rgba($light, 0.04);
+  border: 1px solid rgba($light, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .preview-stage {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d1b2e 0%, #0a1628 100%);
+  }
+
+  .card-info {
+    padding: $spacing-md $spacing-lg $spacing-lg;
+
+    .tag {
+      display: inline-block;
+      background: rgba($primary, 0.15);
+      color: $primary-light;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-bottom: $spacing-xs;
+      font-family: monospace;
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semi;
+      color: $light;
+      margin: $spacing-xs 0;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: rgba($light, 0.55);
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+// ── Combination grid ───────────────────────────────────────────────────────
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: $spacing-lg;
+
+  .combo-full {
+    grid-column: 1 / -1;
+  }
+}
+
+.combo-card {
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: rgba($light, 0.04);
+  border: 1px solid rgba($light, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .combo-stage {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d1b2e 0%, #0a1628 100%);
+  }
+
+  &.combo-full .combo-stage {
+    height: 260px;
+  }
+
+  .card-info {
+    padding: $spacing-md $spacing-lg $spacing-lg;
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semi;
+      color: $light;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: rgba($light, 0.55);
+      margin-bottom: $spacing-sm;
+    }
+
+    pre {
+      margin: 0;
+      border-radius: $radius-sm;
+      background: rgba($dark, 0.6);
+      padding: $spacing-sm $spacing-md;
+      overflow-x: auto;
+
+      code {
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        color: rgba($primary-light, 0.85);
+        white-space: pre;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+:host {
+  display: contents;
+}
+
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 204, 255, 0.15) 0%, rgba(0, 204, 255, 0.05) 50%, transparent 70%);
+    filter: blur(40px);
+  }
+
+  &::before {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    animation: float 25s ease-in-out infinite;
+  }
+
+  &::after {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    left: -80px;
+    animation: float 20s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25%       { transform: translate(30px, -40px) rotate(5deg); }
+  50%       { transform: translate(-20px, -80px) rotate(-5deg); }
+  75%       { transform: translate(-40px, -40px) rotate(3deg); }
+}

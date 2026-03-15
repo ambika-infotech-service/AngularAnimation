@@ -1,0 +1,86 @@
+:host {
+  display: contents;
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  .band {
+    position: absolute;
+    left: -20%;
+    width: 140%;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    transform-origin: center center;
+  }
+
+  .band-1 {
+    top: 10%;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,255,150,0.25) 40%, rgba(0,200,255,0.2) 70%, transparent 100%);
+    animation: driftBand 18s ease-in-out infinite;
+  }
+
+  .band-2 {
+    top: 25%;
+    height: 150px;
+    background: linear-gradient(90deg, transparent 0%, rgba(100,0,255,0.2) 30%, rgba(0,255,200,0.18) 65%, transparent 100%);
+    animation: driftBand 22s ease-in-out infinite reverse;
+    animation-delay: -4s;
+  }
+
+  .band-3 {
+    top: 5%;
+    height: 120px;
+    background: linear-gradient(90deg, transparent 10%, rgba(0,180,255,0.15) 50%, rgba(80,255,180,0.12) 80%, transparent 100%);
+    animation: driftBand 26s ease-in-out infinite;
+    animation-delay: -8s;
+  }
+
+  .band-4 {
+    top: 40%;
+    height: 100px;
+    background: linear-gradient(90deg, rgba(180,0,255,0.12) 0%, transparent 40%, rgba(0,255,160,0.1) 70%, transparent 100%);
+    animation: driftBand 30s ease-in-out infinite reverse;
+    animation-delay: -12s;
+  }
+
+  .glow-base {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,100,80,0.12) 0%, transparent 100%);
+    animation: baseGlow 10s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora .band,
+  .aurora .glow-base { animation: none; }
+}
+
+@keyframes driftBand {
+  0%, 100% {
+    transform: translateX(0)   skewX(0deg)  scaleY(1);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translateX(8%)  skewX(4deg)  scaleY(1.15);
+    opacity: 1;
+  }
+  66% {
+    transform: translateX(-6%) skewX(-3deg) scaleY(0.9);
+    opacity: 0.5;
+  }
+}
+
+@keyframes baseGlow {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1;   }
+}

@@ -1,0 +1,49 @@
+:host {
+  display: contents;
+}
+
+.depth-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  &.layer-1 { z-index: 0; animation: parallaxLayer1 20s ease-in-out infinite; }
+  &.layer-2 { z-index: 0; animation: parallaxLayer2 25s ease-in-out infinite; }
+  &.layer-3 { z-index: 0; animation: parallaxLayer3 30s ease-in-out infinite; }
+
+  .float-element {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .depth-layer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .depth-layer {
+    animation: none;
+  }
+}
+
+@keyframes parallaxLayer1 {
+  0%, 100% { transform: translateX(0)    translateY(0);    }
+  50%       { transform: translateX(20px)  translateY(-20px); }
+}
+
+@keyframes parallaxLayer2 {
+  0%, 100% { transform: translateX(0)    translateY(0);   }
+  50%       { transform: translateX(-30px) translateY(15px); }
+}
+
+@keyframes parallaxLayer3 {
+  0%, 100% { transform: translateX(0)   translateY(0);    }
+  50%       { transform: translateX(15px) translateY(-25px); }
+}

@@ -1,0 +1,255 @@
+<div class="page-header section">
+  <span class="chip chip-accent">
+    <i class="bi bi-layers-fill" aria-hidden="true"></i>
+    Background Animations
+  </span>
+  <h1 class="section-title">CSS Background Components</h1>
+  <p class="section-subtitle">
+    Pure-CSS animated layers — each component is self-contained and composable.
+    Combine multiple layers inside any <code>position: relative</code> container.
+  </p>
+</div>
+
+<!-- Individual Components -->
+<section class="bg-section section" aria-labelledby="individual-heading">
+  <h2 id="individual-heading" class="demo-section-title">Individual Components</h2>
+
+  <div class="card-grid">
+
+    <!-- Floating Shapes -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Floating Shapes preview">
+        <app-floating-shapes></app-floating-shapes>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-floating-shapes</code>
+        <h3>Floating Shapes</h3>
+        <p>Two large blurred orbs that drift slowly using a figure-eight path.</p>
+      </div>
+    </div>
+
+    <!-- Hero Particles -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Hero Particles preview">
+        <app-hero-particles></app-hero-particles>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-hero-particles</code>
+        <h3>Hero Particles</h3>
+        <p>Six floating micro-dots rising upward with a looping SVG wave at the base.</p>
+      </div>
+    </div>
+
+    <!-- Hero Shimmer -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Hero Shimmer preview">
+        <app-hero-shimmer></app-hero-shimmer>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-hero-shimmer</code>
+        <h3>Hero Shimmer</h3>
+        <p>A diagonal light sweep that passes across the surface at a slow, continuous pace.</p>
+      </div>
+    </div>
+
+    <!-- Geometric Shapes -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Geometric Shapes preview">
+        <app-geometric-shapes></app-geometric-shapes>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-geometric-shapes</code>
+        <h3>Geometric Shapes</h3>
+        <p>Rotating square, bobbing triangle, spinning hexagon, and pulsing circle in cyan.</p>
+      </div>
+    </div>
+
+    <!-- Glow Nodes -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Glow Nodes preview">
+        <app-glow-nodes></app-glow-nodes>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-glow-nodes</code>
+        <h3>Glow Nodes</h3>
+        <p>Five glowing cyan dots scattered across the surface, pulsing in and out.</p>
+      </div>
+    </div>
+
+    <!-- Light Rays -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Light Rays preview">
+        <app-light-rays></app-light-rays>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-light-rays</code>
+        <h3>Light Rays</h3>
+        <p>Six thin rays radiating from the centre and slowly rotating as a unit.</p>
+      </div>
+    </div>
+
+    <!-- Depth Layers -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Depth Layers preview">
+        <app-depth-layers></app-depth-layers>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-depth-layers</code>
+        <h3>Depth Layers</h3>
+        <p>Three parallax planes of white micro-dots, each drifting at a different speed.</p>
+      </div>
+    </div>
+
+    <!-- Starfield -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Starfield preview">
+        <app-starfield-bg></app-starfield-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-starfield-bg</code>
+        <h3>Starfield</h3>
+        <p>80 twinkling stars with randomised size and timing, plus three shooting stars.</p>
+      </div>
+    </div>
+
+    <!-- Aurora -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Aurora preview">
+        <app-aurora-bg></app-aurora-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-aurora-bg</code>
+        <h3>Aurora</h3>
+        <p>Four translucent colour bands drifting and skewing to mimic the northern lights.</p>
+      </div>
+    </div>
+
+    <!-- Neon Grid -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Neon Grid preview">
+        <app-neon-grid-bg></app-neon-grid-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-neon-grid-bg</code>
+        <h3>Neon Grid</h3>
+        <p>Cyberpunk-style grid with a descending scanline, flicker stripe, and pulse dots.</p>
+      </div>
+    </div>
+
+    <!-- Bubbles -->
+    <div class="bg-card">
+      <div class="preview-stage" role="img" aria-label="Bubbles preview">
+        <app-bubbles-bg></app-bubbles-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-bubbles-bg</code>
+        <h3>Bubbles</h3>
+        <p>18 translucent spheres of varied sizes rising from the bottom with a wobble.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Combination Scenes -->
+<section class="bg-section section" aria-labelledby="combos-heading">
+  <h2 id="combos-heading" class="demo-section-title">Combination Scenes</h2>
+  <p class="combo-note">Layer multiple components inside a single container to compose richer backgrounds.</p>
+
+  <div class="combo-grid">
+
+    <!-- Combo 1: Deep Space -->
+    <div class="combo-card">
+      <div class="combo-stage" role="img" aria-label="Deep Space scene preview">
+        <app-starfield-bg></app-starfield-bg>
+        <app-floating-shapes></app-floating-shapes>
+        <app-glow-nodes></app-glow-nodes>
+      </div>
+      <div class="card-info">
+        <h3>Deep Space</h3>
+        <p>Starfield + Floating Shapes + Glow Nodes</p>
+        <pre><code>&#x3C;app-starfield-bg&#x3E;&#x3C;/app-starfield-bg&#x3E;
+&#x3C;app-floating-shapes&#x3E;&#x3C;/app-floating-shapes&#x3E;
+&#x3C;app-glow-nodes&#x3E;&#x3C;/app-glow-nodes&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 2: Cyberpunk -->
+    <div class="combo-card">
+      <div class="combo-stage" role="img" aria-label="Cyberpunk scene preview">
+        <app-neon-grid-bg></app-neon-grid-bg>
+        <app-light-rays></app-light-rays>
+        <app-depth-layers></app-depth-layers>
+      </div>
+      <div class="card-info">
+        <h3>Cyberpunk</h3>
+        <p>Neon Grid + Light Rays + Depth Layers</p>
+        <pre><code>&#x3C;app-neon-grid-bg&#x3E;&#x3C;/app-neon-grid-bg&#x3E;
+&#x3C;app-light-rays&#x3E;&#x3C;/app-light-rays&#x3E;
+&#x3C;app-depth-layers&#x3E;&#x3C;/app-depth-layers&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 3: Dreamscape -->
+    <div class="combo-card">
+      <div class="combo-stage" role="img" aria-label="Dreamscape scene preview">
+        <app-aurora-bg></app-aurora-bg>
+        <app-bubbles-bg></app-bubbles-bg>
+        <app-hero-shimmer></app-hero-shimmer>
+      </div>
+      <div class="card-info">
+        <h3>Dreamscape</h3>
+        <p>Aurora + Bubbles + Hero Shimmer</p>
+        <pre><code>&#x3C;app-aurora-bg&#x3E;&#x3C;/app-aurora-bg&#x3E;
+&#x3C;app-bubbles-bg&#x3E;&#x3C;/app-bubbles-bg&#x3E;
+&#x3C;app-hero-shimmer&#x3E;&#x3C;/app-hero-shimmer&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 4: Particle Storm -->
+    <div class="combo-card">
+      <div class="combo-stage" role="img" aria-label="Particle Storm scene preview">
+        <app-hero-particles></app-hero-particles>
+        <app-geometric-shapes></app-geometric-shapes>
+        <app-glow-nodes></app-glow-nodes>
+        <app-depth-layers></app-depth-layers>
+      </div>
+      <div class="card-info">
+        <h3>Particle Storm</h3>
+        <p>Hero Particles + Geometric Shapes + Glow Nodes + Depth Layers</p>
+        <pre><code>&#x3C;app-hero-particles&#x3E;&#x3C;/app-hero-particles&#x3E;
+&#x3C;app-geometric-shapes&#x3E;&#x3C;/app-geometric-shapes&#x3E;
+&#x3C;app-glow-nodes&#x3E;&#x3C;/app-glow-nodes&#x3E;
+&#x3C;app-depth-layers&#x3E;&#x3C;/app-depth-layers&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 5: Full Hero -->
+    <div class="combo-card combo-full">
+      <div class="combo-stage" role="img" aria-label="Full Hero scene preview">
+        <app-floating-shapes></app-floating-shapes>
+        <app-hero-particles></app-hero-particles>
+        <app-hero-shimmer></app-hero-shimmer>
+        <app-geometric-shapes></app-geometric-shapes>
+        <app-glow-nodes></app-glow-nodes>
+        <app-light-rays></app-light-rays>
+        <app-depth-layers></app-depth-layers>
+      </div>
+      <div class="card-info">
+        <h3>Full Hero
+          <span class="chip chip-primary" style="font-size: 0.7rem; vertical-align: middle; margin-left: 0.5rem;">home.html</span>
+        </h3>
+        <p>All 7 original layers combined — the scene used on the home hero section.</p>
+        <pre><code>&#x3C;app-floating-shapes&#x3E;&#x3C;/app-floating-shapes&#x3E;
+&#x3C;app-hero-particles&#x3E;&#x3C;/app-hero-particles&#x3E;
+&#x3C;app-hero-shimmer&#x3E;&#x3C;/app-hero-shimmer&#x3E;
+&#x3C;app-geometric-shapes&#x3E;&#x3C;/app-geometric-shapes&#x3E;
+&#x3C;app-glow-nodes&#x3E;&#x3C;/app-glow-nodes&#x3E;
+&#x3C;app-light-rays&#x3E;&#x3C;/app-light-rays&#x3E;
+&#x3C;app-depth-layers&#x3E;&#x3C;/app-depth-layers&#x3E;</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+

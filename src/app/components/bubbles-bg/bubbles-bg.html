@@ -1,0 +1,12 @@
+<div class="bubbles" aria-hidden="true">
+  @for (b of bubbles; track b.id) {
+    <div
+      class="bubble"
+      [style.left.%]="b.x"
+      [style.width.px]="b.size"
+      [style.height.px]="b.size"
+      [style.animation-duration]="b.duration + 's'"
+      [style.animation-delay]="b.delay + 's'"
+    ></div>
+  }
+</div>

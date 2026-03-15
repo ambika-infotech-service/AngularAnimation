@@ -1,0 +1,15 @@
+<div class="depth-layer layer-1" aria-hidden="true">
+  @for (item of layer1; track item.id) {
+    <div class="float-element" [style.left.%]="item.left" [style.top.%]="item.top"></div>
+  }
+</div>
+<div class="depth-layer layer-2" aria-hidden="true">
+  @for (item of layer2; track item.id) {
+    <div class="float-element" [style.left.%]="item.left" [style.top.%]="item.top"></div>
+  }
+</div>
+<div class="depth-layer layer-3" aria-hidden="true">
+  @for (item of layer3; track item.id) {
+    <div class="float-element" [style.left.%]="item.left" [style.top.%]="item.top"></div>
+  }
+</div>

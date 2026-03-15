@@ -5,6 +5,13 @@ import {
   signal,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FloatingShapes } from '../../components/floating-shapes/floating-shapes';
+import { HeroParticles } from '../../components/hero-particles/hero-particles';
+import { HeroShimmer } from '../../components/hero-shimmer/hero-shimmer';
+import { GeometricShapes } from '../../components/geometric-shapes/geometric-shapes';
+import { GlowNodes } from '../../components/glow-nodes/glow-nodes';
+import { LightRays } from '../../components/light-rays/light-rays';
+import { DepthLayers } from '../../components/depth-layers/depth-layers';
 import {
   trigger,
   transition,
@@ -16,7 +23,7 @@ import {
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, FloatingShapes, HeroParticles, HeroShimmer, GeometricShapes, GlowNodes, LightRays, DepthLayers],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -80,6 +87,15 @@ export class Home implements OnInit {
       chip: 'Keyframes',
       chipClass: 'chip-primary',
       gradient: 'gradient-hero',
+    },
+    {
+      path: '/backgrounds',
+      icon: 'bi-layers-fill',
+      title: 'Background Components',
+      description: 'Composable CSS animation layers — starfield, aurora, neon grid, bubbles, particles and more.',
+      chip: 'CSS Layers',
+      chipClass: 'chip-accent',
+      gradient: 'gradient-secondary',
     },
   ];
 

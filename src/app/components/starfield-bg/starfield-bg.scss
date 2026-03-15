@@ -1,0 +1,60 @@
+:host {
+  display: contents;
+}
+
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    animation: twinkle ease-in-out infinite;
+  }
+
+  .shooting-star {
+    position: absolute;
+    top: 15%;
+    left: -5%;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: rotate(-30deg);
+    animation: shoot 8s ease-in-out infinite;
+    animation-delay: 2s;
+    opacity: 0;
+
+    &.delay-1 {
+      top: 40%;
+      animation-delay: 6s;
+      width: 80px;
+    }
+
+    &.delay-2 {
+      top: 65%;
+      animation-delay: 10s;
+      width: 160px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield .star { animation: none; opacity: 0.6; }
+  .starfield .shooting-star { display: none; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.4); }
+}
+
+@keyframes shoot {
+  0%        { transform: translateX(0)     rotate(-30deg); opacity: 0; }
+  5%        { opacity: 1; }
+  15%       { transform: translateX(110vw) rotate(-30deg); opacity: 0; }
+  100%      { transform: translateX(110vw) rotate(-30deg); opacity: 0; }
+}
