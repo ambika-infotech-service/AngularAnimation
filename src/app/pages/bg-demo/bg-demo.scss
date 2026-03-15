@@ -60,6 +60,58 @@
   margin-bottom: $spacing-lg;
 }
 
+.hero-component-demo,
+.component-code-card {
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: var(--surface-card);
+  border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
+}
+
+.hero-component-demo {
+  margin-bottom: $spacing-lg;
+}
+
+.component-code-card {
+  .card-info {
+    padding: $spacing-md $spacing-lg $spacing-lg;
+
+    .tag {
+      display: inline-block;
+      background: color-mix(in srgb, var(--page-accent) 25%, transparent);
+      color: var(--page-accent-light);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-bottom: $spacing-xs;
+      font-family: monospace;
+      border: 1px solid color-mix(in srgb, var(--page-accent-light) 40%, transparent);
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semi;
+      color: var(--text-main);
+      margin: $spacing-xs 0 $spacing-sm;
+    }
+
+    pre {
+      margin: 0;
+      border-radius: $radius-sm;
+      background: color-mix(in srgb, var(--color-dark) 55%, transparent);
+      padding: $spacing-sm $spacing-md;
+      overflow-x: auto;
+
+      code {
+        font-family: 'Courier New', monospace;
+        font-size: 0.78rem;
+        color: var(--page-accent-light);
+        white-space: pre;
+      }
+    }
+  }
+}
+
 .content-grid {
   display: grid;
   grid-template-columns: 1fr;

@@ -409,6 +409,35 @@
   </div>
 </section>
 
+<section class="bg-section section" aria-labelledby="hero-component-heading">
+  <h2 id="hero-component-heading" class="demo-section-title">Reusable Hero Banner</h2>
+  <p class="combo-note">This wraps Spotlight Stage into a reusable component with typed inputs for title, copy, actions, and image data.</p>
+
+  <div class="hero-component-demo" [class.is-hidden]="!isVisible('content')">
+    <app-content-hero-banner
+      eyebrow="Reusable Component"
+      title="Ship launch banners with a safe text lane, CTA row, and image frame already built in."
+      copy="Swap only the message, buttons, and artwork while keeping the same contrast-safe background treatment and responsive layout."
+      [actions]="heroBannerActions"
+      [image]="heroBannerImage"
+    ></app-content-hero-banner>
+  </div>
+
+  <div class="component-code-card" [class.is-hidden]="!isVisible('content')">
+    <div class="card-info">
+      <code class="tag">app-content-hero-banner</code>
+      <h3>Usage</h3>
+      <pre><code>&#x3C;app-content-hero-banner
+  eyebrow="Reusable Component"
+  title="Ship launch banners with a safe text lane"
+  copy="Swap only the message, buttons, and artwork."
+  [actions]="heroBannerActions"
+  [image]="heroBannerImage"
+&#x3E;&#x3C;/app-content-hero-banner&#x3E;</code></pre>
+    </div>
+  </div>
+</section>
+
 <!-- Combination Scenes -->
 <section class="bg-section section" aria-labelledby="combos-heading">
   <h2 id="combos-heading" class="demo-section-title">Combination Scenes</h2>

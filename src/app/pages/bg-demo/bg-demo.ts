@@ -25,6 +25,7 @@ import { SolarPosterBg } from '../../components/background-layers/solar-poster-b
 import { SpotlightStageBg } from '../../components/background-layers/spotlight-stage-bg/spotlight-stage-bg';
 import { EditorialFrameBg } from '../../components/background-layers/editorial-frame-bg/editorial-frame-bg';
 import { SoftVignetteBg } from '../../components/background-layers/soft-vignette-bg/soft-vignette-bg';
+import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../components/content-hero-banner/content-hero-banner';
 
 @Component({
   selector: 'app-bg-demo',
@@ -37,6 +38,7 @@ import { SoftVignetteBg } from '../../components/background-layers/soft-vignette
     PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
     PaperCutStrataBg, HalftonePopBg, LiquidChromeBg, SolarPosterBg,
     SpotlightStageBg, EditorialFrameBg, SoftVignetteBg,
+    ContentHeroBanner,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
@@ -63,6 +65,19 @@ export class BgDemo {
   setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): void {
     this.activeFilter.set(filter);
   }
+
+  readonly heroBannerActions: ReadonlyArray<HeroBannerAction> = [
+    { label: 'Pre-order', href: '#', ariaLabel: 'Pre-order the featured product' },
+    { label: 'Download Deck', href: '#', variant: 'secondary', ariaLabel: 'Download the launch presentation' },
+  ];
+
+  readonly heroBannerImage: HeroBannerImage = {
+    src: '/editorial-product.svg',
+    alt: 'Illustrated product mockup',
+    width: 320,
+    height: 320,
+    priority: true,
+  };
 
   isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;

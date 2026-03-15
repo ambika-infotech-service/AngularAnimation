@@ -1,0 +1,43 @@
+<section class="hero-banner" [attr.aria-label]="title()">
+	<app-spotlight-stage-bg></app-spotlight-stage-bg>
+
+	<div class="hero-banner__inner">
+		<div class="hero-banner__copy">
+			@if (eyebrow(); as eyebrowText) {
+				<span class="hero-banner__eyebrow">{{ eyebrowText }}</span>
+			}
+
+			<h2 class="hero-banner__title">{{ title() }}</h2>
+			<p class="hero-banner__text">{{ copy() }}</p>
+
+			@if (actions().length) {
+				<div class="hero-banner__actions">
+					@for (action of actions(); track action.href) {
+						<a
+							class="hero-banner__action"
+							[class.hero-banner__action--secondary]="action.variant === 'secondary'"
+							[href]="action.href"
+							[attr.aria-label]="action.ariaLabel ?? null"
+							[attr.target]="action.external ? '_blank' : null"
+							[attr.rel]="action.external ? 'noopener noreferrer' : null"
+						>
+							{{ action.label }}
+						</a>
+					}
+				</div>
+			}
+		</div>
+
+		<div class="hero-banner__media">
+			<div class="hero-banner__image-frame">
+				<img
+					[ngSrc]="image().src"
+					[width]="image().width"
+					[height]="image().height"
+					[alt]="image().alt"
+					[priority]="image().priority ?? false"
+				>
+			</div>
+		</div>
+	</div>
+</section>
