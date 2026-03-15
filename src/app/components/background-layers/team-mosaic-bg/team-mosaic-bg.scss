@@ -1,0 +1,89 @@
+:host {
+	display: contents;
+}
+
+.team-mosaic {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+
+	.panel,
+	.grid,
+	.glow {
+		position: absolute;
+	}
+
+	.panel {
+		border-radius: 1.5rem;
+		border: 1px solid rgba(91, 121, 168, 0.12);
+		background: rgba(255, 255, 255, 0.56);
+		backdrop-filter: blur(8px);
+		box-shadow: 0 10px 26px rgba(107, 128, 167, 0.08);
+	}
+
+	.panel-a {
+		left: 6%;
+		top: 12%;
+		width: 32%;
+		height: 42%;
+		animation: teamFloatA 14s ease-in-out infinite;
+	}
+
+	.panel-b {
+		right: 12%;
+		top: 8%;
+		width: 26%;
+		height: 30%;
+		animation: teamFloatB 16s ease-in-out infinite;
+	}
+
+	.panel-c {
+		right: 8%;
+		bottom: 8%;
+		width: 38%;
+		height: 38%;
+		animation: teamFloatC 18s ease-in-out infinite;
+	}
+
+	.grid {
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(80, 99, 128, 0.05) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(80, 99, 128, 0.05) 1px, transparent 1px);
+		background-size: 24px 24px;
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+	}
+
+	.glow {
+		width: 18rem;
+		height: 18rem;
+		left: -5rem;
+		bottom: -8rem;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(123, 184, 255, 0.16) 0%, rgba(123, 184, 255, 0) 72%);
+		filter: blur(18px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.team-mosaic .panel {
+		animation: none;
+	}
+}
+
+@keyframes teamFloatA {
+	0%, 100% { transform: translate3d(0, 0, 0); }
+	50% { transform: translate3d(4%, -4%, 0); }
+}
+
+@keyframes teamFloatB {
+	0%, 100% { transform: translate3d(0, 0, 0); }
+	50% { transform: translate3d(-4%, 4%, 0); }
+}
+
+@keyframes teamFloatC {
+	0%, 100% { transform: translate3d(0, 0, 0); }
+	50% { transform: translate3d(-3%, -4%, 0); }
+}

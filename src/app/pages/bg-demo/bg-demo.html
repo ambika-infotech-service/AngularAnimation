@@ -366,6 +366,42 @@
       </div>
     </div>
 
+    <!-- Testimonial Spotlight -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('image')">
+      <div class="preview-stage" role="img" aria-label="Testimonial Spotlight preview">
+        <app-testimonial-spotlight-bg></app-testimonial-spotlight-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-testimonial-spotlight-bg</code>
+        <h3>Testimonial Spotlight</h3>
+        <p>Dark testimonial backdrop that frames a portrait image while keeping quote copy crisp and readable.</p>
+      </div>
+    </div>
+
+    <!-- Team Mosaic -->
+    <div class="bg-card bg-card-light" [class.is-hidden]="!isVisible('image')">
+      <div class="preview-stage preview-stage-light" role="img" aria-label="Team Mosaic preview">
+        <app-team-mosaic-bg></app-team-mosaic-bg>
+      </div>
+      <div class="card-info card-info-light">
+        <code class="tag">app-team-mosaic-bg</code>
+        <h3>Team Mosaic</h3>
+        <p>Light layered background built for profile imagery, bios, and multi-person team sections.</p>
+      </div>
+    </div>
+
+    <!-- Feature Focus -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('image')">
+      <div class="preview-stage" role="img" aria-label="Feature Focus preview">
+        <app-feature-focus-bg></app-feature-focus-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-feature-focus-bg</code>
+        <h3>Feature Focus</h3>
+        <p>Product feature background that reserves a strong device or dashboard zone beside supporting copy.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -575,6 +611,76 @@
               </ul>
               <span class="pricing-cta">Talk to sales</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="bg-section section" aria-labelledby="image-layout-heading">
+  <h2 id="image-layout-heading" class="demo-section-title">Image-Focused Layouts</h2>
+  <p class="combo-note">These variants push the image harder so testimonials, team sections, and product features feel built around photography or illustration.</p>
+
+  <div class="image-layout-grid">
+    <article class="content-card" [class.is-hidden]="!isVisible('image')">
+      <div class="content-stage content-stage-dark" aria-label="Testimonial spotlight layout demo">
+        <app-testimonial-spotlight-bg></app-testimonial-spotlight-bg>
+
+        <div class="image-layout-shell image-layout-shell-testimonial">
+          <div class="image-media-card image-media-card-portrait">
+            <img ngSrc="/portrait-collage.svg" width="260" height="260" alt="Illustrated customer portrait">
+          </div>
+
+          <div class="image-copy image-copy-dark">
+            <span class="content-chip">Testimonial</span>
+            <h3>“It finally gave our launch page a visual focal point without sacrificing readability.”</h3>
+            <p>The portrait gets the spotlight, while the quote and attribution still sit on a stable, high-contrast reading surface.</p>
+            <div class="testimonial-meta">
+              <strong>Riya Sharma</strong>
+              <span>Head of Growth, Northstar Labs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="light-layout-card" [class.is-hidden]="!isVisible('image')">
+      <div class="light-layout-stage" aria-label="Team section layout demo">
+        <app-team-mosaic-bg></app-team-mosaic-bg>
+
+        <div class="image-layout-shell image-layout-shell-team">
+          <div class="light-copy">
+            <span class="light-chip">Team Section</span>
+            <h3>Layered team background that makes profile imagery feel intentional instead of dropped into a flat white card.</h3>
+            <p>Use this when a section needs faces, short bios, and a compact narrative about the team.</p>
+          </div>
+
+          <div class="team-board-card">
+            <img ngSrc="/team-board.svg" width="360" height="260" alt="Illustrated team board collage">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content-card content-card-wide" [class.is-hidden]="!isVisible('image')">
+      <div class="content-stage content-stage-dark" aria-label="Product feature block layout demo">
+        <app-feature-focus-bg></app-feature-focus-bg>
+
+        <div class="image-layout-shell image-layout-shell-feature">
+          <div class="image-copy image-copy-dark">
+            <span class="content-chip">Feature Block</span>
+            <h3>Keep the product visual large while anchoring feature copy, stats, and a CTA beside it.</h3>
+            <p>This works well for device mockups, dashboard screenshots, and other hero visuals that need to dominate the section.</p>
+            <div class="feature-badges">
+              <span class="feature-badge">Live analytics</span>
+              <span class="feature-badge">Instant alerts</span>
+              <span class="feature-badge">Shareable reports</span>
+            </div>
+          </div>
+
+          <div class="image-media-card image-media-card-dashboard">
+            <img ngSrc="/feature-dashboard.svg" width="360" height="260" alt="Illustrated analytics dashboard preview">
           </div>
         </div>
       </div>

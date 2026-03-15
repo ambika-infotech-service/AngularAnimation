@@ -1,0 +1,59 @@
+:host {
+	display: contents;
+}
+
+.feature-focus {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(160deg, #0f1728 0%, #121d33 46%, #0a1020 100%);
+
+	.frame,
+	.orbit,
+	.glare {
+		position: absolute;
+	}
+
+	.frame {
+		border-radius: 1.6rem;
+		border: 1px solid rgba(151, 197, 255, 0.14);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+		box-shadow: 0 14px 38px rgba(2, 8, 18, 0.24);
+	}
+
+	.frame-a {
+		right: 7%;
+		top: 9%;
+		width: 38%;
+		height: 56%;
+	}
+
+	.frame-b {
+		left: -4%;
+		bottom: -8%;
+		width: 42%;
+		height: 42%;
+		opacity: 0.45;
+	}
+
+	.orbit {
+		width: 22rem;
+		height: 22rem;
+		right: -8rem;
+		top: -9rem;
+		border-radius: 50%;
+		border: 1px solid rgba(121, 205, 255, 0.14);
+		box-shadow: inset 0 0 0 26px rgba(121, 205, 255, 0.05);
+	}
+
+	.glare {
+		left: 24%;
+		top: -8%;
+		width: 30%;
+		height: 60%;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 100%);
+		clip-path: polygon(26% 0, 100% 0, 74% 100%, 0 100%);
+		filter: blur(5px);
+	}
+}
