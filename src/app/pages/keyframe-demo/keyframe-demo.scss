@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   gap: $spacing-sm;
-  color: var(--color-light);
+  color: var(--text-main);
 
   i { color: var(--color-primary-light); }
 }
@@ -29,7 +29,7 @@
 // Individual card
 .kf-card {
   @include card;
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
   padding: $spacing-xl;
   @include flex-column;
@@ -47,9 +47,9 @@
   &--primary   { border-top: 2px solid var(--color-primary); }
   &--secondary { border-top: 2px solid var(--color-secondary); }
   &--accent    { border-top: 2px solid var(--color-accent); }
-  &--danger    { border-top: 2px solid #ff5f6d; }
-  &--info      { border-top: 2px solid #52b8ff; }
-  &--warning   { border-top: 2px solid #ffcc66; }
+  &--danger    { border-top: 2px solid var(--color-danger); }
+  &--info      { border-top: 2px solid var(--color-info); }
+  &--warning   { border-top: 2px solid var(--color-warning); }
 }
 
 .kf-icon-wrap {
@@ -62,9 +62,9 @@
   .kf-card--primary   & { background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary-light); }
   .kf-card--secondary & { background: color-mix(in srgb, var(--color-secondary) 12%, transparent); color: var(--color-secondary-light); }
   .kf-card--accent    & { background: color-mix(in srgb, var(--color-accent) 12%, transparent); color: var(--color-accent); }
-  .kf-card--danger    & { background: color-mix(in srgb, #ff5f6d 12%, transparent); color: #ff8c95; }
-  .kf-card--info      & { background: color-mix(in srgb, #52b8ff 12%, transparent); color: #52b8ff; }
-  .kf-card--warning   & { background: color-mix(in srgb, #ffcc66 12%, transparent); color: #ffcc66; }
+  .kf-card--danger    & { background: color-mix(in srgb, var(--color-danger) 12%, transparent); color: var(--color-danger); }
+  .kf-card--info      & { background: color-mix(in srgb, var(--color-info) 12%, transparent); color: var(--color-info); }
+  .kf-card--warning   & { background: color-mix(in srgb, var(--color-warning) 12%, transparent); color: var(--color-warning); }
 }
 
 .kf-anim-bounce {
@@ -100,12 +100,12 @@
 .kf-title {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  color: var(--color-light);
+  color: var(--text-main);
 }
 
 .kf-desc {
   font-size: $font-size-xs;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: var(--text-muted);
   line-height: $line-height-normal;
 }
 
@@ -124,9 +124,9 @@
   .kf-card--primary   & { background: color-mix(in srgb, var(--color-primary) 18%, transparent); color: var(--color-primary-light); }
   .kf-card--secondary & { background: color-mix(in srgb, var(--color-secondary) 18%, transparent); color: var(--color-secondary-light); }
   .kf-card--accent    & { background: color-mix(in srgb, var(--color-accent) 18%, transparent); color: var(--color-accent); }
-  .kf-card--danger    & { background: color-mix(in srgb, #ff5f6d 18%, transparent); color: #ff8c95; }
-  .kf-card--info      & { background: color-mix(in srgb, #52b8ff 18%, transparent); color: #52b8ff; }
-  .kf-card--warning   & { background: color-mix(in srgb, #ffcc66 18%, transparent); color: #ffcc66; }
+  .kf-card--danger    & { background: color-mix(in srgb, var(--color-danger) 18%, transparent); color: var(--color-danger); }
+  .kf-card--info      & { background: color-mix(in srgb, var(--color-info) 18%, transparent); color: var(--color-info); }
+  .kf-card--warning   & { background: color-mix(in srgb, var(--color-warning) 18%, transparent); color: var(--color-warning); }
 
   &:hover {
     transform: scale(1.05);
@@ -142,9 +142,9 @@
   margin: 0 auto;
 
   .demo-card {
-    background: var(--color-dark-card);
+    background: var(--surface-card);
     border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
-    color: var(--color-light);
+    color: var(--text-main);
   }
 }
 
@@ -161,7 +161,7 @@
     font-family: 'SF Mono', 'Fira Code', monospace;
     font-size: $font-size-xs;
     line-height: 1.7;
-    color: color-mix(in srgb, var(--color-light) 75%, transparent);
+    color: var(--text-muted);
   }
 
   code { color: var(--color-primary-light); }

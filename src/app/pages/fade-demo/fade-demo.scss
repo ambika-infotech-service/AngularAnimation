@@ -14,9 +14,9 @@
 }
 
 .dur-btn {
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  color: color-mix(in srgb, var(--color-light) 65%, transparent);
+  color: var(--text-soft);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
@@ -26,7 +26,7 @@
 
   &:hover {
     border-color: var(--color-primary-light);
-    color: var(--color-light);
+    color: var(--text-main);
   }
 
   &.active {
@@ -39,7 +39,7 @@
 
 // Demo stage
 .demo-stage {
-  background: color-mix(in srgb, var(--color-dark-surface) 60%, transparent);
+  background: var(--surface-stage);
   border: 1px dashed color-mix(in srgb, var(--color-primary) 20%, transparent);
   border-radius: $radius-lg;
   min-height: 160px;
@@ -106,7 +106,7 @@
   gap: $spacing-sm;
   background: var(--gradient-primary);
   border: none;
-  color: var(--color-light);
+  color: var(--text-main);
   border-radius: $radius-full;
   padding: $spacing-sm $spacing-xl;
   font-size: $font-size-sm;

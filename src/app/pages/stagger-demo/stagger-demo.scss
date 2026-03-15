@@ -1,6 +1,14 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+.section-subtitle code {
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+  color: var(--color-accent);
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  font-size: 0.9em;
+}
+
 .demo-desc {
   strong { color: var(--color-accent); }
 
@@ -18,9 +26,9 @@
 }
 
 .delay-btn {
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
-  color: color-mix(in srgb, var(--color-light) 65%, transparent);
+  color: var(--text-soft);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
@@ -30,7 +38,7 @@
 
   &:hover {
     border-color: var(--color-accent);
-    color: var(--color-light);
+    color: var(--text-main);
   }
 
   &.active {
@@ -61,7 +69,7 @@
   gap: $spacing-xs;
   background: var(--gradient-accent);
   border: none;
-  color: var(--color-light);
+  color: var(--text-main);
   border-radius: $radius-full;
   padding: $spacing-sm $spacing-xl;
   font-size: $font-size-sm;
@@ -99,7 +107,7 @@
 
 .stagger-item {
   @include flex-between;
-  background: color-mix(in srgb, var(--color-dark-surface) 60%, transparent);
+  background: var(--surface-stage);
   border: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
   border-radius: $radius-lg;
   padding: $spacing-md;
@@ -129,18 +137,18 @@
 .item-label {
   font-weight: $font-weight-semi;
   font-size: $font-size-sm;
-  color: var(--color-light);
+  color: var(--text-main);
 }
 
 .item-desc {
   font-size: $font-size-xs;
-  color: color-mix(in srgb, var(--color-light) 60%, transparent);
+  color: var(--text-soft);
 }
 
 .item-remove {
   background: transparent;
-  border: 1px solid color-mix(in srgb, #ff5f6d 25%, transparent);
-  color: color-mix(in srgb, #ff5f6d 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);
+  color: color-mix(in srgb, var(--color-danger) 60%, transparent);
   border-radius: $radius-md;
   width: 28px;
   height: 28px;
@@ -151,9 +159,9 @@
   flex-shrink: 0;
 
   &:hover {
-    background: color-mix(in srgb, #ff5f6d 15%, transparent);
-    border-color: #ff5f6d;
-    color: #ff5f6d;
+    background: color-mix(in srgb, var(--color-danger) 15%, transparent);
+    border-color: var(--color-danger);
+    color: var(--color-danger);
   }
 }
 

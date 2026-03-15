@@ -15,10 +15,10 @@
     border-radius: 50%;
     background: radial-gradient(
       circle at 35% 35%,
-      rgba(255,255,255,0.25),
-      rgba(255,255,255,0.05)
+      color-mix(in srgb, var(--color-light) 25%, transparent),
+      color-mix(in srgb, var(--color-light) 5%, transparent)
     );
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid color-mix(in srgb, var(--color-light) 15%, transparent);
     backdrop-filter: blur(2px);
     animation: rise ease-in infinite;
   }

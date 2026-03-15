@@ -21,14 +21,26 @@
 
   .band-1 {
     top: 10%;
-    background: linear-gradient(90deg, transparent 0%, rgba(0,255,150,0.25) 40%, rgba(0,200,255,0.2) 70%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--color-secondary) 25%, transparent) 40%,
+      color-mix(in srgb, var(--color-info) 20%, transparent) 70%,
+      transparent 100%
+    );
     animation: driftBand 18s ease-in-out infinite;
   }
 
   .band-2 {
     top: 25%;
     height: 150px;
-    background: linear-gradient(90deg, transparent 0%, rgba(100,0,255,0.2) 30%, rgba(0,255,200,0.18) 65%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--color-accent) 20%, transparent) 30%,
+      color-mix(in srgb, var(--color-secondary) 18%, transparent) 65%,
+      transparent 100%
+    );
     animation: driftBand 22s ease-in-out infinite reverse;
     animation-delay: -4s;
   }
@@ -36,7 +48,13 @@
   .band-3 {
     top: 5%;
     height: 120px;
-    background: linear-gradient(90deg, transparent 10%, rgba(0,180,255,0.15) 50%, rgba(80,255,180,0.12) 80%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 10%,
+      color-mix(in srgb, var(--color-info) 15%, transparent) 50%,
+      color-mix(in srgb, var(--color-secondary) 12%, transparent) 80%,
+      transparent 100%
+    );
     animation: driftBand 26s ease-in-out infinite;
     animation-delay: -8s;
   }
@@ -44,7 +62,13 @@
   .band-4 {
     top: 40%;
     height: 100px;
-    background: linear-gradient(90deg, rgba(180,0,255,0.12) 0%, transparent 40%, rgba(0,255,160,0.1) 70%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-accent) 12%, transparent) 0%,
+      transparent 40%,
+      color-mix(in srgb, var(--color-secondary) 10%, transparent) 70%,
+      transparent 100%
+    );
     animation: driftBand 30s ease-in-out infinite reverse;
     animation-delay: -12s;
   }
@@ -55,7 +79,7 @@
     left: 0;
     right: 0;
     height: 40%;
-    background: linear-gradient(to top, rgba(0,100,80,0.12) 0%, transparent 100%);
+    background: linear-gradient(to top, color-mix(in srgb, var(--color-secondary-dark) 12%, transparent) 0%, transparent 100%);
     animation: baseGlow 10s ease-in-out infinite;
   }
 }

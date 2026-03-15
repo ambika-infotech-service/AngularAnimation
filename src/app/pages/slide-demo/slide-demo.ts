@@ -30,8 +30,4 @@ export class SlideDemo {
     this.visible.set(false);
     setTimeout(() => this.visible.set(true), 50);
   }
-
-  getTrigger(): string {
-    return 'slide' + this.activeDirection()[0].toUpperCase() + this.activeDirection().slice(1);
-  }
 }

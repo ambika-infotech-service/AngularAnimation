@@ -13,8 +13,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,255,200,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,200,0.08) 1px, transparent 1px);
+      linear-gradient(color-mix(in srgb, var(--color-secondary) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-secondary) 8%, transparent) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: gridPulse 6s ease-in-out infinite;
   }
@@ -24,7 +24,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(0,255,200,0.35), transparent);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-secondary) 35%, transparent), transparent);
     top: -3px;
     animation: scanDown 5s linear infinite;
   }
@@ -34,7 +34,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: rgba(0,255,200,0.15);
+    background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
     top: 30%;
     animation: flicker 3s ease-in-out infinite;
   }
@@ -44,8 +44,10 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(0,255,200,0.9);
-    box-shadow: 0 0 12px rgba(0,255,200,0.8), 0 0 30px rgba(0,255,200,0.5);
+    background: color-mix(in srgb, var(--color-secondary) 90%, transparent);
+    box-shadow:
+      0 0 12px color-mix(in srgb, var(--color-secondary) 80%, transparent),
+      0 0 30px color-mix(in srgb, var(--color-secondary) 50%, transparent);
     animation: dotPulse 2s ease-in-out infinite;
 
     &.dot-a { top: 20%; left: 15%; animation-delay: 0s; }
@@ -59,7 +61,7 @@
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(to top, rgba(0,255,200,0.08) 0%, transparent 100%);
+    background: linear-gradient(to top, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 100%);
     animation: horizonPulse 8s ease-in-out infinite;
   }
 }

@@ -12,7 +12,7 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background: color-mix(in srgb, var(--color-light) 40%, transparent);
     animation: particleFloat linear infinite;
 
     &:nth-child(1) { width: 4px;  height: 4px;  left: 10%; top: 20%; animation-duration: 15s; animation-delay: 0s; }
@@ -29,7 +29,13 @@
     left: 0;
     width: 200%;
     height: 100px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100'%3E%3Cpath d='M0,50 Q300,10 600,50 T1200,50' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='2'/%3E%3Cpath d='M0,60 Q300,20 600,60 T1200,60' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='2'/%3E%3C/svg%3E") repeat-x;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 16px,
+        color-mix(in srgb, var(--color-light) 5%, transparent) 16px 18px,
+        transparent 18px 28px
+      );
     animation: waveMove 30s linear infinite;
     opacity: 0.5;
   }

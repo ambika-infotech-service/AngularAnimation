@@ -14,12 +14,19 @@
   --color-secondary-dark: #159a78;
   --color-accent: #ff8b5e;
   --color-accent-dark: #c8603b;
+  --color-danger: #ff6b7c;
+  --color-warning: #ffc86a;
   --color-info: #7ec3ff;
   --color-dark: #0f1723;
   --color-dark-card: #172131;
   --color-dark-surface: #0a101a;
   --color-light: #eaf2ff;
   --color-subtle: rgba(234, 242, 255, 0.72);
+  --text-main: #eaf2ff;
+  --text-muted: rgba(234, 242, 255, 0.8);
+  --text-soft: rgba(234, 242, 255, 0.66);
+  --surface-card: #172131;
+  --surface-stage: #111a28;
   --gradient-primary: linear-gradient(135deg, #1f72bf 0%, #3ea6ff 60%, #9cd0ff 100%);
   --gradient-secondary: linear-gradient(135deg, #159a78 0%, #22d3a6 60%, #8ff0d2 100%);
   --gradient-accent: linear-gradient(135deg, #c8603b 0%, #ff8b5e 100%);
@@ -35,12 +42,19 @@
   --color-secondary-dark: #c16d34;
   --color-accent: #b489ff;
   --color-accent-dark: #7d59c8;
+  --color-danger: #ff7f97;
+  --color-warning: #ffbe72;
   --color-info: #a9c5ff;
   --color-dark: #19111c;
   --color-dark-card: #25182a;
   --color-dark-surface: #120c15;
   --color-light: #f7edf9;
   --color-subtle: rgba(247, 237, 249, 0.72);
+  --text-main: #f7edf9;
+  --text-muted: rgba(247, 237, 249, 0.8);
+  --text-soft: rgba(247, 237, 249, 0.66);
+  --surface-card: #25182a;
+  --surface-stage: #1a121f;
   --gradient-primary: linear-gradient(135deg, #c54758 0%, #ff6d7d 62%, #ffb5be 100%);
   --gradient-secondary: linear-gradient(135deg, #c16d34 0%, #ff9d5a 62%, #ffd0ac 100%);
   --gradient-accent: linear-gradient(135deg, #7d59c8 0%, #b489ff 100%);
@@ -56,12 +70,19 @@
   --color-secondary-dark: #1fbe61;
   --color-accent: #ff5ad2;
   --color-accent-dark: #bd318f;
+  --color-danger: #ff6d9f;
+  --color-warning: #ffd166;
   --color-info: #77d1ff;
   --color-dark: #0c0b15;
   --color-dark-card: #15132a;
   --color-dark-surface: #080710;
   --color-light: #ecebff;
   --color-subtle: rgba(236, 235, 255, 0.72);
+  --text-main: #ecebff;
+  --text-muted: rgba(236, 235, 255, 0.8);
+  --text-soft: rgba(236, 235, 255, 0.66);
+  --surface-card: #15132a;
+  --surface-stage: #100d20;
   --gradient-primary: linear-gradient(135deg, #118ca0 0%, #22d3ee 62%, #89f2ff 100%);
   --gradient-secondary: linear-gradient(135deg, #1fbe61 0%, #39ff88 62%, #9effc6 100%);
   --gradient-accent: linear-gradient(135deg, #bd318f 0%, #ff5ad2 100%);
@@ -77,12 +98,19 @@
   --color-secondary-dark: #2f9a87;
   --color-accent: #ff9a73;
   --color-accent-dark: #bf6342;
+  --color-danger: #ff7b8f;
+  --color-warning: #ffca76;
   --color-info: #8dc3ff;
   --color-dark: #0b111b;
   --color-dark-card: #131d2b;
   --color-dark-surface: #060b13;
   --color-light: #e7edf8;
   --color-subtle: rgba(231, 237, 248, 0.72);
+  --text-main: #e7edf8;
+  --text-muted: rgba(231, 237, 248, 0.8);
+  --text-soft: rgba(231, 237, 248, 0.66);
+  --surface-card: #131d2b;
+  --surface-stage: #0f1825;
   --gradient-primary: linear-gradient(135deg, #3a70ba 0%, #6aa8ff 65%, #bdd6ff 100%);
   --gradient-secondary: linear-gradient(135deg, #2f9a87 0%, #57d9bf 65%, #a8efe1 100%);
   --gradient-accent: linear-gradient(135deg, #bf6342 0%, #ff9a73 100%);
@@ -106,7 +134,7 @@ body {
     radial-gradient(1200px 600px at 10% -10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 60%),
     radial-gradient(1000px 520px at 100% 0%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 62%),
     linear-gradient(180deg, var(--color-dark-surface) 0%, var(--color-dark) 100%);
-  color: var(--color-light);
+  color: var(--text-main);
   line-height: $line-height-normal;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -160,7 +188,7 @@ a {
 
 .section-subtitle {
   font-size: $font-size-md;
-  color: var(--color-subtle);
+  color: var(--text-muted);
   text-align: center;
   margin-bottom: $spacing-3xl;
 }
@@ -180,19 +208,19 @@ a {
 .demo-section-title {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
-  color: var(--color-light);
+  color: var(--text-main);
   margin-bottom: $spacing-sm;
 }
 
 .demo-desc {
   font-size: $font-size-sm;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: var(--text-muted);
   margin-bottom: $spacing-lg;
   line-height: $line-height-normal;
 
   code {
     background: color-mix(in srgb, var(--color-light) 10%, transparent);
-    color: color-mix(in srgb, var(--color-light) 92%, transparent);
+    color: var(--text-main);
     padding: 2px 6px;
     border-radius: $radius-sm;
     font-size: $font-size-xs;
@@ -202,9 +230,9 @@ a {
 // Demo Card
 .demo-card {
   @include card;
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
-  color: var(--color-light);
+  color: var(--text-main);
   padding: $spacing-xl;
   @include transition(transform box-shadow);
 

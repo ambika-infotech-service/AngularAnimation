@@ -22,7 +22,7 @@
 .filter-chip {
   border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
   background: color-mix(in srgb, var(--color-light) 6%, transparent);
-  color: color-mix(in srgb, var(--color-light) 85%, transparent);
+  color: var(--text-muted);
   border-radius: $radius-full;
   padding: 0.35rem 0.9rem;
   font-size: $font-size-xs;
@@ -32,7 +32,7 @@
 
   &:hover {
     border-color: var(--color-primary-light);
-    color: var(--color-light);
+    color: var(--text-main);
     transform: translateY(-1px);
   }
 
@@ -54,7 +54,7 @@
 }
 
 .combo-note {
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: var(--text-muted);
   font-size: $font-size-sm;
   margin-top: -$spacing-sm;
   margin-bottom: $spacing-lg;
@@ -70,20 +70,24 @@
 .bg-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 32px color-mix(in srgb, var(--color-dark) 45%, transparent);
   }
 
   .preview-stage {
     position: relative;
     height: 180px;
     overflow: hidden;
-    background: linear-gradient(135deg, #0d1b2e 0%, #0a1628 100%);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-dark) 82%, var(--color-primary) 18%) 0%,
+      color-mix(in srgb, var(--color-dark-surface) 84%, var(--color-secondary) 16%) 100%
+    );
   }
 
   .card-info {
@@ -104,13 +108,13 @@
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: var(--color-light);
+      color: var(--text-main);
       margin: $spacing-xs 0;
     }
 
     p {
       font-size: $font-size-sm;
-      color: color-mix(in srgb, var(--color-light) 80%, transparent);
+      color: var(--text-muted);
       margin: 0;
       line-height: 1.6;
     }
@@ -135,20 +139,24 @@
 .combo-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 32px color-mix(in srgb, var(--color-dark) 45%, transparent);
   }
 
   .combo-stage {
     position: relative;
     height: 220px;
     overflow: hidden;
-    background: linear-gradient(135deg, #0d1b2e 0%, #0a1628 100%);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-dark) 82%, var(--color-primary) 18%) 0%,
+      color-mix(in srgb, var(--color-dark-surface) 84%, var(--color-secondary) 16%) 100%
+    );
   }
 
   &.combo-full .combo-stage {
@@ -161,20 +169,20 @@
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: var(--color-light);
+      color: var(--text-main);
       margin: 0 0 $spacing-xs;
     }
 
     p {
       font-size: $font-size-sm;
-      color: color-mix(in srgb, var(--color-light) 80%, transparent);
+      color: var(--text-muted);
       margin-bottom: $spacing-sm;
     }
 
     pre {
       margin: 0;
       border-radius: $radius-sm;
-      background: rgba(0, 0, 0, 0.5);
+      background: color-mix(in srgb, var(--color-dark) 55%, transparent);
       padding: $spacing-sm $spacing-md;
       overflow-x: auto;
 

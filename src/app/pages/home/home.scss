@@ -77,7 +77,7 @@
 
 .hero-title {
   @include heading($font-size-3xl, $font-weight-black);
-  color: var(--color-light);
+  color: var(--text-main);
   line-height: 1.1;
 
   @include respond-to(md) {
@@ -95,7 +95,7 @@
 
 .hero-subtitle {
   font-size: $font-size-md;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: var(--text-muted);
   max-width: 560px;
   line-height: $line-height-loose;
 }
@@ -216,12 +216,12 @@
 .card-title {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  color: var(--color-light);
+  color: var(--text-main);
 }
 
 .card-desc {
   font-size: $font-size-sm;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: var(--text-muted);
   line-height: $line-height-normal;
 }
 

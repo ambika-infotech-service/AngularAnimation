@@ -1,6 +1,14 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+.section-subtitle code {
+  background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+  color: var(--color-secondary-light);
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  font-size: 0.9em;
+}
+
 .demo-desc code {
   background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
   color: var(--color-secondary-light);
@@ -17,9 +25,9 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
-  color: color-mix(in srgb, var(--color-light) 65%, transparent);
+  color: var(--text-soft);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
@@ -29,7 +37,7 @@
 
   &:hover {
     border-color: var(--color-secondary-light);
-    color: var(--color-light);
+    color: var(--text-main);
   }
 
   &.active {
@@ -42,7 +50,7 @@
 
 // Demo stage
 .demo-stage {
-  background: color-mix(in srgb, var(--color-dark-surface) 60%, transparent);
+  background: var(--surface-stage);
   border: 1px dashed color-mix(in srgb, var(--color-secondary) 20%, transparent);
   border-radius: $radius-lg;
   min-height: 160px;
@@ -91,7 +99,7 @@
   gap: $spacing-sm;
   background: var(--gradient-primary);
   border: none;
-  color: var(--color-light);
+  color: var(--text-main);
   border-radius: $radius-full;
   padding: $spacing-sm $spacing-xl;
   font-size: $font-size-sm;
@@ -126,11 +134,11 @@
   @include flex-column;
   align-items: center;
   gap: $spacing-sm;
-  background: var(--color-dark-card);
+  background: var(--surface-card);
   border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
   border-radius: $radius-lg;
   padding: $spacing-lg $spacing-md;
-  color: color-mix(in srgb, var(--color-light) 65%, transparent);
+  color: var(--text-soft);
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   cursor: pointer;
