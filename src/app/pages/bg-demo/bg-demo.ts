@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FloatingShapes } from '../../components/background-layers/floating-shapes/floating-shapes';
 import { HeroParticles } from '../../components/background-layers/hero-particles/hero-particles';
 import { HeroShimmer } from '../../components/background-layers/hero-shimmer/hero-shimmer';
@@ -27,4 +27,27 @@ import { GlitchStripesBg } from '../../components/background-layers/glitch-strip
   styleUrl: './bg-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BgDemo {}
+export class BgDemo {
+  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'>('all');
+
+  readonly filters: ReadonlyArray<{
+    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed';
+    label: string;
+  }> = [
+    { value: 'all', label: 'All' },
+    { value: 'ambient', label: 'Ambient' },
+    { value: 'sci-fi', label: 'Sci-Fi' },
+    { value: 'abstract', label: 'Abstract' },
+    { value: 'kinetic', label: 'Kinetic' },
+    { value: 'geometric', label: 'Geometric' },
+    { value: 'mixed', label: 'Mixed' },
+  ];
+
+  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'): void {
+    this.activeFilter.set(filter);
+  }
+
+  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'): boolean {
+    return this.activeFilter() === 'all' || this.activeFilter() === category;
+  }
+}

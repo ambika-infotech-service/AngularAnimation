@@ -11,6 +11,39 @@
   }
 }
 
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-top: -$spacing-lg;
+}
+
+.filter-chip {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  background: color-mix(in srgb, var(--color-light) 6%, transparent);
+  color: color-mix(in srgb, var(--color-light) 85%, transparent);
+  border-radius: $radius-full;
+  padding: 0.35rem 0.9rem;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-light);
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: color-mix(in srgb, var(--color-primary) 22%, transparent);
+    color: var(--color-primary-light);
+    border-color: color-mix(in srgb, var(--color-primary-light) 45%, transparent);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  }
+}
+
 .bg-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -82,6 +115,10 @@
       line-height: 1.6;
     }
   }
+}
+
+.is-hidden {
+  display: none !important;
 }
 
 // ── Combination grid ───────────────────────────────────────────────────────

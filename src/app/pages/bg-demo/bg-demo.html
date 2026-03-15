@@ -8,6 +8,20 @@
     Pure-CSS animated layers — each component is self-contained and composable.
     Combine multiple layers inside any <code>position: relative</code> container.
   </p>
+
+  <div class="filter-bar" role="tablist" aria-label="Filter background layer demos">
+    @for (filter of filters; track filter.value) {
+      <button
+        class="filter-chip"
+        [class.active]="activeFilter() === filter.value"
+        (click)="setFilter(filter.value)"
+        role="tab"
+        [attr.aria-selected]="activeFilter() === filter.value"
+      >
+        {{ filter.label }}
+      </button>
+    }
+  </div>
 </div>
 
 <!-- Individual Components -->
@@ -17,7 +31,7 @@
   <div class="card-grid">
 
     <!-- Floating Shapes -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="preview-stage" role="img" aria-label="Floating Shapes preview">
         <app-floating-shapes></app-floating-shapes>
       </div>
@@ -29,7 +43,7 @@
     </div>
 
     <!-- Hero Particles -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('kinetic')">
       <div class="preview-stage" role="img" aria-label="Hero Particles preview">
         <app-hero-particles></app-hero-particles>
       </div>
@@ -41,7 +55,7 @@
     </div>
 
     <!-- Hero Shimmer -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="preview-stage" role="img" aria-label="Hero Shimmer preview">
         <app-hero-shimmer></app-hero-shimmer>
       </div>
@@ -53,7 +67,7 @@
     </div>
 
     <!-- Geometric Shapes -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('geometric')">
       <div class="preview-stage" role="img" aria-label="Geometric Shapes preview">
         <app-geometric-shapes></app-geometric-shapes>
       </div>
@@ -65,7 +79,7 @@
     </div>
 
     <!-- Glow Nodes -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Glow Nodes preview">
         <app-glow-nodes></app-glow-nodes>
       </div>
@@ -77,7 +91,7 @@
     </div>
 
     <!-- Light Rays -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Light Rays preview">
         <app-light-rays></app-light-rays>
       </div>
@@ -89,7 +103,7 @@
     </div>
 
     <!-- Depth Layers -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="preview-stage" role="img" aria-label="Depth Layers preview">
         <app-depth-layers></app-depth-layers>
       </div>
@@ -101,7 +115,7 @@
     </div>
 
     <!-- Starfield -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Starfield preview">
         <app-starfield-bg></app-starfield-bg>
       </div>
@@ -113,7 +127,7 @@
     </div>
 
     <!-- Aurora -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="preview-stage" role="img" aria-label="Aurora preview">
         <app-aurora-bg></app-aurora-bg>
       </div>
@@ -125,7 +139,7 @@
     </div>
 
     <!-- Neon Grid -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Neon Grid preview">
         <app-neon-grid-bg></app-neon-grid-bg>
       </div>
@@ -137,7 +151,7 @@
     </div>
 
     <!-- Bubbles -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="preview-stage" role="img" aria-label="Bubbles preview">
         <app-bubbles-bg></app-bubbles-bg>
       </div>
@@ -149,7 +163,7 @@
     </div>
 
     <!-- Mesh Gradient -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('abstract')">
       <div class="preview-stage" role="img" aria-label="Mesh Gradient preview">
         <app-mesh-gradient-bg></app-mesh-gradient-bg>
       </div>
@@ -161,7 +175,7 @@
     </div>
 
     <!-- Constellation -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Constellation preview">
         <app-constellation-bg></app-constellation-bg>
       </div>
@@ -173,7 +187,7 @@
     </div>
 
     <!-- Radar Rings -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="preview-stage" role="img" aria-label="Radar Rings preview">
         <app-radar-rings-bg></app-radar-rings-bg>
       </div>
@@ -185,7 +199,7 @@
     </div>
 
     <!-- Glitch Stripes -->
-    <div class="bg-card">
+    <div class="bg-card" [class.is-hidden]="!isVisible('abstract')">
       <div class="preview-stage" role="img" aria-label="Glitch Stripes preview">
         <app-glitch-stripes-bg></app-glitch-stripes-bg>
       </div>
@@ -207,7 +221,7 @@
   <div class="combo-grid">
 
     <!-- Combo 1: Deep Space -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="combo-stage" role="img" aria-label="Deep Space scene preview">
         <app-starfield-bg></app-starfield-bg>
         <app-floating-shapes></app-floating-shapes>
@@ -223,7 +237,7 @@
     </div>
 
     <!-- Combo 2: Cyberpunk -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="combo-stage" role="img" aria-label="Cyberpunk scene preview">
         <app-neon-grid-bg></app-neon-grid-bg>
         <app-light-rays></app-light-rays>
@@ -239,7 +253,7 @@
     </div>
 
     <!-- Combo 3: Dreamscape -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('ambient')">
       <div class="combo-stage" role="img" aria-label="Dreamscape scene preview">
         <app-aurora-bg></app-aurora-bg>
         <app-bubbles-bg></app-bubbles-bg>
@@ -255,7 +269,7 @@
     </div>
 
     <!-- Combo 4: Particle Storm -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('kinetic')">
       <div class="combo-stage" role="img" aria-label="Particle Storm scene preview">
         <app-hero-particles></app-hero-particles>
         <app-geometric-shapes></app-geometric-shapes>
@@ -273,7 +287,7 @@
     </div>
 
     <!-- Combo 5: Full Hero -->
-    <div class="combo-card combo-full">
+    <div class="combo-card combo-full" [class.is-hidden]="!isVisible('mixed')">
       <div class="combo-stage" role="img" aria-label="Full Hero scene preview">
         <app-floating-shapes></app-floating-shapes>
         <app-hero-particles></app-hero-particles>
@@ -299,7 +313,7 @@
     </div>
 
     <!-- Combo 6: Tactical HUD -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('sci-fi')">
       <div class="combo-stage" role="img" aria-label="Tactical HUD scene preview">
         <app-radar-rings-bg></app-radar-rings-bg>
         <app-constellation-bg></app-constellation-bg>
@@ -315,7 +329,7 @@
     </div>
 
     <!-- Combo 7: Vapor Horizon -->
-    <div class="combo-card">
+    <div class="combo-card" [class.is-hidden]="!isVisible('abstract')">
       <div class="combo-stage" role="img" aria-label="Vapor Horizon scene preview">
         <app-mesh-gradient-bg></app-mesh-gradient-bg>
         <app-glitch-stripes-bg></app-glitch-stripes-bg>
