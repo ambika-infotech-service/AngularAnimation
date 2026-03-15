@@ -1,13 +1,13 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+:host {
+  @include page-accent-host(var(--color-primary), var(--color-primary-light));
+}
+
 .page-header {
   code {
-    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
-    color: var(--color-primary-light);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.875em;
+    @include code-chip();
   }
 }
 
@@ -20,7 +20,7 @@
 }
 
 .filter-chip {
-  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--page-accent) 30%, transparent);
   background: color-mix(in srgb, var(--color-light) 6%, transparent);
   color: var(--text-muted);
   border-radius: $radius-full;
@@ -31,16 +31,16 @@
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--color-primary-light);
+    border-color: var(--page-accent-light);
     color: var(--text-main);
     transform: translateY(-1px);
   }
 
   &.active {
-    background: color-mix(in srgb, var(--color-primary) 22%, transparent);
-    color: var(--color-primary-light);
-    border-color: color-mix(in srgb, var(--color-primary-light) 45%, transparent);
-    box-shadow: 0 0 16px color-mix(in srgb, var(--color-primary) 35%, transparent);
+    background: color-mix(in srgb, var(--page-accent) 22%, transparent);
+    color: var(--page-accent-light);
+    border-color: color-mix(in srgb, var(--page-accent-light) 45%, transparent);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--page-accent) 35%, transparent);
   }
 }
 
@@ -95,14 +95,14 @@
 
     .tag {
       display: inline-block;
-      background: color-mix(in srgb, var(--color-primary) 25%, transparent);
-      color: var(--color-primary-light);
+      background: color-mix(in srgb, var(--page-accent) 25%, transparent);
+      color: var(--page-accent-light);
       padding: 3px 10px;
       border-radius: 4px;
       font-size: 0.75rem;
       margin-bottom: $spacing-xs;
       font-family: monospace;
-      border: 1px solid color-mix(in srgb, var(--color-primary-light) 40%, transparent);
+      border: 1px solid color-mix(in srgb, var(--page-accent-light) 40%, transparent);
     }
 
     h3 {
@@ -189,7 +189,7 @@
       code {
         font-family: 'Courier New', monospace;
         font-size: 0.75rem;
-        color: var(--color-primary-light);
+        color: var(--page-accent-light);
         white-space: pre;
       }
     }

@@ -1,17 +1,16 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+:host {
+  @include page-accent-host(var(--color-secondary), var(--color-secondary-light), var(--gradient-secondary));
+}
+
 .section-subtitle code {
-  background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
-  color: var(--color-secondary-light);
-  padding: 2px 6px;
-  border-radius: $radius-sm;
-  font-size: 0.9em;
+  @include code-chip();
 }
 
 .demo-desc code {
-  background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
-  color: var(--color-secondary-light);
+  @include code-chip(var(--page-accent), var(--page-accent-light), $font-size-xs);
 }
 
 // Direction picker
@@ -25,38 +24,18 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  background: var(--surface-card);
-  border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
-  color: var(--text-soft);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   cursor: pointer;
-  @include transition(all, $duration-fast);
-
-  &:hover {
-    border-color: var(--color-secondary-light);
-    color: var(--text-main);
-  }
-
-  &.active {
-    background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
-    border-color: var(--color-secondary);
-    color: var(--color-secondary-light);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 40%, transparent);
-  }
+  @include accent-control-pill();
 }
 
 // Demo stage
 .demo-stage {
-  background: var(--surface-stage);
-  border: 1px dashed color-mix(in srgb, var(--color-secondary) 20%, transparent);
-  border-radius: $radius-lg;
-  min-height: 160px;
-  @include flex-center;
+  @include accent-demo-stage();
   overflow: hidden;
-  margin-bottom: $spacing-lg;
 }
 
 // Slide boxes
@@ -94,29 +73,11 @@
 
 // Control button
 .btn-control {
-  display: inline-flex;
-  align-items: center;
-  gap: $spacing-sm;
-  background: var(--gradient-primary);
-  border: none;
-  color: var(--text-main);
-  border-radius: $radius-full;
-  padding: $spacing-sm $spacing-xl;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-semi;
-  cursor: pointer;
-  @include transition(transform box-shadow, $duration-fast);
+  @include accent-action-button(var(--gradient-primary));
 
   &.btn-secondary {
-    background: var(--gradient-secondary);
+    background: var(--page-gradient);
   }
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 40%, transparent);
-  }
-
-  &:active { transform: translateY(0); }
 }
 
 // All-directions grid
@@ -135,7 +96,7 @@
   align-items: center;
   gap: $spacing-sm;
   background: var(--surface-card);
-  border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--page-accent) 20%, transparent);
   border-radius: $radius-lg;
   padding: $spacing-lg $spacing-md;
   color: var(--text-soft);
@@ -147,11 +108,11 @@
   i { font-size: $font-size-2xl; }
 
   &:hover {
-    background: color-mix(in srgb, var(--color-secondary) 10%, transparent);
-    border-color: var(--color-secondary);
-    color: var(--color-secondary-light);
+    background: color-mix(in srgb, var(--page-accent) 10%, transparent);
+    border-color: var(--page-accent);
+    color: var(--page-accent-light);
     transform: translateY(-3px);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 40%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--page-accent) 40%, transparent);
   }
 }
 

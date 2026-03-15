@@ -1,9 +1,16 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+:host {
+  @include page-accent-host(var(--color-primary), var(--color-primary-light), var(--gradient-primary));
+}
+
+.section-subtitle code {
+  @include code-chip();
+}
+
 .demo-desc code {
-  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
-  color: var(--color-primary-light);
+  @include code-chip(var(--page-accent), var(--page-accent-light), $font-size-xs);
 }
 
 // Duration picker
@@ -14,37 +21,17 @@
 }
 
 .dur-btn {
-  background: var(--surface-card);
-  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  color: var(--text-soft);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   cursor: pointer;
-  @include transition(all, $duration-fast);
-
-  &:hover {
-    border-color: var(--color-primary-light);
-    color: var(--text-main);
-  }
-
-  &.active {
-    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
-    border-color: var(--color-primary);
-    color: var(--color-primary-light);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
-  }
+  @include accent-control-pill();
 }
 
 // Demo stage
 .demo-stage {
-  background: var(--surface-stage);
-  border: 1px dashed color-mix(in srgb, var(--color-primary) 20%, transparent);
-  border-radius: $radius-lg;
-  min-height: 160px;
-  @include flex-center;
-  margin-bottom: $spacing-lg;
+  @include accent-demo-stage();
 }
 
 // Fade boxes
@@ -101,25 +88,7 @@
 
 // Control button
 .btn-control {
-  display: inline-flex;
-  align-items: center;
-  gap: $spacing-sm;
-  background: var(--gradient-primary);
-  border: none;
-  color: var(--text-main);
-  border-radius: $radius-full;
-  padding: $spacing-sm $spacing-xl;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-semi;
-  cursor: pointer;
-  @include transition(transform box-shadow, $duration-fast);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
-  }
-
-  &:active { transform: translateY(0); }
+  @include accent-action-button();
 }
 
 @keyframes fadeScaleEnter {

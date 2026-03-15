@@ -1,6 +1,13 @@
-@use 'sass:color';
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
+
+:host {
+  @include page-accent-host(var(--color-primary), var(--color-primary-light));
+}
+
+.section-subtitle code {
+  @include code-chip();
+}
 
 .demo-section {
   max-width: 960px;
@@ -13,7 +20,7 @@
   gap: $spacing-sm;
   color: var(--text-main);
 
-  i { color: var(--color-primary-light); }
+  i { color: var(--page-accent-light); }
 }
 
 // Grid of keyframe cards
@@ -151,7 +158,7 @@
 // Code block
 .code-block {
   background: var(--color-dark-surface);
-  border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--page-accent) 15%, transparent);
   border-radius: $radius-lg;
   padding: $spacing-lg;
   overflow-x: auto;
@@ -164,7 +171,7 @@
     color: var(--text-muted);
   }
 
-  code { color: var(--color-primary-light); }
+  code { color: var(--page-accent-light); }
 }
 
 // sr-only
