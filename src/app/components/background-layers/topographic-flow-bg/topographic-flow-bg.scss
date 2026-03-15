@@ -1,0 +1,137 @@
+:host {
+	display: contents;
+}
+
+.topographic-flow {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 10%, transparent) 0%, transparent 38%),
+		radial-gradient(circle at 78% 76%, color-mix(in srgb, var(--color-secondary) 12%, transparent) 0%, transparent 32%);
+
+	.contour,
+	.ridge,
+	.highlight {
+		position: absolute;
+		inset: -20%;
+	}
+
+	.contour {
+		opacity: 0.5;
+		background-image: repeating-radial-gradient(
+			ellipse at center,
+			color-mix(in srgb, var(--color-light) 9%, transparent) 0 2px,
+			transparent 2px 16px
+		);
+		filter: blur(0.4px);
+	}
+
+	.contour-a {
+		transform: rotate(-9deg) scale(1.2);
+		animation: contourDriftA 24s linear infinite;
+	}
+
+	.contour-b {
+		opacity: 0.32;
+		transform: rotate(14deg) scale(1.3);
+		animation: contourDriftB 30s linear infinite;
+	}
+
+	.ridge {
+		background-image: repeating-linear-gradient(
+			115deg,
+			transparent 0 18px,
+			color-mix(in srgb, var(--color-primary-light) 18%, transparent) 18px 19px,
+			transparent 19px 34px
+		);
+		mix-blend-mode: screen;
+		mask-image: radial-gradient(circle at center, black 34%, transparent 84%);
+	}
+
+	.ridge-a {
+		opacity: 0.55;
+		animation: ridgeShiftA 18s ease-in-out infinite;
+	}
+
+	.ridge-b {
+		opacity: 0.35;
+		transform: rotate(90deg) scale(1.1);
+		animation: ridgeShiftB 22s ease-in-out infinite;
+	}
+
+	.highlight {
+		inset: auto;
+		width: 22rem;
+		height: 22rem;
+		right: -5rem;
+		bottom: -10rem;
+		border-radius: 50%;
+		background: radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 20%, transparent) 0%, transparent 70%);
+		filter: blur(12px);
+		animation: topoGlow 14s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.topographic-flow .contour,
+	.topographic-flow .ridge,
+	.topographic-flow .highlight {
+		animation: none;
+	}
+}
+
+@keyframes contourDriftA {
+	0% {
+		transform: rotate(-9deg) scale(1.2) translate3d(-2%, 0, 0);
+	}
+	100% {
+		transform: rotate(-9deg) scale(1.2) translate3d(3%, -4%, 0);
+	}
+}
+
+@keyframes contourDriftB {
+	0% {
+		transform: rotate(14deg) scale(1.3) translate3d(2%, -1%, 0);
+	}
+	100% {
+		transform: rotate(14deg) scale(1.3) translate3d(-3%, 4%, 0);
+	}
+}
+
+@keyframes ridgeShiftA {
+	0%,
+	100% {
+		transform: translate3d(-2%, 0, 0) scale(1);
+		opacity: 0.42;
+	}
+	50% {
+		transform: translate3d(4%, -3%, 0) scale(1.06);
+		opacity: 0.68;
+	}
+}
+
+@keyframes ridgeShiftB {
+	0%,
+	100% {
+		transform: rotate(90deg) scale(1.1) translate3d(0, 0, 0);
+		opacity: 0.22;
+	}
+	50% {
+		transform: rotate(90deg) scale(1.16) translate3d(0, 3%, 0);
+		opacity: 0.48;
+	}
+}
+
+@keyframes topoGlow {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0) scale(0.92);
+		opacity: 0.42;
+	}
+	50% {
+		transform: translate3d(-8%, -6%, 0) scale(1.08);
+		opacity: 0.72;
+	}
+}

@@ -14,6 +14,9 @@ import { MeshGradientBg } from '../../components/background-layers/mesh-gradient
 import { ConstellationBg } from '../../components/background-layers/constellation-bg/constellation-bg';
 import { RadarRingsBg } from '../../components/background-layers/radar-rings-bg/radar-rings-bg';
 import { GlitchStripesBg } from '../../components/background-layers/glitch-stripes-bg/glitch-stripes-bg';
+import { PrismCausticsBg } from '../../components/background-layers/prism-caustics-bg/prism-caustics-bg';
+import { TopographicFlowBg } from '../../components/background-layers/topographic-flow-bg/topographic-flow-bg';
+import { VortexTunnelBg } from '../../components/background-layers/vortex-tunnel-bg/vortex-tunnel-bg';
 
 @Component({
   selector: 'app-bg-demo',
@@ -22,6 +25,7 @@ import { GlitchStripesBg } from '../../components/background-layers/glitch-strip
     GeometricShapes, GlowNodes, LightRays, DepthLayers,
     StarfieldBg, AuroraBg, NeonGridBg, BubblesBg,
     MeshGradientBg, ConstellationBg, RadarRingsBg, GlitchStripesBg,
+    PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',

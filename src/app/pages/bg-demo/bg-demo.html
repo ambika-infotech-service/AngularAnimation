@@ -210,6 +210,42 @@
       </div>
     </div>
 
+    <!-- Prism Caustics -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('abstract')">
+      <div class="preview-stage" role="img" aria-label="Prism Caustics preview">
+        <app-prism-caustics-bg></app-prism-caustics-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-prism-caustics-bg</code>
+        <h3>Prism Caustics</h3>
+        <p>Layered refracted light fans that rotate and overlap like sunlight bouncing through glass.</p>
+      </div>
+    </div>
+
+    <!-- Topographic Flow -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('geometric')">
+      <div class="preview-stage" role="img" aria-label="Topographic Flow preview">
+        <app-topographic-flow-bg></app-topographic-flow-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-topographic-flow-bg</code>
+        <h3>Topographic Flow</h3>
+        <p>Animated contour rings and drifting ridges that feel like a living terrain map.</p>
+      </div>
+    </div>
+
+    <!-- Vortex Tunnel -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('sci-fi')">
+      <div class="preview-stage" role="img" aria-label="Vortex Tunnel preview">
+        <app-vortex-tunnel-bg></app-vortex-tunnel-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-vortex-tunnel-bg</code>
+        <h3>Vortex Tunnel</h3>
+        <p>Concentric energy rings and a spinning beam that create a portal-like depth illusion.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -341,6 +377,54 @@
         <pre><code>&#x3C;app-mesh-gradient-bg&#x3E;&#x3C;/app-mesh-gradient-bg&#x3E;
 &#x3C;app-glitch-stripes-bg&#x3E;&#x3C;/app-glitch-stripes-bg&#x3E;
 &#x3C;app-hero-shimmer&#x3E;&#x3C;/app-hero-shimmer&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 8: Crystal Lagoon -->
+    <div class="combo-card" [class.is-hidden]="!isVisible('abstract')">
+      <div class="combo-stage" role="img" aria-label="Crystal Lagoon scene preview">
+        <app-prism-caustics-bg></app-prism-caustics-bg>
+        <app-mesh-gradient-bg></app-mesh-gradient-bg>
+        <app-bubbles-bg></app-bubbles-bg>
+      </div>
+      <div class="card-info">
+        <h3>Crystal Lagoon</h3>
+        <p>Prism Caustics + Mesh Gradient + Bubbles</p>
+        <pre><code>&#x3C;app-prism-caustics-bg&#x3E;&#x3C;/app-prism-caustics-bg&#x3E;
+&#x3C;app-mesh-gradient-bg&#x3E;&#x3C;/app-mesh-gradient-bg&#x3E;
+&#x3C;app-bubbles-bg&#x3E;&#x3C;/app-bubbles-bg&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 9: Cartography Signal -->
+    <div class="combo-card" [class.is-hidden]="!isVisible('geometric')">
+      <div class="combo-stage" role="img" aria-label="Cartography Signal scene preview">
+        <app-topographic-flow-bg></app-topographic-flow-bg>
+        <app-constellation-bg></app-constellation-bg>
+        <app-hero-shimmer></app-hero-shimmer>
+      </div>
+      <div class="card-info">
+        <h3>Cartography Signal</h3>
+        <p>Topographic Flow + Constellation + Hero Shimmer</p>
+        <pre><code>&#x3C;app-topographic-flow-bg&#x3E;&#x3C;/app-topographic-flow-bg&#x3E;
+&#x3C;app-constellation-bg&#x3E;&#x3C;/app-constellation-bg&#x3E;
+&#x3C;app-hero-shimmer&#x3E;&#x3C;/app-hero-shimmer&#x3E;</code></pre>
+      </div>
+    </div>
+
+    <!-- Combo 10: Portal Grid -->
+    <div class="combo-card" [class.is-hidden]="!isVisible('sci-fi')">
+      <div class="combo-stage" role="img" aria-label="Portal Grid scene preview">
+        <app-vortex-tunnel-bg></app-vortex-tunnel-bg>
+        <app-neon-grid-bg></app-neon-grid-bg>
+        <app-radar-rings-bg></app-radar-rings-bg>
+      </div>
+      <div class="card-info">
+        <h3>Portal Grid</h3>
+        <p>Vortex Tunnel + Neon Grid + Radar Rings</p>
+        <pre><code>&#x3C;app-vortex-tunnel-bg&#x3E;&#x3C;/app-vortex-tunnel-bg&#x3E;
+&#x3C;app-neon-grid-bg&#x3E;&#x3C;/app-neon-grid-bg&#x3E;
+&#x3C;app-radar-rings-bg&#x3E;&#x3C;/app-radar-rings-bg&#x3E;</code></pre>
       </div>
     </div>
 

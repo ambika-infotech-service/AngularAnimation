@@ -1,0 +1,150 @@
+:host {
+	display: contents;
+}
+
+.prism-caustics {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	isolation: isolate;
+
+	.caustic,
+	.flare,
+	.grain {
+		position: absolute;
+	}
+
+	.caustic {
+		inset: -25%;
+		mix-blend-mode: screen;
+		opacity: 0.72;
+		filter: blur(8px) saturate(125%);
+		background:
+			conic-gradient(
+				from 180deg at 50% 50%,
+				transparent 0deg 32deg,
+				color-mix(in srgb, #ffb56b 65%, transparent) 64deg,
+				color-mix(in srgb, #7df9ff 90%, transparent) 120deg,
+				color-mix(in srgb, #ffd76d 60%, transparent) 168deg,
+				transparent 222deg 360deg
+			);
+	}
+
+	.caustic-a {
+		animation: prismSweepA 16s linear infinite;
+	}
+
+	.caustic-b {
+		inset: -35% -10%;
+		opacity: 0.55;
+		transform: rotate(38deg) scale(1.15);
+		animation: prismSweepB 19s ease-in-out infinite;
+	}
+
+	.caustic-c {
+		inset: -20% -30%;
+		opacity: 0.45;
+		transform: rotate(-28deg) scale(1.25);
+		animation: prismSweepC 22s ease-in-out infinite;
+	}
+
+	.flare {
+		border-radius: 50%;
+		mix-blend-mode: screen;
+		filter: blur(10px);
+		background: radial-gradient(circle, color-mix(in srgb, #fff7c2 70%, transparent) 0%, transparent 70%);
+	}
+
+	.flare-a {
+		width: 14rem;
+		height: 14rem;
+		top: -10%;
+		left: -6%;
+		animation: flareFloat 12s ease-in-out infinite;
+	}
+
+	.flare-b {
+		width: 18rem;
+		height: 18rem;
+		right: -12%;
+		bottom: -18%;
+		opacity: 0.65;
+		animation: flareFloat 15s ease-in-out infinite reverse;
+	}
+
+	.grain {
+		inset: 0;
+		opacity: 0.16;
+		background-image:
+			radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0 0.05rem, transparent 0.06rem),
+			radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.25) 0 0.04rem, transparent 0.05rem),
+			radial-gradient(circle at 55% 72%, rgba(255, 255, 255, 0.22) 0 0.05rem, transparent 0.06rem);
+		background-size: 7rem 7rem, 9rem 9rem, 8rem 8rem;
+		animation: prismGrain 14s linear infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.prism-caustics .caustic,
+	.prism-caustics .flare,
+	.prism-caustics .grain {
+		animation: none;
+	}
+}
+
+@keyframes prismSweepA {
+	0% {
+		transform: rotate(0deg) scale(1.08) translate3d(-3%, -1%, 0);
+	}
+	50% {
+		transform: rotate(180deg) scale(1.18) translate3d(4%, 2%, 0);
+	}
+	100% {
+		transform: rotate(360deg) scale(1.08) translate3d(-3%, -1%, 0);
+	}
+}
+
+@keyframes prismSweepB {
+	0%,
+	100% {
+		transform: rotate(38deg) scale(1.15) translate3d(-4%, 3%, 0);
+	}
+	50% {
+		transform: rotate(398deg) scale(1.22) translate3d(5%, -4%, 0);
+	}
+}
+
+@keyframes prismSweepC {
+	0%,
+	100% {
+		transform: rotate(-28deg) scale(1.25) translate3d(2%, -3%, 0);
+	}
+	50% {
+		transform: rotate(332deg) scale(1.1) translate3d(-5%, 5%, 0);
+	}
+}
+
+@keyframes flareFloat {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0) scale(0.95);
+		opacity: 0.45;
+	}
+	50% {
+		transform: translate3d(6%, 8%, 0) scale(1.08);
+		opacity: 0.8;
+	}
+}
+
+@keyframes prismGrain {
+	0% {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+	50% {
+		transform: translate3d(-2%, 2%, 0) scale(1.04);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+}

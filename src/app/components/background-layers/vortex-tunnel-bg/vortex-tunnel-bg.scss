@@ -1,0 +1,147 @@
+:host {
+	display: contents;
+}
+
+.vortex-tunnel {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	perspective: 1000px;
+
+	.ring,
+	.beam,
+	.core,
+	.tunnel-glow {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform-style: preserve-3d;
+	}
+
+	.tunnel-glow {
+		width: 32rem;
+		height: 32rem;
+		translate: -50% -50%;
+		border-radius: 50%;
+		background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 20%, transparent) 0%, transparent 66%);
+		filter: blur(16px);
+		opacity: 0.85;
+		animation: glowPulse 8s ease-in-out infinite;
+	}
+
+	.ring {
+		width: var(--ring-size);
+		height: var(--ring-size);
+		margin-left: calc(var(--ring-size) * -0.5);
+		margin-top: calc(var(--ring-size) * -0.5);
+		border-radius: 50%;
+		border: 2px solid color-mix(in srgb, var(--ring-color) 58%, transparent);
+		box-shadow:
+			0 0 18px color-mix(in srgb, var(--ring-color) 26%, transparent),
+			inset 0 0 18px color-mix(in srgb, var(--ring-color) 18%, transparent);
+		opacity: 0;
+		animation: tunnelRing 5.8s linear infinite;
+	}
+
+	.ring-a { --ring-size: 4rem; --ring-color: var(--color-secondary); animation-delay: 0s; }
+	.ring-b { --ring-size: 7rem; --ring-color: var(--color-primary-light); animation-delay: 1.1s; }
+	.ring-c { --ring-size: 10rem; --ring-color: #9efff8; animation-delay: 2.2s; }
+	.ring-d { --ring-size: 13rem; --ring-color: #78c6ff; animation-delay: 3.3s; }
+	.ring-e { --ring-size: 16rem; --ring-color: var(--color-secondary); animation-delay: 4.4s; }
+
+	.beam {
+		width: 22rem;
+		height: 2.2rem;
+		margin-left: -11rem;
+		margin-top: -1.1rem;
+		border-radius: 999px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			color-mix(in srgb, var(--color-secondary) 58%, transparent) 20%,
+			color-mix(in srgb, #ffffff 60%, transparent) 50%,
+			color-mix(in srgb, var(--color-primary-light) 48%, transparent) 80%,
+			transparent 100%
+		);
+		filter: blur(3px);
+		transform-origin: center;
+		animation: beamSpin 9s linear infinite;
+		opacity: 0.85;
+	}
+
+	.core {
+		width: 1rem;
+		height: 1rem;
+		margin-left: -0.5rem;
+		margin-top: -0.5rem;
+		border-radius: 50%;
+		background: color-mix(in srgb, #ffffff 80%, var(--color-secondary) 20%);
+		box-shadow:
+			0 0 18px color-mix(in srgb, #ffffff 80%, transparent),
+			0 0 36px color-mix(in srgb, var(--color-secondary) 70%, transparent);
+		animation: corePulse 2.8s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.vortex-tunnel .ring,
+	.vortex-tunnel .beam,
+	.vortex-tunnel .core,
+	.vortex-tunnel .tunnel-glow {
+		animation: none;
+	}
+}
+
+@keyframes tunnelRing {
+	0% {
+		transform: translateZ(-420px) scale(0.18);
+		opacity: 0;
+	}
+	15% {
+		opacity: 0.7;
+	}
+	80% {
+		opacity: 0.55;
+	}
+	100% {
+		transform: translateZ(260px) scale(1.65);
+		opacity: 0;
+	}
+}
+
+@keyframes beamSpin {
+	0% {
+		transform: rotate(0deg) scaleX(0.9);
+	}
+	50% {
+		transform: rotate(180deg) scaleX(1.08);
+	}
+	100% {
+		transform: rotate(360deg) scaleX(0.9);
+	}
+}
+
+@keyframes corePulse {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.78;
+	}
+	50% {
+		transform: scale(1.35);
+		opacity: 1;
+	}
+}
+
+@keyframes glowPulse {
+	0%,
+	100% {
+		transform: translate3d(-50%, -50%, 0) scale(0.92);
+		opacity: 0.58;
+	}
+	50% {
+		transform: translate3d(-50%, -50%, 0) scale(1.08);
+		opacity: 0.92;
+	}
+}
