@@ -3,7 +3,7 @@
 
 .demo-desc code {
   background: color-mix(in srgb, var(--color-primary) 15%, transparent);
-  color: var(--color-primary-light);
+  color: var(--color-primary-dark);
 }
 
 // Duration picker
@@ -14,9 +14,9 @@
 }
 
 .dur-btn {
-  background: var(--color-dark-card);
+  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
   border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  color: color-mix(in srgb, var(--color-light) 65%, transparent);
+  color: color-mix(in srgb, var(--color-dark) 76%, white 24%);
   border-radius: $radius-full;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
@@ -26,20 +26,20 @@
 
   &:hover {
     border-color: var(--color-primary-light);
-    color: var(--color-light);
+    color: var(--color-primary-dark);
   }
 
   &.active {
     background: color-mix(in srgb, var(--color-primary) 20%, transparent);
     border-color: var(--color-primary);
-    color: var(--color-primary-light);
+    color: var(--color-primary-dark);
     box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
   }
 }
 
 // Demo stage
 .demo-stage {
-  background: color-mix(in srgb, var(--color-dark-surface) 60%, transparent);
+  background: color-mix(in srgb, var(--color-light) 92%, var(--color-dark) 8%);
   border: 1px dashed color-mix(in srgb, var(--color-primary) 20%, transparent);
   border-radius: $radius-lg;
   min-height: 160px;
@@ -56,7 +56,7 @@
   border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
   border-radius: $radius-xl;
   padding: $spacing-xl $spacing-2xl;
-  color: var(--color-primary-light);
+  color: var(--color-primary-dark);
   font-weight: $font-weight-semi;
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -69,7 +69,7 @@
   &.box-secondary {
     background: color-mix(in srgb, var(--color-secondary) 12%, transparent);
     border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent);
-    color: var(--color-secondary-light);
+    color: var(--color-secondary-dark);
   }
 
   &.box-accent {
@@ -106,7 +106,7 @@
   gap: $spacing-sm;
   background: var(--gradient-primary);
   border: none;
-  color: var(--color-light);
+  color: var(--color-dark);
   border-radius: $radius-full;
   padding: $spacing-sm $spacing-xl;
   font-size: $font-size-sm;

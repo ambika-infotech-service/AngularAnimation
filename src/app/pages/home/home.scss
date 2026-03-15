@@ -77,6 +77,7 @@
 
 .hero-title {
   @include heading($font-size-3xl, $font-weight-black);
+  color: var(--color-dark);
   line-height: 1.1;
 
   @include respond-to(md) {
@@ -94,7 +95,7 @@
 
 .hero-subtitle {
   font-size: $font-size-md;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: color-mix(in srgb, var(--color-dark) 80%, white 20%);
   max-width: 560px;
   line-height: $line-height-loose;
 }
@@ -200,10 +201,10 @@
   @include flex-center;
   font-size: $font-size-xl;
 
-  &.icon-gradient-primary   { background: color-mix(in srgb, var(--color-primary) 15%, transparent); color: var(--color-primary-light); }
-  &.icon-gradient-secondary { background: color-mix(in srgb, var(--color-secondary) 15%, transparent); color: var(--color-secondary-light); }
+  &.icon-gradient-primary   { background: color-mix(in srgb, var(--color-primary) 14%, white 86%); color: var(--color-primary-dark); }
+  &.icon-gradient-secondary { background: color-mix(in srgb, var(--color-secondary) 14%, white 86%); color: var(--color-secondary-dark); }
   &.icon-gradient-accent    { background: color-mix(in srgb, var(--color-accent) 15%, transparent); color: var(--color-accent); }
-  &.icon-gradient-hero      { background: color-mix(in srgb, var(--color-primary) 15%, transparent); color: var(--color-primary-light); }
+  &.icon-gradient-hero      { background: color-mix(in srgb, var(--color-primary) 14%, white 86%); color: var(--color-primary-dark); }
 }
 
 .card-body {
@@ -215,17 +216,17 @@
 .card-title {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
 .card-desc {
   font-size: $font-size-sm;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
   line-height: $line-height-normal;
 }
 
 .card-arrow {
-  color: var(--color-primary-light);
+  color: var(--color-primary-dark);
   font-size: $font-size-xl;
   opacity: 0;
   transform: translateX(-6px);

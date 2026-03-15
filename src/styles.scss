@@ -136,7 +136,7 @@ a {
 
 .section-subtitle {
   font-size: $font-size-md;
-  color: var(--color-subtle);
+  color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
   text-align: center;
   margin-bottom: $spacing-3xl;
 }
@@ -156,19 +156,19 @@ a {
 .demo-section-title {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
-  color: var(--color-light);
+  color: var(--color-dark);
   margin-bottom: $spacing-sm;
 }
 
 .demo-desc {
   font-size: $font-size-sm;
-  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  color: color-mix(in srgb, var(--color-dark) 80%, white 20%);
   margin-bottom: $spacing-lg;
   line-height: $line-height-normal;
 
   code {
-    background: color-mix(in srgb, var(--color-light) 10%, transparent);
-    color: color-mix(in srgb, var(--color-light) 92%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 12%, white 88%);
+    color: var(--color-primary-dark);
     padding: 2px 6px;
     border-radius: $radius-sm;
     font-size: $font-size-xs;
@@ -178,8 +178,9 @@ a {
 // Demo Card
 .demo-card {
   @include card;
-  background: var(--color-dark-card);
-  border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
+  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
+  border-color: color-mix(in srgb, var(--color-dark) 12%, transparent);
+  color: var(--color-dark);
   padding: $spacing-xl;
   @include transition(transform box-shadow);
 
@@ -254,11 +255,11 @@ a {
 
 @supports not (background: color-mix(in srgb, white 50%, black 50%)) {
   .demo-desc {
-    color: rgba($light, 0.8);
+    color: rgba($dark, 0.82);
 
     code {
-      background: rgba($light, 0.08);
-      color: rgba($light, 0.92);
+      background: rgba($primary, 0.12);
+      color: $primary-dark;
     }
   }
 }
