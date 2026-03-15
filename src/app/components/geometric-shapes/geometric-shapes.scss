@@ -10,7 +10,7 @@
 
   .shape {
     position: absolute;
-    border: 1px solid rgba(0, 204, 255, 0.15);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
 
     &.square {
       width: 80px;
@@ -26,7 +26,7 @@
       height: 0;
       border-left: 40px solid transparent;
       border-right: 40px solid transparent;
-      border-bottom: 70px solid rgba(0, 204, 255, 0.1);
+      border-bottom: 70px solid color-mix(in srgb, var(--color-primary) 10%, transparent);
       border-top: none;
       top: 60%;
       left: 10%;
@@ -37,8 +37,8 @@
       width: 60px;
       height: 60px;
       clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-      background: rgba(0, 204, 255, 0.08);
-      border: 1px solid rgba(0, 204, 255, 0.2);
+      background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
       bottom: 20%;
       right: 25%;
       animation: hexagonSpin 35s linear infinite;
@@ -48,7 +48,7 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 2px solid rgba(0, 204, 255, 0.12);
+      border: 2px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
       top: 35%;
       left: 20%;
       animation: circlePulse 20s ease-in-out infinite;

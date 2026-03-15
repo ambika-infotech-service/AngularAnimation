@@ -4,6 +4,70 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+:root,
+:root[data-theme='ocean'] {
+  --color-primary: #00bcd4;
+  --color-primary-light: #7ce8ff;
+  --color-primary-dark: #008ba3;
+  --color-secondary: #14f1b7;
+  --color-secondary-light: #8dffd9;
+  --color-secondary-dark: #0da67f;
+  --color-accent: #ff7a59;
+  --color-accent-dark: #d65133;
+  --color-info: #52b8ff;
+  --color-dark: #182029;
+  --color-dark-card: #1f2a36;
+  --color-dark-surface: #111a23;
+  --color-light: #f3f8fc;
+  --color-subtle: rgba(243, 248, 252, 0.75);
+  --gradient-primary: linear-gradient(135deg, #00bcd4 0%, #7ce8ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #0da67f 0%, #8dffd9 100%);
+  --gradient-accent: linear-gradient(135deg, #d65133 0%, #ff7a59 100%);
+  --gradient-hero: linear-gradient(135deg, #008ba3 0%, #14f1b7 50%, #ff7a59 100%);
+}
+
+:root[data-theme='sunset'] {
+  --color-primary: #ff6b6b;
+  --color-primary-light: #ffb4a6;
+  --color-primary-dark: #d94848;
+  --color-secondary: #ff9f43;
+  --color-secondary-light: #ffd08a;
+  --color-secondary-dark: #d97920;
+  --color-accent: #7f5af0;
+  --color-accent-dark: #5e3fbe;
+  --color-info: #7bc3ff;
+  --color-dark: #231a22;
+  --color-dark-card: #2f2330;
+  --color-dark-surface: #1a141d;
+  --color-light: #fff3eb;
+  --color-subtle: rgba(255, 243, 235, 0.75);
+  --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ffb4a6 100%);
+  --gradient-secondary: linear-gradient(135deg, #d97920 0%, #ffd08a 100%);
+  --gradient-accent: linear-gradient(135deg, #5e3fbe 0%, #7f5af0 100%);
+  --gradient-hero: linear-gradient(135deg, #d94848 0%, #ff9f43 50%, #7f5af0 100%);
+}
+
+:root[data-theme='neon'] {
+  --color-primary: #22d3ee;
+  --color-primary-light: #7ef9ff;
+  --color-primary-dark: #0e9fb4;
+  --color-secondary: #39ff88;
+  --color-secondary-light: #9fffc9;
+  --color-secondary-dark: #19be5d;
+  --color-accent: #ff4ecd;
+  --color-accent-dark: #d62ea8;
+  --color-info: #66d4ff;
+  --color-dark: #100f1a;
+  --color-dark-card: #1a1830;
+  --color-dark-surface: #0c0b14;
+  --color-light: #f5f6ff;
+  --color-subtle: rgba(245, 246, 255, 0.75);
+  --gradient-primary: linear-gradient(135deg, #22d3ee 0%, #7ef9ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #19be5d 0%, #9fffc9 100%);
+  --gradient-accent: linear-gradient(135deg, #d62ea8 0%, #ff4ecd 100%);
+  --gradient-hero: linear-gradient(135deg, #0e9fb4 0%, #39ff88 50%, #ff4ecd 100%);
+}
+
 // Base reset & body
 *, *::before, *::after {
   box-sizing: border-box;
@@ -17,8 +81,8 @@ html {
 
 body {
   font-family: $font-family-base;
-  background-color: $dark-surface;
-  color: $light;
+  background-color: var(--color-dark-surface);
+  color: var(--color-light);
   line-height: $line-height-normal;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -26,12 +90,12 @@ body {
 
 // Links
 a {
-  color: $primary-light;
+  color: var(--color-primary-light);
   text-decoration: none;
   @include transition(color);
 
   &:hover {
-    color: $primary;
+    color: var(--color-primary);
   }
 }
 
@@ -40,10 +104,10 @@ a {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: $dark;
+  background: var(--color-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: $primary;
+  background: var(--color-primary);
   border-radius: $radius-full;
 }
 
@@ -62,21 +126,60 @@ a {
 
 .section-title {
   @include heading($font-size-3xl, $font-weight-bold);
-  @include gradient-text($gradient-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
   margin-bottom: $spacing-sm;
 }
 
 .section-subtitle {
   font-size: $font-size-md;
-  color: $muted;
+  color: var(--color-subtle);
   text-align: center;
   margin-bottom: $spacing-3xl;
+}
+
+// Shared demo page layout/typography
+.page-header {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.demo-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: $spacing-sm;
+}
+
+.demo-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: var(--color-light);
+  margin-bottom: $spacing-sm;
+}
+
+.demo-desc {
+  font-size: $font-size-sm;
+  color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  margin-bottom: $spacing-lg;
+  line-height: $line-height-normal;
+
+  code {
+    background: color-mix(in srgb, var(--color-light) 10%, transparent);
+    color: color-mix(in srgb, var(--color-light) 92%, transparent);
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+  }
 }
 
 // Demo Card
 .demo-card {
   @include card;
+  background: var(--color-dark-card);
+  border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
   padding: $spacing-xl;
   @include transition(transform box-shadow);
 
@@ -97,28 +200,28 @@ a {
   text-transform: uppercase;
 
   &.chip-primary {
-    background: rgba($primary, 0.15);
-    color: $primary-light;
-    border: 1px solid rgba($primary, 0.3);
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary-light);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
   }
 
   &.chip-secondary {
-    background: rgba($secondary, 0.15);
-    color: $secondary-light;
-    border: 1px solid rgba($secondary, 0.3);
+    background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+    color: var(--color-secondary-light);
+    border: 1px solid color-mix(in srgb, var(--color-secondary) 35%, transparent);
   }
 
   &.chip-accent {
-    background: rgba($accent, 0.15);
-    color: $accent;
-    border: 1px solid rgba($accent, 0.3);
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
   }
 }
 
 // Glow divider
 .glow-divider {
   height: 2px;
-  background: $gradient-hero;
+  background: var(--gradient-hero);
   border: none;
   border-radius: $radius-full;
   opacity: 0.6;
@@ -129,8 +232,8 @@ a {
 // Keyframe Animations (global, reusable)
 // =============================================================================
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 10px rgba($primary, 0.3); }
-  50%       { box-shadow: 0 0 30px rgba($primary, 0.7); }
+  0%, 100% { box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 30%, transparent); }
+  50%       { box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 70%, transparent); }
 }
 
 @keyframes float {
@@ -147,5 +250,16 @@ a {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@supports not (background: color-mix(in srgb, white 50%, black 50%)) {
+  .demo-desc {
+    color: rgba($light, 0.8);
+
+    code {
+      background: rgba($light, 0.08);
+      color: rgba($light, 0.92);
+    }
+  }
 }
 

@@ -2,12 +2,9 @@
 @use '../../../mixins' as *;
 
 .page-header {
-  text-align: center;
-  padding-bottom: 0;
-
   code {
-    background: rgba($primary, 0.15);
-    color: $primary-light;
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary-light);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.875em;
@@ -20,14 +17,11 @@
 }
 
 .demo-section-title {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
-  color: $light;
   margin-bottom: $spacing-lg;
 }
 
 .combo-note {
-  color: rgba($light, 0.55);
+  color: color-mix(in srgb, var(--color-light) 80%, transparent);
   font-size: $font-size-sm;
   margin-top: -$spacing-sm;
   margin-bottom: $spacing-lg;
@@ -43,8 +37,8 @@
 .bg-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: rgba($light, 0.04);
-  border: 1px solid rgba($light, 0.08);
+  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
@@ -64,25 +58,26 @@
 
     .tag {
       display: inline-block;
-      background: rgba($primary, 0.15);
-      color: $primary-light;
-      padding: 2px 8px;
+      background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+      color: var(--color-primary-light);
+      padding: 3px 10px;
       border-radius: 4px;
       font-size: 0.75rem;
       margin-bottom: $spacing-xs;
       font-family: monospace;
+      border: 1px solid color-mix(in srgb, var(--color-primary-light) 40%, transparent);
     }
 
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: $light;
+      color: var(--color-light);
       margin: $spacing-xs 0;
     }
 
     p {
       font-size: $font-size-sm;
-      color: rgba($light, 0.55);
+      color: color-mix(in srgb, var(--color-light) 80%, transparent);
       margin: 0;
       line-height: 1.6;
     }
@@ -103,8 +98,8 @@
 .combo-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: rgba($light, 0.04);
-  border: 1px solid rgba($light, 0.08);
+  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
@@ -129,27 +124,27 @@
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: $light;
+      color: var(--color-light);
       margin: 0 0 $spacing-xs;
     }
 
     p {
       font-size: $font-size-sm;
-      color: rgba($light, 0.55);
+      color: color-mix(in srgb, var(--color-light) 80%, transparent);
       margin-bottom: $spacing-sm;
     }
 
     pre {
       margin: 0;
       border-radius: $radius-sm;
-      background: rgba($dark, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       padding: $spacing-sm $spacing-md;
       overflow-x: auto;
 
       code {
         font-family: 'Courier New', monospace;
         font-size: 0.75rem;
-        color: rgba($primary-light, 0.85);
+        color: var(--color-primary-light);
         white-space: pre;
       }
     }

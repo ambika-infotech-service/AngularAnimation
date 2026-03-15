@@ -19,7 +19,12 @@
     left: 50%;
     width: 2px;
     height: 300px;
-    background: linear-gradient(to bottom, transparent, rgba(0, 204, 255, 0.3), transparent);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in srgb, var(--color-primary) 30%, transparent),
+      transparent
+    );
     transform-origin: top center;
     animation: rotateRays 40s linear infinite;
 

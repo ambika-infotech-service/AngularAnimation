@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AppTheme, ThemeService } from '../../app/services/theme';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar {
+  readonly themeService = inject(ThemeService);
   readonly menuOpen = signal(false);
+
+  readonly themes: ReadonlyArray<{ value: AppTheme; label: string }> = [
+    { value: 'ocean', label: 'Ocean' },
+    { value: 'sunset', label: 'Sunset' },
+    { value: 'neon', label: 'Neon' },
+  ];
 
   toggleMenu(): void {
     this.menuOpen.update(v => !v);
+  }
+
+  onThemeChange(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+
+    if (value === 'ocean' || value === 'sunset' || value === 'neon') {
+      this.themeService.setTheme(value);
+    }
   }
 
   readonly navLinks = [

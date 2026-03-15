@@ -13,7 +13,12 @@
     content: '';
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 204, 255, 0.15) 0%, rgba(0, 204, 255, 0.05) 50%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-primary) 15%, transparent) 0%,
+      color-mix(in srgb, var(--color-primary) 5%, transparent) 50%,
+      transparent 70%
+    );
     filter: blur(40px);
   }
 

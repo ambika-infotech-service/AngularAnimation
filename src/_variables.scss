@@ -5,29 +5,29 @@
 // -----------------------------------------------------------------------------
 // Color Palette
 // -----------------------------------------------------------------------------
-$primary:         #6c5ce7;
-$primary-light:   #a29bfe;
-$primary-dark:    #4834d4;
+$primary:         #00bcd4;
+$primary-light:   #7ce8ff;
+$primary-dark:    #008ba3;
 
-$secondary:       #00cec9;
-$secondary-light: #81ecec;
-$secondary-dark:  #00b894;
+$secondary:       #14f1b7;
+$secondary-light: #8dffd9;
+$secondary-dark:  #0da67f;
 
-$accent:          #fd79a8;
-$accent-light:    #fab1c7;
-$accent-dark:     #e84393;
+$accent:          #ff7a59;
+$accent-light:    #ffb79e;
+$accent-dark:     #d65133;
 
-$success:         #00b894;
-$warning:         #fdcb6e;
-$danger:          #d63031;
-$info:            #74b9ff;
+$success:         #12c48b;
+$warning:         #ffcc66;
+$danger:          #ff5f6d;
+$info:            #52b8ff;
 
-$dark:            #2d3436;
-$dark-card:       #353b48;
-$dark-surface:    #1e272e;
+$dark:            #182029;
+$dark-card:       #1f2a36;
+$dark-surface:    #111a23;
 
-$light:           #f8f9fa;
-$muted:           #636e72;
+$light:           #f3f8fc;
+$muted:           #94a8ba;
 
 // -----------------------------------------------------------------------------
 // Gradient Definitions
@@ -41,7 +41,7 @@ $gradient-dark:      linear-gradient(180deg, $dark-surface 0%, $dark 100%);
 // -----------------------------------------------------------------------------
 // Typography
 // -----------------------------------------------------------------------------
-$font-family-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-family-base: 'Space Grotesk', 'Manrope', 'Avenir Next', sans-serif;
 $font-size-xs:     0.75rem;   // 12px
 $font-size-sm:     0.875rem;  // 14px
 $font-size-base:   1rem;      // 16px

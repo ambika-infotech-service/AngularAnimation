@@ -13,8 +13,10 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(0, 204, 255, 0.8);
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.6), 0 0 40px rgba(0, 204, 255, 0.4);
+    background: color-mix(in srgb, var(--color-primary) 80%, transparent);
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 60%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-primary) 40%, transparent);
     animation: nodePulse 3s ease-in-out infinite;
 
     &:nth-child(1) { top: 25%; left: 30%;  animation-delay: 0s;   }
@@ -46,11 +48,15 @@
   0%, 100% {
     transform: scale(1);
     opacity: 0.8;
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.6), 0 0 40px rgba(0, 204, 255, 0.4);
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 60%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-primary) 40%, transparent);
   }
   50% {
     transform: scale(1.5);
     opacity: 1;
-    box-shadow: 0 0 30px rgba(0, 204, 255, 0.8), 0 0 60px rgba(0, 204, 255, 0.6);
+    box-shadow:
+      0 0 30px color-mix(in srgb, var(--color-primary) 80%, transparent),
+      0 0 60px color-mix(in srgb, var(--color-primary) 60%, transparent);
   }
 }

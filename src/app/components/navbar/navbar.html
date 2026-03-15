@@ -23,6 +23,21 @@
     }
   </ul>
 
+  <div class="theme-picker" aria-label="Theme selector">
+    <label class="visually-hidden" for="theme-select-desktop">Choose color theme</label>
+    <select
+      id="theme-select-desktop"
+      class="theme-select"
+      [value]="themeService.currentTheme()"
+      (change)="onThemeChange($event)"
+      aria-label="Choose color theme"
+    >
+      @for (theme of themes; track theme.value) {
+        <option [value]="theme.value">{{ theme.label }}</option>
+      }
+    </select>
+  </div>
+
   <button
     class="menu-toggle"
     (click)="toggleMenu()"
@@ -36,6 +51,21 @@
 
 @if (menuOpen()) {
   <div class="mobile-menu" id="mobile-menu" role="menu">
+    <div class="mobile-theme-picker">
+      <label class="visually-hidden" for="theme-select-mobile">Choose color theme</label>
+      <select
+        id="theme-select-mobile"
+        class="theme-select"
+        [value]="themeService.currentTheme()"
+        (change)="onThemeChange($event)"
+        aria-label="Choose color theme"
+      >
+        @for (theme of themes; track theme.value) {
+          <option [value]="theme.value">{{ theme.label }}</option>
+        }
+      </select>
+    </div>
+
     @for (link of navLinks; track link.path) {
       <a
         [routerLink]="link.path"
