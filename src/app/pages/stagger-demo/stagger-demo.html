@@ -3,9 +3,9 @@
     <i class="bi bi-list-ul" aria-hidden="true"></i>
     Stagger Animations
   </span>
-  <h1 class="section-title" style="background-image: linear-gradient(135deg, #fd79a8, #fab1c7)">Stagger Animation</h1>
+  <h1 class="section-title" style="background-image: var(--gradient-accent)">Stagger Animation</h1>
   <p class="section-subtitle">
-    Use <code>query</code> + <code>stagger</code> to animate lists sequentially.
+    Use modern CSS with <code>animate.enter</code>/<code>animate.leave</code> for sequential list motion.
   </p>
 </div>
 
@@ -43,11 +43,16 @@
 
     <ul
       class="stagger-list"
-      #listEl
+      [style.--list-stagger-step.ms]="staggerDelay()"
       aria-label="Staggered item list"
     >
-      @for (item of items(); track item.id) {
-        <li class="stagger-item">
+      @for (item of items(); track item.id; let i = $index) {
+        <li
+          class="stagger-item"
+          [style.--stagger-index]="i"
+          animate.enter="stagger-item-enter"
+          animate.leave="stagger-item-leave"
+        >
           <div class="item-icon" aria-hidden="true">
             <i class="bi {{ item.icon }}"></i>
           </div>
@@ -79,9 +84,15 @@
     </div>
     <p class="demo-desc">Scale-in with spring easing, staggered 60ms apart.</p>
 
-    <div class="stagger-grid" #gridEl aria-label="Staggered icon grid">
-      @for (item of gridItems(); track item.id) {
-        <div class="grid-icon" aria-hidden="true">
+    <div class="stagger-grid" aria-label="Staggered icon grid">
+      @for (item of gridItems(); track item.id; let i = $index) {
+        <div
+          class="grid-icon"
+          [style.--grid-index]="i"
+          animate.enter="stagger-grid-enter"
+          animate.leave="stagger-grid-leave"
+          aria-hidden="true"
+        >
           <i class="bi {{ item.icon }}"></i>
         </div>
       }

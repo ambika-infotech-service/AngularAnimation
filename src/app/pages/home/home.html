@@ -1,4 +1,4 @@
-<section class="hero" [@heroEnter]>
+<section class="hero" animate.enter="hero-enter">
   <app-floating-shapes></app-floating-shapes>
   <app-hero-particles></app-hero-particles>
   <app-hero-shimmer></app-hero-shimmer>
@@ -52,11 +52,13 @@
   <h2 id="demos-heading" class="section-title">Animation Demos</h2>
   <p class="section-subtitle">Click any card to explore that animation type</p>
 
-  <div class="demos-grid" [@cardsEnter]>
-    @for (demo of demos; track demo.path) {
+  <div class="demos-grid">
+    @for (demo of demos; track demo.path; let i = $index) {
       <a
         [routerLink]="demo.path"
         class="demo-card card-link"
+        animate.enter="demo-card-enter"
+        [style.--card-index]="i"
         [attr.aria-label]="'Go to ' + demo.title"
       >
         <div class="card-icon-wrap" [class]="'icon-' + demo.gradient" aria-hidden="true">

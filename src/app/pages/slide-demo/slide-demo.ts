@@ -1,27 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  trigger,
-  transition,
-  style,
-  animate,
-} from '@angular/animations';
 
 type Direction = 'left' | 'right' | 'top' | 'bottom';
-
-function slideEnter(dx: string, dy: string) {
-  return [
-    style({ opacity: 0, transform: `translate(${dx}, ${dy})` }),
-    animate('450ms cubic-bezier(0,0,0.2,1)',
-      style({ opacity: 1, transform: 'translate(0,0)' })),
-  ];
-}
-
-function slideLeave(dx: string, dy: string) {
-  return [
-    animate('300ms cubic-bezier(0.4,0,1,1)',
-      style({ opacity: 0, transform: `translate(${dx}, ${dy})` })),
-  ];
-}
 
 @Component({
   selector: 'app-slide-demo',
@@ -29,24 +8,6 @@ function slideLeave(dx: string, dy: string) {
   templateUrl: './slide-demo.html',
   styleUrl: './slide-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('slideLeft',   [
-      transition(':enter', slideEnter('-60px', '0')),
-      transition(':leave', slideLeave('-60px', '0')),
-    ]),
-    trigger('slideRight',  [
-      transition(':enter', slideEnter('60px', '0')),
-      transition(':leave', slideLeave('60px', '0')),
-    ]),
-    trigger('slideTop',    [
-      transition(':enter', slideEnter('0', '-40px')),
-      transition(':leave', slideLeave('0', '-40px')),
-    ]),
-    trigger('slideBottom', [
-      transition(':enter', slideEnter('0', '40px')),
-      transition(':leave', slideLeave('0', '40px')),
-    ]),
-  ],
 })
 export class SlideDemo {
   readonly activeDirection = signal<Direction>('left');

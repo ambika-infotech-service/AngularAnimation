@@ -5,7 +5,7 @@
   </span>
   <h1 class="section-title">Fade Animation</h1>
   <p class="section-subtitle">
-    State-based opacity transitions using Angular's <code>trigger</code>, <code>state</code>, and <code>transition</code>.
+    State-based opacity transitions using modern CSS transitions and keyframe animations.
   </p>
 </div>
 
@@ -34,7 +34,8 @@
     <div class="demo-stage" aria-live="polite" [attr.aria-label]="'Element is ' + fadeState()">
       <div
         class="fade-box"
-        [@fadeInOut]="{ value: fadeState(), params: { duration: duration() } }"
+        [class.fade-hidden]="fadeState() === 'hidden'"
+        [style.transitionDuration.ms]="duration()"
         aria-hidden="true"
       >
         <i class="bi bi-moon-stars-fill"></i>
@@ -57,7 +58,12 @@
 
     <div class="demo-stage" aria-live="polite">
       @if (showScaleBox()) {
-        <div class="fade-box box-secondary" [@fadeScale] aria-hidden="true">
+        <div
+          class="fade-box box-secondary"
+          animate.enter="fade-scale-enter"
+          animate.leave="fade-scale-leave"
+          aria-hidden="true"
+        >
           <i class="bi bi-gem"></i>
           <span>Scale &amp; Fade</span>
         </div>
@@ -79,7 +85,12 @@
 
     <div class="demo-stage" aria-live="polite">
       @if (showUpBox()) {
-        <div class="fade-box box-accent" [@fadeUp] aria-hidden="true">
+        <div
+          class="fade-box box-accent"
+          animate.enter="fade-up-enter"
+          animate.leave="fade-up-leave"
+          aria-hidden="true"
+        >
           <i class="bi bi-arrow-up-circle"></i>
           <span>Fade Up</span>
         </div>

@@ -64,6 +64,30 @@
   .kf-card--warning   & { background: color-mix(in srgb, #ffcc66 12%, transparent); color: #ffcc66; }
 }
 
+.kf-anim-bounce {
+  animation: kfBounce 700ms ease-in-out;
+}
+
+.kf-anim-shake {
+  animation: kfShake 500ms ease-in-out;
+}
+
+.kf-anim-pulse {
+  animation: kfPulse 600ms ease-in-out;
+}
+
+.kf-anim-spin {
+  animation: kfSpin 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kf-anim-flip {
+  animation: kfFlip 700ms ease-in-out;
+}
+
+.kf-anim-rubber-band {
+  animation: kfRubberBand 700ms ease-in-out;
+}
+
 .kf-body {
   @include flex-column;
   gap: $spacing-xs;
@@ -144,4 +168,61 @@
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+
+@keyframes kfBounce {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-30px); }
+  60% { transform: translateY(0); }
+  75% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes kfShake {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-10px); }
+  30% { transform: translateX(10px); }
+  45% { transform: translateX(-10px); }
+  60% { transform: translateX(10px); }
+  75% { transform: translateX(-5px); }
+  85% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes kfPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  40% {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes kfSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes kfFlip {
+  0% { transform: perspective(400px) rotateY(0); }
+  40% { transform: perspective(400px) rotateY(90deg); }
+  75% { transform: perspective(400px) rotateY(-20deg); }
+  100% { transform: perspective(400px) rotateY(0); }
+}
+
+@keyframes kfRubberBand {
+  0% { transform: scaleX(1) scaleY(1); }
+  30% { transform: scaleX(1.4) scaleY(0.75); }
+  50% { transform: scaleX(0.75) scaleY(1.25); }
+  65% { transform: scaleX(1.15) scaleY(0.9); }
+  80% { transform: scaleX(0.95) scaleY(1.05); }
+  100% { transform: scaleX(1) scaleY(1); }
 }

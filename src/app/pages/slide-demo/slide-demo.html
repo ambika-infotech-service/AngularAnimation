@@ -5,7 +5,7 @@
   </span>
   <h1 class="section-title" style="background-image: var(--gradient-secondary)">Slide Animation</h1>
   <p class="section-subtitle">
-    Directional enter/leave transitions using <code>translateX</code> and <code>translateY</code>.
+    Directional enter/leave transitions using modern CSS keyframes and <code>animate.enter</code>/<code>animate.leave</code>.
   </p>
 </div>
 
@@ -40,25 +40,45 @@
       @if (visible()) {
         @switch (activeDirection()) {
           @case ('left') {
-            <div class="slide-box" [@slideLeft] aria-hidden="true">
+            <div
+              class="slide-box"
+              animate.enter="slide-enter-left"
+              animate.leave="slide-leave-left"
+              aria-hidden="true"
+            >
               <i class="bi bi-arrow-left-circle"></i>
               <span>From Left</span>
             </div>
           }
           @case ('right') {
-            <div class="slide-box box-secondary" [@slideRight] aria-hidden="true">
+            <div
+              class="slide-box box-secondary"
+              animate.enter="slide-enter-right"
+              animate.leave="slide-leave-right"
+              aria-hidden="true"
+            >
               <i class="bi bi-arrow-right-circle"></i>
               <span>From Right</span>
             </div>
           }
           @case ('top') {
-            <div class="slide-box box-accent" [@slideTop] aria-hidden="true">
+            <div
+              class="slide-box box-accent"
+              animate.enter="slide-enter-top"
+              animate.leave="slide-leave-top"
+              aria-hidden="true"
+            >
               <i class="bi bi-arrow-up-circle"></i>
               <span>From Top</span>
             </div>
           }
           @case ('bottom') {
-            <div class="slide-box box-info" [@slideBottom] aria-hidden="true">
+            <div
+              class="slide-box box-info"
+              animate.enter="slide-enter-bottom"
+              animate.leave="slide-leave-bottom"
+              aria-hidden="true"
+            >
               <i class="bi bi-arrow-down-circle"></i>
               <span>From Bottom</span>
             </div>
