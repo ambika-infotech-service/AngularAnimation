@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { FloatingShapes } from '../../components/background-layers/floating-shapes/floating-shapes';
 import { HeroParticles } from '../../components/background-layers/hero-particles/hero-particles';
 import { HeroShimmer } from '../../components/background-layers/hero-shimmer/hero-shimmer';
@@ -21,26 +22,31 @@ import { PaperCutStrataBg } from '../../components/background-layers/paper-cut-s
 import { HalftonePopBg } from '../../components/background-layers/halftone-pop-bg/halftone-pop-bg';
 import { LiquidChromeBg } from '../../components/background-layers/liquid-chrome-bg/liquid-chrome-bg';
 import { SolarPosterBg } from '../../components/background-layers/solar-poster-bg/solar-poster-bg';
+import { SpotlightStageBg } from '../../components/background-layers/spotlight-stage-bg/spotlight-stage-bg';
+import { EditorialFrameBg } from '../../components/background-layers/editorial-frame-bg/editorial-frame-bg';
+import { SoftVignetteBg } from '../../components/background-layers/soft-vignette-bg/soft-vignette-bg';
 
 @Component({
   selector: 'app-bg-demo',
   imports: [
+    NgOptimizedImage,
     FloatingShapes, HeroParticles, HeroShimmer,
     GeometricShapes, GlowNodes, LightRays, DepthLayers,
     StarfieldBg, AuroraBg, NeonGridBg, BubblesBg,
     MeshGradientBg, ConstellationBg, RadarRingsBg, GlitchStripesBg,
     PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
     PaperCutStrataBg, HalftonePopBg, LiquidChromeBg, SolarPosterBg,
+    SpotlightStageBg, EditorialFrameBg, SoftVignetteBg,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BgDemo {
-  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'>('all');
+  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'>('all');
 
   readonly filters: ReadonlyArray<{
-    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed';
+    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed';
     label: string;
   }> = [
     { value: 'all', label: 'All' },
@@ -50,14 +56,15 @@ export class BgDemo {
     { value: 'kinetic', label: 'Kinetic' },
     { value: 'geometric', label: 'Geometric' },
     { value: 'editorial', label: 'Editorial' },
+    { value: 'content', label: 'Content-Safe' },
     { value: 'mixed', label: 'Mixed' },
   ];
 
-  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'): void {
+  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): void {
     this.activeFilter.set(filter);
   }
 
-  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'): boolean {
+  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;
   }
 }

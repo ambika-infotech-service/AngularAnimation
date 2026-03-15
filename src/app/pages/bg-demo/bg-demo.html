@@ -294,6 +294,118 @@
       </div>
     </div>
 
+    <!-- Spotlight Stage -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('content')">
+      <div class="preview-stage" role="img" aria-label="Spotlight Stage preview">
+        <app-spotlight-stage-bg></app-spotlight-stage-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-spotlight-stage-bg</code>
+        <h3>Spotlight Stage</h3>
+        <p>High-contrast hero background with a focused highlight zone for product imagery and CTA text.</p>
+      </div>
+    </div>
+
+    <!-- Editorial Frame -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('content')">
+      <div class="preview-stage" role="img" aria-label="Editorial Frame preview">
+        <app-editorial-frame-bg></app-editorial-frame-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-editorial-frame-bg</code>
+        <h3>Editorial Frame</h3>
+        <p>Paper-toned layout background with reserved breathing room for headlines, portraits, and captions.</p>
+      </div>
+    </div>
+
+    <!-- Soft Vignette -->
+    <div class="bg-card" [class.is-hidden]="!isVisible('content')">
+      <div class="preview-stage" role="img" aria-label="Soft Vignette preview">
+        <app-soft-vignette-bg></app-soft-vignette-bg>
+      </div>
+      <div class="card-info">
+        <code class="tag">app-soft-vignette-bg</code>
+        <h3>Soft Vignette</h3>
+        <p>Low-noise cinematic wash that keeps edges calm so foreground text and supporting images stay readable.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-section section" aria-labelledby="content-ready-heading">
+  <h2 id="content-ready-heading" class="demo-section-title">Content-Ready Layouts</h2>
+  <p class="combo-note">These demos show the backgrounds used behind actual copy, CTA buttons, and image blocks.</p>
+
+  <div class="content-grid">
+    <article class="content-card" [class.is-hidden]="!isVisible('content')">
+      <div class="content-stage content-stage-dark" aria-label="Product hero layout demo">
+        <app-spotlight-stage-bg></app-spotlight-stage-bg>
+
+        <div class="content-shell">
+          <div class="content-copy">
+            <span class="content-chip">Product Hero</span>
+            <h3>Launch layout with a clean text lane and a highlighted image zone.</h3>
+            <p>Use this when you need a bold headline, two lines of support copy, and a product visual that still feels premium.</p>
+            <div class="content-actions">
+              <span class="demo-action demo-action-primary">Pre-order</span>
+              <span class="demo-action demo-action-secondary">Specs</span>
+            </div>
+          </div>
+
+          <div class="media-panel media-panel-product">
+            <img ngSrc="/editorial-product.svg" width="320" height="320" alt="Illustrated product mockup" priority>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content-card" [class.is-hidden]="!isVisible('content')">
+      <div class="content-stage content-stage-light" aria-label="Editorial portrait layout demo">
+        <app-editorial-frame-bg></app-editorial-frame-bg>
+
+        <div class="content-shell content-shell-editorial">
+          <div class="media-panel media-panel-portrait">
+            <img ngSrc="/portrait-collage.svg" width="300" height="300" alt="Illustrated editorial portrait collage">
+          </div>
+
+          <div class="content-copy content-copy-dark">
+            <span class="content-chip content-chip-dark">Editorial Feature</span>
+            <h3>Magazine-style composition with room for portrait imagery and pull quotes.</h3>
+            <p>Framed edges and a soft paper ground make it easier to layer text blocks without fighting the background.</p>
+            <p class="micro-copy">Best for interviews, case studies, and campaign landing sections.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content-card content-card-wide" [class.is-hidden]="!isVisible('content')">
+      <div class="content-stage content-stage-dark" aria-label="Feature story layout demo">
+        <app-soft-vignette-bg></app-soft-vignette-bg>
+
+        <div class="content-shell content-shell-feature">
+          <div class="content-copy">
+            <span class="content-chip">Feature Banner</span>
+            <h3>Quiet cinematic background for headlines, stat blocks, and a supporting image.</h3>
+            <p>The center stays open while the edges carry the motion, so long-form text remains easy to scan.</p>
+          </div>
+
+          <div class="feature-rail">
+            <div class="metric-card">
+              <strong>4.8x</strong>
+              <span>engagement lift</span>
+            </div>
+            <div class="metric-card image-card">
+              <img ngSrc="/editorial-product.svg" width="180" height="180" alt="Product tile illustration">
+            </div>
+            <div class="metric-card">
+              <strong>AA</strong>
+              <span>contrast-first layering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 

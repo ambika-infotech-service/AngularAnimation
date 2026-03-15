@@ -1,0 +1,90 @@
+:host {
+	display: contents;
+}
+
+.spotlight-stage {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 18% 28%, rgba(76, 198, 255, 0.18) 0%, transparent 36%),
+		linear-gradient(180deg, #101521 0%, #0a0e17 100%);
+
+	.ambient,
+	.spotlight,
+	.stage-arc,
+	.floor-line {
+		position: absolute;
+	}
+
+	.ambient-left {
+		inset: -18% auto auto -8%;
+		width: 22rem;
+		height: 22rem;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(83, 193, 255, 0.26) 0%, transparent 70%);
+		filter: blur(18px);
+		animation: ambientPulse 10s ease-in-out infinite;
+	}
+
+	.ambient-right {
+		right: -10%;
+		bottom: -18%;
+		width: 24rem;
+		height: 24rem;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 159, 106, 0.2) 0%, transparent 72%);
+		filter: blur(18px);
+		animation: ambientPulse 14s ease-in-out infinite reverse;
+	}
+
+	.spotlight {
+		top: -10%;
+		right: 12%;
+		width: 55%;
+		height: 88%;
+		background: linear-gradient(210deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0) 74%);
+		clip-path: polygon(68% 0, 100% 0, 62% 100%, 30% 100%);
+		filter: blur(3px);
+		animation: spotlightSweep 12s ease-in-out infinite;
+	}
+
+	.stage-arc {
+		left: 50%;
+		bottom: -40%;
+		width: 110%;
+		height: 90%;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 58%);
+	}
+
+	.floor-line {
+		left: 0;
+		right: 0;
+		bottom: 24%;
+		height: 1px;
+		background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 22%, rgba(255, 255, 255, 0.16) 78%, transparent 100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.spotlight-stage .ambient,
+	.spotlight-stage .spotlight {
+		animation: none;
+	}
+}
+
+@keyframes ambientPulse {
+	0%,
+	100% { transform: scale(0.95); opacity: 0.72; }
+	50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes spotlightSweep {
+	0%,
+	100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.6; }
+	50% { transform: translate3d(-3%, 2%, 0) rotate(-3deg); opacity: 0.95; }
+}
