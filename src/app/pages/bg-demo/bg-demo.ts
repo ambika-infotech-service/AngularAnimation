@@ -35,6 +35,7 @@ import { SilkRibbonBg } from '../../components/background-layers/silk-ribbon-bg/
 import { AtelierPaperBg } from '../../components/background-layers/atelier-paper-bg/atelier-paper-bg';
 import { PearlRadialBg } from '../../components/background-layers/pearl-radial-bg/pearl-radial-bg';
 import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../components/content-hero-banner/content-hero-banner';
+import { LightContentShowcase } from '../../components/light-content-showcase/light-content-showcase';
 import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxury-light-showcase';
 
 @Component({
@@ -51,7 +52,7 @@ import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxu
     SunwashMeshBg, BlueprintPaperBg, PricingAuraBg,
     TestimonialSpotlightBg, TeamMosaicBg, FeatureFocusBg,
     SilkRibbonBg, AtelierPaperBg, PearlRadialBg,
-    ContentHeroBanner, LuxuryLightShowcase,
+    ContentHeroBanner, LightContentShowcase, LuxuryLightShowcase,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
