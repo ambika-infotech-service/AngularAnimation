@@ -7,7 +7,9 @@
 	inset: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: linear-gradient(180deg, #fffdf8 0%, #f7f2ea 54%, #f2ece4 100%);
+	background:
+		radial-gradient(circle at 68% 34%, rgba(255, 244, 222, 0.78) 0%, rgba(255, 244, 222, 0) 26%),
+		linear-gradient(180deg, #fffdf9 0%, #f7f1e7 54%, #efe6da 100%);
 
 	.ribbon,
 	.sheen {
@@ -18,8 +20,8 @@
 		height: 8.5rem;
 		border-radius: 999px;
 		filter: blur(1px);
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(231, 214, 193, 0.96) 48%, rgba(198, 177, 154, 0.72) 100%);
-		box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.34), 0 10px 30px rgba(150, 123, 94, 0.08);
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(239, 224, 205, 0.98) 44%, rgba(204, 184, 160, 0.82) 100%);
+		box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.42), 0 12px 34px rgba(150, 123, 94, 0.1);
 		opacity: 0.95;
 	}
 
@@ -50,7 +52,7 @@
 
 	.sheen {
 		inset: 0;
-		background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.34) 32%, rgba(255, 255, 255, 0) 54%);
+		background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.44) 30%, rgba(255, 248, 232, 0.22) 40%, rgba(255, 255, 255, 0) 56%);
 		transform: translateX(-42%);
 		animation: ribbonSheen 12s ease-in-out infinite;
 	}

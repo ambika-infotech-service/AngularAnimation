@@ -55,6 +55,7 @@
 	min-height: 340px;
 	overflow: hidden;
 	color: #1f2a3d;
+	border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .luxury-shell {
@@ -112,9 +113,9 @@
 	align-items: center;
 	padding: 0.36rem 0.82rem;
 	border-radius: $radius-full;
-	background: rgba(255, 255, 255, 0.72);
-	border: 1px solid rgba(169, 145, 118, 0.16);
-	color: #8f6f4c;
+	background: rgba(255, 252, 246, 0.8);
+	border: 1px solid rgba(181, 153, 122, 0.18);
+	color: #8a6843;
 	font-size: 0.72rem;
 	font-weight: $font-weight-semi;
 	letter-spacing: 0.06em;
@@ -138,7 +139,7 @@
 	font-weight: $font-weight-semi;
 
 	&.luxury-action-primary {
-		background: linear-gradient(135deg, #d7be96 0%, #f2e4c8 100%);
+		background: linear-gradient(135deg, #d5b98f 0%, #f4e6c9 100%);
 		color: #3b2f23;
 	}
 
@@ -165,9 +166,9 @@
 		max-width: 19rem;
 		margin-inline: auto;
 		padding: 0.85rem;
-		background: rgba(255, 255, 255, 0.7);
-		border: 1px solid rgba(169, 145, 118, 0.14);
-		box-shadow: 0 18px 42px rgba(154, 126, 99, 0.1);
+		background: rgba(255, 255, 255, 0.78);
+		border: 1px solid rgba(181, 153, 122, 0.16);
+		box-shadow: 0 22px 48px rgba(154, 126, 99, 0.12);
 	}
 }
 
@@ -248,8 +249,8 @@
 	width: fit-content;
 	padding: 0.34rem 0.74rem;
 	border-radius: $radius-full;
-	background: rgba(215, 190, 150, 0.24);
-	color: #8b6e4c;
+	background: rgba(215, 190, 150, 0.28);
+	color: #826342;
 	font-size: 0.72rem;
 	font-weight: $font-weight-semi;
 	letter-spacing: 0.06em;

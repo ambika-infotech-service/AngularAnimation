@@ -7,7 +7,9 @@
 	inset: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: linear-gradient(180deg, #fffefb 0%, #f6f3ee 58%, #efe8df 100%);
+	background:
+		radial-gradient(circle at 62% 40%, rgba(255, 248, 233, 0.82) 0%, rgba(255, 248, 233, 0) 26%),
+		linear-gradient(180deg, #fffefb 0%, #f5f1ea 58%, #eee6db 100%);
 
 	.pearl,
 	.halo {
@@ -16,8 +18,8 @@
 
 	.pearl {
 		border-radius: 50%;
-		background: radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.96) 0%, rgba(242, 234, 224, 0.94) 45%, rgba(213, 196, 176, 0.76) 100%);
-		box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.48), 0 14px 34px rgba(146, 124, 99, 0.08);
+		background: radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.98) 0%, rgba(245, 238, 229, 0.96) 44%, rgba(217, 198, 175, 0.82) 100%);
+		box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.56), 0 16px 38px rgba(146, 124, 99, 0.1);
 	}
 
 	.pearl-a {
@@ -52,7 +54,7 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 70%);
+		background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
 		filter: blur(14px);
 	}
 }

@@ -7,7 +7,9 @@
 	inset: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: linear-gradient(180deg, #fcfaf5 0%, #f4eee3 100%);
+	background:
+		radial-gradient(circle at 18% 22%, rgba(255, 243, 220, 0.58) 0%, rgba(255, 243, 220, 0) 30%),
+		linear-gradient(180deg, #fcfaf5 0%, #f3ece0 100%);
 
 	.sheet,
 	.column-shadow,
@@ -20,12 +22,12 @@
 		border-radius: 1.5rem;
 		background: rgba(255, 252, 246, 0.78);
 		border: 1px solid rgba(118, 96, 74, 0.08);
-		box-shadow: 0 18px 48px rgba(146, 124, 99, 0.06);
+		box-shadow: 0 18px 48px rgba(146, 124, 99, 0.08);
 	}
 
 	.sheet-b {
 		inset: 13% 10% 10% 10%;
-		background: rgba(255, 249, 241, 0.62);
+		background: rgba(255, 250, 244, 0.72);
 	}
 
 	.column-shadow {
