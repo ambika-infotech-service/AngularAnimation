@@ -3,9 +3,17 @@
 
 :host {
   @include page-accent-host(var(--color-primary), var(--color-primary-light));
+  display: block;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 520px at 12% -8%, color-mix(in srgb, var(--page-accent) 18%, transparent), transparent 58%),
+    radial-gradient(1000px 460px at 88% 0%, color-mix(in srgb, var(--color-secondary) 14%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--color-dark-surface) 0%, var(--color-dark) 18%, var(--color-dark-surface) 100%);
 }
 
 .page-header {
+  max-width: 1200px;
+  margin: 0 auto;
   code {
     @include code-chip();
   }
