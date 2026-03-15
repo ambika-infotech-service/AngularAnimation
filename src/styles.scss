@@ -6,66 +6,87 @@
 
 :root,
 :root[data-theme='ocean'] {
-  --color-primary: #00bcd4;
-  --color-primary-light: #7ce8ff;
-  --color-primary-dark: #008ba3;
-  --color-secondary: #14f1b7;
-  --color-secondary-light: #8dffd9;
-  --color-secondary-dark: #0da67f;
-  --color-accent: #ff7a59;
-  --color-accent-dark: #d65133;
-  --color-info: #52b8ff;
-  --color-dark: #182029;
-  --color-dark-card: #1f2a36;
-  --color-dark-surface: #111a23;
-  --color-light: #f3f8fc;
-  --color-subtle: rgba(243, 248, 252, 0.75);
-  --gradient-primary: linear-gradient(135deg, #00bcd4 0%, #7ce8ff 100%);
-  --gradient-secondary: linear-gradient(135deg, #0da67f 0%, #8dffd9 100%);
-  --gradient-accent: linear-gradient(135deg, #d65133 0%, #ff7a59 100%);
-  --gradient-hero: linear-gradient(135deg, #008ba3 0%, #14f1b7 50%, #ff7a59 100%);
+  --color-primary: #3ea6ff;
+  --color-primary-light: #9cd0ff;
+  --color-primary-dark: #1f72bf;
+  --color-secondary: #22d3a6;
+  --color-secondary-light: #8ff0d2;
+  --color-secondary-dark: #159a78;
+  --color-accent: #ff8b5e;
+  --color-accent-dark: #c8603b;
+  --color-info: #7ec3ff;
+  --color-dark: #0f1723;
+  --color-dark-card: #172131;
+  --color-dark-surface: #0a101a;
+  --color-light: #eaf2ff;
+  --color-subtle: rgba(234, 242, 255, 0.72);
+  --gradient-primary: linear-gradient(135deg, #1f72bf 0%, #3ea6ff 60%, #9cd0ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #159a78 0%, #22d3a6 60%, #8ff0d2 100%);
+  --gradient-accent: linear-gradient(135deg, #c8603b 0%, #ff8b5e 100%);
+  --gradient-hero: linear-gradient(130deg, #1b2e4a 0%, #0f1723 45%, #172131 100%);
 }
 
 :root[data-theme='sunset'] {
-  --color-primary: #ff6b6b;
-  --color-primary-light: #ffb4a6;
-  --color-primary-dark: #d94848;
-  --color-secondary: #ff9f43;
-  --color-secondary-light: #ffd08a;
-  --color-secondary-dark: #d97920;
-  --color-accent: #7f5af0;
-  --color-accent-dark: #5e3fbe;
-  --color-info: #7bc3ff;
-  --color-dark: #231a22;
-  --color-dark-card: #2f2330;
-  --color-dark-surface: #1a141d;
-  --color-light: #fff3eb;
-  --color-subtle: rgba(255, 243, 235, 0.75);
-  --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ffb4a6 100%);
-  --gradient-secondary: linear-gradient(135deg, #d97920 0%, #ffd08a 100%);
-  --gradient-accent: linear-gradient(135deg, #5e3fbe 0%, #7f5af0 100%);
-  --gradient-hero: linear-gradient(135deg, #d94848 0%, #ff9f43 50%, #7f5af0 100%);
+  --color-primary: #ff6d7d;
+  --color-primary-light: #ffb5be;
+  --color-primary-dark: #c54758;
+  --color-secondary: #ff9d5a;
+  --color-secondary-light: #ffd0ac;
+  --color-secondary-dark: #c16d34;
+  --color-accent: #b489ff;
+  --color-accent-dark: #7d59c8;
+  --color-info: #a9c5ff;
+  --color-dark: #19111c;
+  --color-dark-card: #25182a;
+  --color-dark-surface: #120c15;
+  --color-light: #f7edf9;
+  --color-subtle: rgba(247, 237, 249, 0.72);
+  --gradient-primary: linear-gradient(135deg, #c54758 0%, #ff6d7d 62%, #ffb5be 100%);
+  --gradient-secondary: linear-gradient(135deg, #c16d34 0%, #ff9d5a 62%, #ffd0ac 100%);
+  --gradient-accent: linear-gradient(135deg, #7d59c8 0%, #b489ff 100%);
+  --gradient-hero: linear-gradient(130deg, #261126 0%, #19111c 45%, #25182a 100%);
 }
 
 :root[data-theme='neon'] {
   --color-primary: #22d3ee;
-  --color-primary-light: #7ef9ff;
-  --color-primary-dark: #0e9fb4;
+  --color-primary-light: #89f2ff;
+  --color-primary-dark: #118ca0;
   --color-secondary: #39ff88;
-  --color-secondary-light: #9fffc9;
-  --color-secondary-dark: #19be5d;
-  --color-accent: #ff4ecd;
-  --color-accent-dark: #d62ea8;
-  --color-info: #66d4ff;
-  --color-dark: #100f1a;
-  --color-dark-card: #1a1830;
-  --color-dark-surface: #0c0b14;
-  --color-light: #f5f6ff;
-  --color-subtle: rgba(245, 246, 255, 0.75);
-  --gradient-primary: linear-gradient(135deg, #22d3ee 0%, #7ef9ff 100%);
-  --gradient-secondary: linear-gradient(135deg, #19be5d 0%, #9fffc9 100%);
-  --gradient-accent: linear-gradient(135deg, #d62ea8 0%, #ff4ecd 100%);
-  --gradient-hero: linear-gradient(135deg, #0e9fb4 0%, #39ff88 50%, #ff4ecd 100%);
+  --color-secondary-light: #9effc6;
+  --color-secondary-dark: #1fbe61;
+  --color-accent: #ff5ad2;
+  --color-accent-dark: #bd318f;
+  --color-info: #77d1ff;
+  --color-dark: #0c0b15;
+  --color-dark-card: #15132a;
+  --color-dark-surface: #080710;
+  --color-light: #ecebff;
+  --color-subtle: rgba(236, 235, 255, 0.72);
+  --gradient-primary: linear-gradient(135deg, #118ca0 0%, #22d3ee 62%, #89f2ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #1fbe61 0%, #39ff88 62%, #9effc6 100%);
+  --gradient-accent: linear-gradient(135deg, #bd318f 0%, #ff5ad2 100%);
+  --gradient-hero: linear-gradient(130deg, #1a1030 0%, #0c0b15 45%, #15132a 100%);
+}
+
+:root[data-theme='midnight'] {
+  --color-primary: #6aa8ff;
+  --color-primary-light: #bdd6ff;
+  --color-primary-dark: #3a70ba;
+  --color-secondary: #57d9bf;
+  --color-secondary-light: #a8efe1;
+  --color-secondary-dark: #2f9a87;
+  --color-accent: #ff9a73;
+  --color-accent-dark: #bf6342;
+  --color-info: #8dc3ff;
+  --color-dark: #0b111b;
+  --color-dark-card: #131d2b;
+  --color-dark-surface: #060b13;
+  --color-light: #e7edf8;
+  --color-subtle: rgba(231, 237, 248, 0.72);
+  --gradient-primary: linear-gradient(135deg, #3a70ba 0%, #6aa8ff 65%, #bdd6ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #2f9a87 0%, #57d9bf 65%, #a8efe1 100%);
+  --gradient-accent: linear-gradient(135deg, #bf6342 0%, #ff9a73 100%);
+  --gradient-hero: linear-gradient(130deg, #0f1b2d 0%, #0b111b 48%, #131d2b 100%);
 }
 
 // Base reset & body
@@ -81,7 +102,10 @@ html {
 
 body {
   font-family: $font-family-base;
-  background-color: var(--color-dark-surface);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 60%),
+    radial-gradient(1000px 520px at 100% 0%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 62%),
+    linear-gradient(180deg, var(--color-dark-surface) 0%, var(--color-dark) 100%);
   color: var(--color-light);
   line-height: $line-height-normal;
   min-height: 100vh;
@@ -136,7 +160,7 @@ a {
 
 .section-subtitle {
   font-size: $font-size-md;
-  color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
+  color: var(--color-subtle);
   text-align: center;
   margin-bottom: $spacing-3xl;
 }
@@ -156,19 +180,19 @@ a {
 .demo-section-title {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
-  color: var(--color-dark);
+  color: var(--color-light);
   margin-bottom: $spacing-sm;
 }
 
 .demo-desc {
   font-size: $font-size-sm;
-  color: color-mix(in srgb, var(--color-dark) 80%, white 20%);
+  color: color-mix(in srgb, var(--color-light) 80%, transparent);
   margin-bottom: $spacing-lg;
   line-height: $line-height-normal;
 
   code {
-    background: color-mix(in srgb, var(--color-primary) 12%, white 88%);
-    color: var(--color-primary-dark);
+    background: color-mix(in srgb, var(--color-light) 10%, transparent);
+    color: color-mix(in srgb, var(--color-light) 92%, transparent);
     padding: 2px 6px;
     border-radius: $radius-sm;
     font-size: $font-size-xs;
@@ -178,9 +202,9 @@ a {
 // Demo Card
 .demo-card {
   @include card;
-  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
-  border-color: color-mix(in srgb, var(--color-dark) 12%, transparent);
-  color: var(--color-dark);
+  background: var(--color-dark-card);
+  border-color: color-mix(in srgb, var(--color-light) 8%, transparent);
+  color: var(--color-light);
   padding: $spacing-xl;
   @include transition(transform box-shadow);
 
@@ -255,11 +279,11 @@ a {
 
 @supports not (background: color-mix(in srgb, white 50%, black 50%)) {
   .demo-desc {
-    color: rgba($dark, 0.82);
+    color: rgba($light, 0.8);
 
     code {
-      background: rgba($primary, 0.12);
-      color: $primary-dark;
+      background: rgba($light, 0.08);
+      color: rgba($light, 0.92);
     }
   }
 }

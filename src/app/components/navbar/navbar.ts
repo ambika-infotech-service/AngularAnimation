@@ -14,6 +14,7 @@ export class Navbar {
   readonly menuOpen = signal(false);
 
   readonly themes: ReadonlyArray<{ value: AppTheme; label: string }> = [
+    { value: 'midnight', label: 'Midnight' },
     { value: 'ocean', label: 'Ocean' },
     { value: 'sunset', label: 'Sunset' },
     { value: 'neon', label: 'Neon' },
@@ -26,7 +27,7 @@ export class Navbar {
   onThemeChange(event: Event): void {
     const value = (event.target as HTMLSelectElement).value;
 
-    if (value === 'ocean' || value === 'sunset' || value === 'neon') {
+    if (value === 'midnight' || value === 'ocean' || value === 'sunset' || value === 'neon') {
       this.themeService.setTheme(value);
     }
   }

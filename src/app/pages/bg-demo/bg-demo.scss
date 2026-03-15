@@ -3,8 +3,8 @@
 
 .page-header {
   code {
-    background: color-mix(in srgb, var(--color-primary) 15%, white 85%);
-    color: var(--color-primary-dark);
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary-light);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.875em;
@@ -21,8 +21,8 @@
 
 .filter-chip {
   border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
-  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
-  color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
+  background: color-mix(in srgb, var(--color-light) 6%, transparent);
+  color: color-mix(in srgb, var(--color-light) 85%, transparent);
   border-radius: $radius-full;
   padding: 0.35rem 0.9rem;
   font-size: $font-size-xs;
@@ -32,13 +32,13 @@
 
   &:hover {
     border-color: var(--color-primary-light);
-    color: var(--color-primary-dark);
+    color: var(--color-light);
     transform: translateY(-1px);
   }
 
   &.active {
     background: color-mix(in srgb, var(--color-primary) 22%, transparent);
-    color: var(--color-primary-dark);
+    color: var(--color-primary-light);
     border-color: color-mix(in srgb, var(--color-primary-light) 45%, transparent);
     box-shadow: 0 0 16px color-mix(in srgb, var(--color-primary) 35%, transparent);
   }
@@ -54,7 +54,7 @@
 }
 
 .combo-note {
-  color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
+  color: color-mix(in srgb, var(--color-light) 80%, transparent);
   font-size: $font-size-sm;
   margin-top: -$spacing-sm;
   margin-bottom: $spacing-lg;
@@ -70,8 +70,8 @@
 .bg-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
-  border: 1px solid color-mix(in srgb, var(--color-dark) 12%, transparent);
+  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
@@ -91,8 +91,8 @@
 
     .tag {
       display: inline-block;
-      background: color-mix(in srgb, var(--color-primary) 18%, white 82%);
-      color: var(--color-primary-dark);
+      background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+      color: var(--color-primary-light);
       padding: 3px 10px;
       border-radius: 4px;
       font-size: 0.75rem;
@@ -104,13 +104,13 @@
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: var(--color-dark);
+      color: var(--color-light);
       margin: $spacing-xs 0;
     }
 
     p {
       font-size: $font-size-sm;
-      color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
+      color: color-mix(in srgb, var(--color-light) 80%, transparent);
       margin: 0;
       line-height: 1.6;
     }
@@ -135,8 +135,8 @@
 .combo-card {
   border-radius: $radius-md;
   overflow: hidden;
-  background: color-mix(in srgb, var(--color-light) 95%, var(--color-dark) 5%);
-  border: 1px solid color-mix(in srgb, var(--color-dark) 12%, transparent);
+  background: color-mix(in srgb, var(--color-light) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-light) 8%, transparent);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
@@ -161,27 +161,27 @@
     h3 {
       font-size: $font-size-lg;
       font-weight: $font-weight-semi;
-      color: var(--color-dark);
+      color: var(--color-light);
       margin: 0 0 $spacing-xs;
     }
 
     p {
       font-size: $font-size-sm;
-      color: color-mix(in srgb, var(--color-dark) 78%, white 22%);
+      color: color-mix(in srgb, var(--color-light) 80%, transparent);
       margin-bottom: $spacing-sm;
     }
 
     pre {
       margin: 0;
       border-radius: $radius-sm;
-      background: color-mix(in srgb, var(--color-dark) 10%, white 90%);
+      background: rgba(0, 0, 0, 0.5);
       padding: $spacing-sm $spacing-md;
       overflow-x: auto;
 
       code {
         font-family: 'Courier New', monospace;
         font-size: 0.75rem;
-        color: var(--color-primary-dark);
+        color: var(--color-primary-light);
         white-space: pre;
       }
     }

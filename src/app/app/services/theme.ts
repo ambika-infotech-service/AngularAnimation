@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Injectable, inject, signal } from '@angular/core';
 
-export type AppTheme = 'ocean' | 'sunset' | 'neon';
+export type AppTheme = 'midnight' | 'ocean' | 'sunset' | 'neon';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly storageKey = 'ng-animate-theme';
 
-  readonly currentTheme = signal<AppTheme>('ocean');
+  readonly currentTheme = signal<AppTheme>('midnight');
 
   constructor() {
     const saved = this.readStoredTheme();
@@ -31,14 +31,14 @@ export class ThemeService {
   private readStoredTheme(): AppTheme {
     try {
       const stored = localStorage.getItem(this.storageKey);
-      if (stored === 'ocean' || stored === 'sunset' || stored === 'neon') {
+      if (stored === 'midnight' || stored === 'ocean' || stored === 'sunset' || stored === 'neon') {
         return stored;
       }
     } catch {
       // Local storage may be unavailable in some environments.
     }
 
-    return 'ocean';
+    return 'midnight';
   }
 
   private persistTheme(theme: AppTheme): void {
