@@ -366,6 +366,42 @@
       </div>
     </div>
 
+    <!-- Silk Ribbon -->
+    <div class="bg-card bg-card-light" [class.is-hidden]="!isVisible('luxury')">
+      <div class="preview-stage preview-stage-light" role="img" aria-label="Silk Ribbon preview">
+        <app-silk-ribbon-bg></app-silk-ribbon-bg>
+      </div>
+      <div class="card-info card-info-light">
+        <code class="tag">app-silk-ribbon-bg</code>
+        <h3>Silk Ribbon</h3>
+        <p>Soft satin bands and slow specular sweeps for elegant hero sections and fashion-style campaigns.</p>
+      </div>
+    </div>
+
+    <!-- Atelier Paper -->
+    <div class="bg-card bg-card-light" [class.is-hidden]="!isVisible('luxury')">
+      <div class="preview-stage preview-stage-light" role="img" aria-label="Atelier Paper preview">
+        <app-atelier-paper-bg></app-atelier-paper-bg>
+      </div>
+      <div class="card-info card-info-light">
+        <code class="tag">app-atelier-paper-bg</code>
+        <h3>Atelier Paper</h3>
+        <p>Layered paper planes, column shadows, and restrained rule lines with a magazine-art direction.</p>
+      </div>
+    </div>
+
+    <!-- Pearl Radial -->
+    <div class="bg-card bg-card-light" [class.is-hidden]="!isVisible('luxury')">
+      <div class="preview-stage preview-stage-light" role="img" aria-label="Pearl Radial preview">
+        <app-pearl-radial-bg></app-pearl-radial-bg>
+      </div>
+      <div class="card-info card-info-light">
+        <code class="tag">app-pearl-radial-bg</code>
+        <h3>Pearl Radial</h3>
+        <p>Floating pearl forms and creamy halos for premium pricing, editorial callouts, and product features.</p>
+      </div>
+    </div>
+
     <!-- Testimonial Spotlight -->
     <div class="bg-card" [class.is-hidden]="!isVisible('image')">
       <div class="preview-stage" role="img" aria-label="Testimonial Spotlight preview">
@@ -617,6 +653,8 @@
     </article>
   </div>
 </section>
+
+<app-luxury-light-showcase [class.is-hidden]="!isVisible('luxury')"></app-luxury-light-showcase>
 
 <section class="bg-section section" aria-labelledby="image-layout-heading">
   <h2 id="image-layout-heading" class="demo-section-title">Image-Focused Layouts</h2>

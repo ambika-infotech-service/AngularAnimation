@@ -31,7 +31,11 @@ import { PricingAuraBg } from '../../components/background-layers/pricing-aura-b
 import { TestimonialSpotlightBg } from '../../components/background-layers/testimonial-spotlight-bg/testimonial-spotlight-bg';
 import { TeamMosaicBg } from '../../components/background-layers/team-mosaic-bg/team-mosaic-bg';
 import { FeatureFocusBg } from '../../components/background-layers/feature-focus-bg/feature-focus-bg';
+import { SilkRibbonBg } from '../../components/background-layers/silk-ribbon-bg/silk-ribbon-bg';
+import { AtelierPaperBg } from '../../components/background-layers/atelier-paper-bg/atelier-paper-bg';
+import { PearlRadialBg } from '../../components/background-layers/pearl-radial-bg/pearl-radial-bg';
 import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../components/content-hero-banner/content-hero-banner';
+import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxury-light-showcase';
 
 @Component({
   selector: 'app-bg-demo',
@@ -46,17 +50,18 @@ import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../comp
     SpotlightStageBg, EditorialFrameBg, SoftVignetteBg,
     SunwashMeshBg, BlueprintPaperBg, PricingAuraBg,
     TestimonialSpotlightBg, TeamMosaicBg, FeatureFocusBg,
-    ContentHeroBanner,
+    SilkRibbonBg, AtelierPaperBg, PearlRadialBg,
+    ContentHeroBanner, LuxuryLightShowcase,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BgDemo {
-  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'image' | 'mixed'>('all');
+  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'>('all');
 
   readonly filters: ReadonlyArray<{
-    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'image' | 'mixed';
+    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed';
     label: string;
   }> = [
     { value: 'all', label: 'All' },
@@ -68,11 +73,12 @@ export class BgDemo {
     { value: 'editorial', label: 'Editorial' },
     { value: 'content', label: 'Content-Safe' },
     { value: 'light', label: 'Light Content' },
+    { value: 'luxury', label: 'Luxury Light' },
     { value: 'image', label: 'Image Focused' },
     { value: 'mixed', label: 'Mixed' },
   ];
 
-  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'image' | 'mixed'): void {
+  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'): void {
     this.activeFilter.set(filter);
   }
 
@@ -89,7 +95,7 @@ export class BgDemo {
     priority: true,
   };
 
-  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'image' | 'mixed'): boolean {
+  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;
   }
 }

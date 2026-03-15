@@ -1,0 +1,84 @@
+:host {
+	display: contents;
+}
+
+.silk-ribbon {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #fffdf8 0%, #f7f2ea 54%, #f2ece4 100%);
+
+	.ribbon,
+	.sheen {
+		position: absolute;
+	}
+
+	.ribbon {
+		height: 8.5rem;
+		border-radius: 999px;
+		filter: blur(1px);
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(231, 214, 193, 0.96) 48%, rgba(198, 177, 154, 0.72) 100%);
+		box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.34), 0 10px 30px rgba(150, 123, 94, 0.08);
+		opacity: 0.95;
+	}
+
+	.ribbon-a {
+		width: 28rem;
+		top: -2.5rem;
+		left: -6rem;
+		transform: rotate(18deg);
+		animation: ribbonDriftA 18s ease-in-out infinite;
+	}
+
+	.ribbon-b {
+		width: 24rem;
+		top: 38%;
+		right: -8rem;
+		transform: rotate(-12deg);
+		animation: ribbonDriftB 22s ease-in-out infinite;
+	}
+
+	.ribbon-c {
+		width: 20rem;
+		bottom: -2rem;
+		left: 14%;
+		transform: rotate(10deg);
+		opacity: 0.72;
+		animation: ribbonDriftC 16s ease-in-out infinite;
+	}
+
+	.sheen {
+		inset: 0;
+		background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.34) 32%, rgba(255, 255, 255, 0) 54%);
+		transform: translateX(-42%);
+		animation: ribbonSheen 12s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.silk-ribbon .ribbon,
+	.silk-ribbon .sheen {
+		animation: none;
+	}
+}
+
+@keyframes ribbonDriftA {
+	0%, 100% { transform: rotate(18deg) translate3d(0, 0, 0); }
+	50% { transform: rotate(14deg) translate3d(7%, 4%, 0); }
+}
+
+@keyframes ribbonDriftB {
+	0%, 100% { transform: rotate(-12deg) translate3d(0, 0, 0); }
+	50% { transform: rotate(-8deg) translate3d(-8%, -5%, 0); }
+}
+
+@keyframes ribbonDriftC {
+	0%, 100% { transform: rotate(10deg) translate3d(0, 0, 0); }
+	50% { transform: rotate(6deg) translate3d(5%, -6%, 0); }
+}
+
+@keyframes ribbonSheen {
+	0%, 100% { transform: translateX(-42%); opacity: 0.26; }
+	50% { transform: translateX(38%); opacity: 0.58; }
+}
