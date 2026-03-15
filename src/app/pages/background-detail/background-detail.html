@@ -1,0 +1,80 @@
+@if (background(); as background) {
+	<div class="page-header section">
+		<a class="back-link" routerLink="/backgrounds">
+			<i class="bi bi-arrow-left" aria-hidden="true"></i>
+			Back to backgrounds
+		</a>
+
+		<span class="chip chip-accent">{{ categoryLabel() }}</span>
+		<h1 class="section-title">{{ background.name }}</h1>
+		<p class="section-subtitle">{{ background.detail }}</p>
+
+		<div class="tag-list" aria-label="Background tags">
+			@for (tag of background.tags; track tag) {
+				<span class="tag-pill">{{ tag }}</span>
+			}
+		</div>
+	</div>
+
+	<section class="detail-section section">
+		<div class="detail-preview-card" [class.detail-preview-card-light]="background.previewTone === 'light'">
+			<div class="detail-preview-stage" [attr.aria-label]="background.name + ' live preview'" role="img">
+				<ng-container [ngComponentOutlet]="background.component"></ng-container>
+			</div>
+		</div>
+
+		<div class="detail-panels">
+			<article class="detail-panel">
+				<div class="detail-panel__header">
+					<h2>Minimal usage</h2>
+					<button type="button" class="copy-button" (click)="copySnippet('minimal', minimalSnippet())">
+						{{ copiedKey() === 'minimal' ? 'Copied' : 'Copy snippet' }}
+					</button>
+				</div>
+				<pre><code>{{ minimalSnippet() }}</code></pre>
+			</article>
+
+			<article class="detail-panel">
+				<div class="detail-panel__header">
+					<h2>Layered section</h2>
+					<button type="button" class="copy-button" (click)="copySnippet('layered', layeredSnippet())">
+						{{ copiedKey() === 'layered' ? 'Copied' : 'Copy snippet' }}
+					</button>
+				</div>
+				<pre><code>{{ layeredSnippet() }}</code></pre>
+			</article>
+		</div>
+	</section>
+
+	<section class="insights-grid section">
+		<article class="info-card">
+			<h2>Best for</h2>
+			<ul>
+				@for (useCase of background.useCases; track useCase) {
+					<li>{{ useCase }}</li>
+				}
+			</ul>
+		</article>
+
+		<article class="info-card" id="knobs">
+			<h2>Customization knobs</h2>
+			<div class="knob-list">
+				@for (knob of background.knobs; track knob.label) {
+					<div class="knob-card">
+						<strong>{{ knob.label }}</strong>
+						<p>{{ knob.description }}</p>
+					</div>
+				}
+			</div>
+		</article>
+	</section>
+} @else {
+	<div class="page-header section">
+		<a class="back-link" routerLink="/backgrounds">
+			<i class="bi bi-arrow-left" aria-hidden="true"></i>
+			Back to backgrounds
+		</a>
+		<h1 class="section-title">Background not found</h1>
+		<p class="section-subtitle">This detail page does not map to a registered background component.</p>
+	</div>
+}

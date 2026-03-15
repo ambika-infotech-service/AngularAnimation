@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { BackgroundGalleryBrowser } from '../../components/background-gallery-browser/background-gallery-browser';
+import { BACKGROUND_FILTERS, BackgroundFilter } from '../../data/background-gallery.data';
 import { FloatingShapes } from '../../components/background-layers/floating-shapes/floating-shapes';
 import { HeroParticles } from '../../components/background-layers/hero-particles/hero-particles';
 import { HeroShimmer } from '../../components/background-layers/hero-shimmer/hero-shimmer';
@@ -25,15 +27,9 @@ import { SolarPosterBg } from '../../components/background-layers/solar-poster-b
 import { SpotlightStageBg } from '../../components/background-layers/spotlight-stage-bg/spotlight-stage-bg';
 import { EditorialFrameBg } from '../../components/background-layers/editorial-frame-bg/editorial-frame-bg';
 import { SoftVignetteBg } from '../../components/background-layers/soft-vignette-bg/soft-vignette-bg';
-import { SunwashMeshBg } from '../../components/background-layers/sunwash-mesh-bg/sunwash-mesh-bg';
-import { BlueprintPaperBg } from '../../components/background-layers/blueprint-paper-bg/blueprint-paper-bg';
-import { PricingAuraBg } from '../../components/background-layers/pricing-aura-bg/pricing-aura-bg';
 import { TestimonialSpotlightBg } from '../../components/background-layers/testimonial-spotlight-bg/testimonial-spotlight-bg';
 import { TeamMosaicBg } from '../../components/background-layers/team-mosaic-bg/team-mosaic-bg';
 import { FeatureFocusBg } from '../../components/background-layers/feature-focus-bg/feature-focus-bg';
-import { SilkRibbonBg } from '../../components/background-layers/silk-ribbon-bg/silk-ribbon-bg';
-import { AtelierPaperBg } from '../../components/background-layers/atelier-paper-bg/atelier-paper-bg';
-import { PearlRadialBg } from '../../components/background-layers/pearl-radial-bg/pearl-radial-bg';
 import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../components/content-hero-banner/content-hero-banner';
 import { LightContentShowcase } from '../../components/light-content-showcase/light-content-showcase';
 import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxury-light-showcase';
@@ -42,6 +38,7 @@ import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxu
   selector: 'app-bg-demo',
   imports: [
     NgOptimizedImage,
+    BackgroundGalleryBrowser,
     FloatingShapes, HeroParticles, HeroShimmer,
     GeometricShapes, GlowNodes, LightRays, DepthLayers,
     StarfieldBg, AuroraBg, NeonGridBg, BubblesBg,
@@ -49,9 +46,7 @@ import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxu
     PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
     PaperCutStrataBg, HalftonePopBg, LiquidChromeBg, SolarPosterBg,
     SpotlightStageBg, EditorialFrameBg, SoftVignetteBg,
-    SunwashMeshBg, BlueprintPaperBg, PricingAuraBg,
     TestimonialSpotlightBg, TeamMosaicBg, FeatureFocusBg,
-    SilkRibbonBg, AtelierPaperBg, PearlRadialBg,
     ContentHeroBanner, LightContentShowcase, LuxuryLightShowcase,
   ],
   templateUrl: './bg-demo.html',
@@ -59,27 +54,11 @@ import { LuxuryLightShowcase } from '../../components/luxury-light-showcase/luxu
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BgDemo {
-  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'>('all');
+  readonly activeFilter = signal<BackgroundFilter>('all');
 
-  readonly filters: ReadonlyArray<{
-    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed';
-    label: string;
-  }> = [
-    { value: 'all', label: 'All' },
-    { value: 'ambient', label: 'Ambient' },
-    { value: 'sci-fi', label: 'Sci-Fi' },
-    { value: 'abstract', label: 'Abstract' },
-    { value: 'kinetic', label: 'Kinetic' },
-    { value: 'geometric', label: 'Geometric' },
-    { value: 'editorial', label: 'Editorial' },
-    { value: 'content', label: 'Content-Safe' },
-    { value: 'light', label: 'Light Content' },
-    { value: 'luxury', label: 'Luxury Light' },
-    { value: 'image', label: 'Image Focused' },
-    { value: 'mixed', label: 'Mixed' },
-  ];
+  readonly filters = BACKGROUND_FILTERS;
 
-  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'): void {
+  setFilter(filter: BackgroundFilter): void {
     this.activeFilter.set(filter);
   }
 
@@ -96,7 +75,7 @@ export class BgDemo {
     priority: true,
   };
 
-  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'luxury' | 'image' | 'mixed'): boolean {
+  isVisible(category: Exclude<BackgroundFilter, 'all'>): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;
   }
 }

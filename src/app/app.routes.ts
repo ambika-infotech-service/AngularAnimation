@@ -31,5 +31,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/bg-demo/bg-demo').then(m => m.BgDemo),
   },
+  {
+    path: 'backgrounds/:slug',
+    loadComponent: () =>
+      import('./pages/background-detail/background-detail').then(m => m.BackgroundDetail),
+  },
   { path: '**', redirectTo: '' },
 ];

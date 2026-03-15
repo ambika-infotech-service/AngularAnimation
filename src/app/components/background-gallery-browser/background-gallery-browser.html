@@ -1,0 +1,69 @@
+<section class="bg-section section" aria-labelledby="individual-heading">
+	<div class="gallery-header">
+		<div>
+			<h2 id="individual-heading" class="demo-section-title">Searchable Background Gallery</h2>
+			<p class="combo-note">Search by name, selector, tag, or use case. Each card includes tags, a copy-ready snippet, and a link to a full detail page.</p>
+		</div>
+
+		<label class="search-shell" aria-label="Search background components">
+			<i class="bi bi-search" aria-hidden="true"></i>
+			<input
+				#searchField
+				type="search"
+				class="search-input"
+				[value]="searchTerm()"
+				(input)="setSearchTerm(searchField.value)"
+				placeholder="Search backgrounds, selectors, or tags"
+			>
+		</label>
+	</div>
+
+	<p class="gallery-meta" aria-live="polite">
+		{{ filteredBackgrounds().length }} result{{ filteredBackgrounds().length === 1 ? '' : 's' }} for {{ filterLabel() }}
+	</p>
+
+	@if (filteredBackgrounds().length > 0) {
+		<div class="browser-grid">
+			@for (background of filteredBackgrounds(); track background.slug) {
+				<article class="browser-card" [class.browser-card-light]="background.previewTone === 'light'">
+					<div class="browser-preview" [attr.aria-label]="background.name + ' preview'" role="img">
+						<ng-container [ngComponentOutlet]="background.component"></ng-container>
+					</div>
+
+					<div class="browser-body">
+						<code class="selector-chip">{{ background.selector }}</code>
+						<h3>{{ background.name }}</h3>
+						<p>{{ background.summary }}</p>
+
+						<div class="tag-list" aria-label="Background tags">
+							@for (tag of background.tags; track tag) {
+								<span class="tag-pill">{{ tag }}</span>
+							}
+						</div>
+
+						<div class="snippet-card">
+							<div class="snippet-card__header">
+								<strong>Copy-paste snippet</strong>
+								<button type="button" class="snippet-button" (click)="copySnippet(background.slug, background.selector)">
+									{{ copiedSlug() === background.slug ? 'Copied' : 'Copy snippet' }}
+								</button>
+							</div>
+
+							<pre><code>{{ buildSnippet(background.selector) }}</code></pre>
+						</div>
+
+						<div class="card-actions">
+							<a class="gallery-link gallery-link-secondary" [routerLink]="['/backgrounds', background.slug]">View details</a>
+							<a class="gallery-link" [routerLink]="['/backgrounds', background.slug]" fragment="knobs">Customization knobs</a>
+						</div>
+					</div>
+				</article>
+			}
+		</div>
+	} @else {
+		<div class="empty-state">
+			<strong>No backgrounds matched this search.</strong>
+			<p>Try a component selector like <code>app-neon-grid-bg</code>, or search by tags such as “luxury”, “retro-tech”, or “content-safe”.</p>
+		</div>
+	}
+</section>
