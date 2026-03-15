@@ -1,0 +1,87 @@
+:host {
+	display: contents;
+}
+
+.sunwash-mesh {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #fffaf0 0%, #f8f3ff 52%, #eef6ff 100%);
+
+	.mesh,
+	.grid-fade,
+	.glow-ring {
+		position: absolute;
+	}
+
+	.mesh {
+		width: 22rem;
+		height: 22rem;
+		border-radius: 50%;
+		filter: blur(18px);
+		mix-blend-mode: multiply;
+		opacity: 0.72;
+	}
+
+	.mesh-a {
+		left: -8%;
+		top: -18%;
+		background: radial-gradient(circle, rgba(255, 194, 117, 0.72) 0%, rgba(255, 194, 117, 0) 72%);
+		animation: sunwashFloatA 15s ease-in-out infinite;
+	}
+
+	.mesh-b {
+		right: -10%;
+		top: 10%;
+		background: radial-gradient(circle, rgba(149, 205, 255, 0.78) 0%, rgba(149, 205, 255, 0) 70%);
+		animation: sunwashFloatB 18s ease-in-out infinite;
+	}
+
+	.mesh-c {
+		left: 32%;
+		bottom: -28%;
+		background: radial-gradient(circle, rgba(255, 157, 181, 0.62) 0%, rgba(255, 157, 181, 0) 72%);
+		animation: sunwashFloatC 16s ease-in-out infinite;
+	}
+
+	.grid-fade {
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(75, 86, 104, 0.05) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(75, 86, 104, 0.05) 1px, transparent 1px);
+		background-size: 32px 32px;
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.05) 58%, transparent 100%);
+	}
+
+	.glow-ring {
+		width: 28rem;
+		height: 28rem;
+		right: -12%;
+		bottom: -40%;
+		border-radius: 50%;
+		border: 1px solid rgba(121, 146, 183, 0.16);
+		box-shadow: inset 0 0 0 26px rgba(255, 255, 255, 0.12);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sunwash-mesh .mesh {
+		animation: none;
+	}
+}
+
+@keyframes sunwashFloatA {
+	0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+	50% { transform: translate3d(8%, 6%, 0) scale(1.08); }
+}
+
+@keyframes sunwashFloatB {
+	0%, 100% { transform: translate3d(0, 0, 0) scale(0.94); }
+	50% { transform: translate3d(-7%, -6%, 0) scale(1.08); }
+}
+
+@keyframes sunwashFloatC {
+	0%, 100% { transform: translate3d(0, 0, 0) scale(0.96); }
+	50% { transform: translate3d(-5%, -8%, 0) scale(1.06); }
+}

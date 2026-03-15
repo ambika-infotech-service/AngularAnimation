@@ -1,0 +1,79 @@
+:host {
+	display: contents;
+}
+
+.blueprint-paper {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #fbf8f0 0%, #f4efe5 100%);
+
+	.paper-base,
+	.grid-lines,
+	.sketch,
+	.corner-fold {
+		position: absolute;
+	}
+
+	.paper-base {
+		inset: 0;
+		background:
+			radial-gradient(circle at 15% 18%, rgba(123, 164, 223, 0.08) 0%, transparent 32%),
+			radial-gradient(circle at 88% 78%, rgba(230, 174, 103, 0.1) 0%, transparent 28%);
+	}
+
+	.grid-lines {
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(82, 97, 123, 0.075) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(82, 97, 123, 0.075) 1px, transparent 1px);
+		background-size: 28px 28px;
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.1) 72%, transparent 100%);
+	}
+
+	.sketch {
+		border: 1px solid rgba(77, 93, 118, 0.18);
+		border-radius: 999px;
+		opacity: 0.85;
+	}
+
+	.sketch-a {
+		width: 11rem;
+		height: 11rem;
+		top: 10%;
+		right: 8%;
+		animation: sketchRotate 22s linear infinite;
+	}
+
+	.sketch-b {
+		width: 18rem;
+		height: 18rem;
+		left: -4rem;
+		bottom: -7rem;
+		border-style: dashed;
+		opacity: 0.55;
+		animation: sketchRotate 28s linear infinite reverse;
+	}
+
+	.corner-fold {
+		top: 0;
+		right: 0;
+		width: 7rem;
+		height: 7rem;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(234, 227, 214, 0.9) 100%);
+		clip-path: polygon(100% 0, 0 0, 100% 100%);
+		box-shadow: -6px 6px 18px rgba(98, 79, 52, 0.06);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.blueprint-paper .sketch {
+		animation: none;
+	}
+}
+
+@keyframes sketchRotate {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

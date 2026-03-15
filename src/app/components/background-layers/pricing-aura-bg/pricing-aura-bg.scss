@@ -1,0 +1,76 @@
+:host {
+	display: contents;
+}
+
+.pricing-aura {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+
+	.aura,
+	.ring,
+	.shine {
+		position: absolute;
+	}
+
+	.aura {
+		border-radius: 50%;
+		filter: blur(22px);
+		opacity: 0.85;
+	}
+
+	.aura-top {
+		width: 14rem;
+		height: 14rem;
+		top: -18%;
+		right: -16%;
+		background: radial-gradient(circle, rgba(101, 174, 255, 0.22) 0%, rgba(101, 174, 255, 0) 72%);
+		animation: auraDrift 12s ease-in-out infinite;
+	}
+
+	.aura-bottom {
+		width: 13rem;
+		height: 13rem;
+		bottom: -22%;
+		left: -16%;
+		background: radial-gradient(circle, rgba(121, 232, 202, 0.2) 0%, rgba(121, 232, 202, 0) 72%);
+		animation: auraDrift 15s ease-in-out infinite reverse;
+	}
+
+	.ring {
+		border-radius: 50%;
+		border: 1px solid rgba(119, 151, 195, 0.14);
+	}
+
+	.ring-a {
+		width: 10rem;
+		height: 10rem;
+		right: -2rem;
+		top: -2rem;
+	}
+
+	.ring-b {
+		width: 7rem;
+		height: 7rem;
+		left: -1rem;
+		bottom: -1rem;
+	}
+
+	.shine {
+		inset: 0;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.64) 0%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.3) 100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pricing-aura .aura {
+		animation: none;
+	}
+}
+
+@keyframes auraDrift {
+	0%, 100% { transform: translate3d(0, 0, 0) scale(0.96); }
+	50% { transform: translate3d(7%, 7%, 0) scale(1.08); }
+}

@@ -25,6 +25,9 @@ import { SolarPosterBg } from '../../components/background-layers/solar-poster-b
 import { SpotlightStageBg } from '../../components/background-layers/spotlight-stage-bg/spotlight-stage-bg';
 import { EditorialFrameBg } from '../../components/background-layers/editorial-frame-bg/editorial-frame-bg';
 import { SoftVignetteBg } from '../../components/background-layers/soft-vignette-bg/soft-vignette-bg';
+import { SunwashMeshBg } from '../../components/background-layers/sunwash-mesh-bg/sunwash-mesh-bg';
+import { BlueprintPaperBg } from '../../components/background-layers/blueprint-paper-bg/blueprint-paper-bg';
+import { PricingAuraBg } from '../../components/background-layers/pricing-aura-bg/pricing-aura-bg';
 import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../components/content-hero-banner/content-hero-banner';
 
 @Component({
@@ -38,6 +41,7 @@ import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../comp
     PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
     PaperCutStrataBg, HalftonePopBg, LiquidChromeBg, SolarPosterBg,
     SpotlightStageBg, EditorialFrameBg, SoftVignetteBg,
+    SunwashMeshBg, BlueprintPaperBg, PricingAuraBg,
     ContentHeroBanner,
   ],
   templateUrl: './bg-demo.html',
@@ -45,10 +49,10 @@ import { ContentHeroBanner, HeroBannerAction, HeroBannerImage } from '../../comp
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BgDemo {
-  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'>('all');
+  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'mixed'>('all');
 
   readonly filters: ReadonlyArray<{
-    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed';
+    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'mixed';
     label: string;
   }> = [
     { value: 'all', label: 'All' },
@@ -59,10 +63,11 @@ export class BgDemo {
     { value: 'geometric', label: 'Geometric' },
     { value: 'editorial', label: 'Editorial' },
     { value: 'content', label: 'Content-Safe' },
+    { value: 'light', label: 'Light Content' },
     { value: 'mixed', label: 'Mixed' },
   ];
 
-  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): void {
+  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'mixed'): void {
     this.activeFilter.set(filter);
   }
 
@@ -79,7 +84,7 @@ export class BgDemo {
     priority: true,
   };
 
-  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'mixed'): boolean {
+  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'content' | 'light' | 'mixed'): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;
   }
 }
