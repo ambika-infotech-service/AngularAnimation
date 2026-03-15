@@ -1,0 +1,145 @@
+:host {
+	display: contents;
+}
+
+.halftone-pop {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(135deg, #fff1c9 0%, #ffc0d0 52%, #9ae4ff 100%);
+
+	.dot-field,
+	.burst,
+	.sticker,
+	.zigzag,
+	.banner {
+		position: absolute;
+	}
+
+	.dot-field {
+		inset: 0;
+		background-image: radial-gradient(circle, rgba(27, 16, 37, 0.2) 0 0.12rem, transparent 0.14rem);
+		background-size: 1rem 1rem;
+		mask-image: radial-gradient(circle at 68% 38%, transparent 0 18%, black 60%);
+		animation: dotsShift 9s linear infinite;
+	}
+
+	.burst {
+		width: 16rem;
+		height: 16rem;
+		background: repeating-conic-gradient(
+			from 0deg,
+			rgba(255, 255, 255, 0) 0 10deg,
+			rgba(255, 89, 124, 0.85) 10deg 18deg
+		);
+		clip-path: circle(48% at 50% 50%);
+		mix-blend-mode: multiply;
+	}
+
+	.burst-a {
+		top: -3rem;
+		right: -3rem;
+		animation: popSpin 14s linear infinite;
+	}
+
+	.burst-b {
+		width: 12rem;
+		height: 12rem;
+		left: -2rem;
+		bottom: -2rem;
+		background: repeating-conic-gradient(
+			from 0deg,
+			rgba(255, 255, 255, 0) 0 12deg,
+			rgba(21, 45, 151, 0.82) 12deg 21deg
+		);
+		animation: popSpin 10s linear infinite reverse;
+	}
+
+	.sticker {
+		border: 4px solid rgba(22, 18, 34, 0.9);
+		box-shadow: 8px 8px 0 rgba(22, 18, 34, 0.22);
+		animation: stickerBounce 6s ease-in-out infinite;
+	}
+
+	.sticker-a {
+		width: 5.4rem;
+		height: 5.4rem;
+		top: 18%;
+		left: 16%;
+		background: #ffe54d;
+		border-radius: 28% 72% 64% 36% / 32% 34% 66% 68%;
+	}
+
+	.sticker-b {
+		width: 4.2rem;
+		height: 4.2rem;
+		right: 21%;
+		bottom: 20%;
+		background: #7ef0ff;
+		border-radius: 50%;
+		animation-delay: -2.2s;
+	}
+
+	.zigzag {
+		left: 30%;
+		bottom: 18%;
+		width: 7rem;
+		height: 1.4rem;
+		background: rgba(255, 91, 140, 0.95);
+		clip-path: polygon(0 40%, 10% 0, 20% 40%, 30% 0, 40% 40%, 50% 0, 60% 40%, 70% 0, 80% 40%, 90% 0, 100% 40%, 100% 100%, 0 100%);
+		box-shadow: 0 4px 0 rgba(23, 15, 39, 0.4);
+		animation: zigzagPulse 3.5s ease-in-out infinite;
+	}
+
+	.banner {
+		top: 46%;
+		left: 22%;
+		width: 9rem;
+		height: 2.2rem;
+		background: linear-gradient(90deg, #4022b8 0%, #ff5f96 100%);
+		clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+		box-shadow: 0 6px 0 rgba(24, 17, 40, 0.25);
+		opacity: 0.88;
+		animation: bannerSwing 5.5s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.halftone-pop .dot-field,
+	.halftone-pop .burst,
+	.halftone-pop .sticker,
+	.halftone-pop .zigzag,
+	.halftone-pop .banner {
+		animation: none;
+	}
+}
+
+@keyframes dotsShift {
+	0% { transform: translate3d(0, 0, 0); }
+	100% { transform: translate3d(-1rem, 1rem, 0); }
+}
+
+@keyframes popSpin {
+	0% { transform: rotate(0deg) scale(1); }
+	50% { transform: rotate(180deg) scale(1.08); }
+	100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes stickerBounce {
+	0%,
+	100% { transform: translate3d(0, 0, 0) rotate(-5deg); }
+	50% { transform: translate3d(0, -6%, 0) rotate(4deg); }
+}
+
+@keyframes zigzagPulse {
+	0%,
+	100% { transform: scaleX(1); }
+	50% { transform: scaleX(1.08); }
+}
+
+@keyframes bannerSwing {
+	0%,
+	100% { transform: rotate(-3deg) translate3d(0, 0, 0); }
+	50% { transform: rotate(3deg) translate3d(0, -4%, 0); }
+}

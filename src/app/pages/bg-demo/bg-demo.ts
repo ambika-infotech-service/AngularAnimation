@@ -17,6 +17,10 @@ import { GlitchStripesBg } from '../../components/background-layers/glitch-strip
 import { PrismCausticsBg } from '../../components/background-layers/prism-caustics-bg/prism-caustics-bg';
 import { TopographicFlowBg } from '../../components/background-layers/topographic-flow-bg/topographic-flow-bg';
 import { VortexTunnelBg } from '../../components/background-layers/vortex-tunnel-bg/vortex-tunnel-bg';
+import { PaperCutStrataBg } from '../../components/background-layers/paper-cut-strata-bg/paper-cut-strata-bg';
+import { HalftonePopBg } from '../../components/background-layers/halftone-pop-bg/halftone-pop-bg';
+import { LiquidChromeBg } from '../../components/background-layers/liquid-chrome-bg/liquid-chrome-bg';
+import { SolarPosterBg } from '../../components/background-layers/solar-poster-bg/solar-poster-bg';
 
 @Component({
   selector: 'app-bg-demo',
@@ -26,16 +30,17 @@ import { VortexTunnelBg } from '../../components/background-layers/vortex-tunnel
     StarfieldBg, AuroraBg, NeonGridBg, BubblesBg,
     MeshGradientBg, ConstellationBg, RadarRingsBg, GlitchStripesBg,
     PrismCausticsBg, TopographicFlowBg, VortexTunnelBg,
+    PaperCutStrataBg, HalftonePopBg, LiquidChromeBg, SolarPosterBg,
   ],
   templateUrl: './bg-demo.html',
   styleUrl: './bg-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BgDemo {
-  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'>('all');
+  readonly activeFilter = signal<'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'>('all');
 
   readonly filters: ReadonlyArray<{
-    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed';
+    value: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed';
     label: string;
   }> = [
     { value: 'all', label: 'All' },
@@ -44,14 +49,15 @@ export class BgDemo {
     { value: 'abstract', label: 'Abstract' },
     { value: 'kinetic', label: 'Kinetic' },
     { value: 'geometric', label: 'Geometric' },
+    { value: 'editorial', label: 'Editorial' },
     { value: 'mixed', label: 'Mixed' },
   ];
 
-  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'): void {
+  setFilter(filter: 'all' | 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'): void {
     this.activeFilter.set(filter);
   }
 
-  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'mixed'): boolean {
+  isVisible(category: 'ambient' | 'sci-fi' | 'abstract' | 'kinetic' | 'geometric' | 'editorial' | 'mixed'): boolean {
     return this.activeFilter() === 'all' || this.activeFilter() === category;
   }
 }

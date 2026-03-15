@@ -1,0 +1,132 @@
+:host {
+	display: contents;
+}
+
+.liquid-chrome {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 22% 18%, rgba(120, 216, 255, 0.24) 0%, transparent 34%),
+		radial-gradient(circle at 78% 72%, rgba(255, 171, 117, 0.18) 0%, transparent 30%),
+		linear-gradient(145deg, #080b16 0%, #19243e 44%, #070910 100%);
+
+	.chrome-blob,
+	.highlight,
+	.mist {
+		position: absolute;
+	}
+
+	.chrome-blob {
+		border-radius: 42% 58% 57% 43% / 38% 39% 61% 62%;
+		background:
+			conic-gradient(
+				from 220deg,
+				rgba(255, 255, 255, 0.95) 0deg,
+				rgba(133, 224, 255, 0.88) 52deg,
+				rgba(29, 37, 61, 0.92) 110deg,
+				rgba(255, 178, 126, 0.88) 184deg,
+				rgba(255, 255, 255, 0.96) 260deg,
+				rgba(28, 39, 71, 0.95) 360deg
+			);
+		filter: blur(1px) saturate(125%);
+		box-shadow: inset -18px -18px 32px rgba(255, 255, 255, 0.2), inset 16px 18px 26px rgba(5, 9, 20, 0.38), 0 18px 45px rgba(5, 9, 20, 0.3);
+		mix-blend-mode: screen;
+	}
+
+	.blob-a {
+		width: 11rem;
+		height: 11rem;
+		left: 8%;
+		top: 20%;
+		animation: chromeFloatA 11s ease-in-out infinite;
+	}
+
+	.blob-b {
+		width: 8rem;
+		height: 8rem;
+		right: 17%;
+		top: 14%;
+		animation: chromeFloatB 9.5s ease-in-out infinite;
+	}
+
+	.blob-c {
+		width: 13rem;
+		height: 13rem;
+		right: 10%;
+		bottom: -8%;
+		animation: chromeFloatC 13s ease-in-out infinite;
+	}
+
+	.highlight {
+		border-radius: 999px;
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.78) 45%, rgba(255, 255, 255, 0) 100%);
+		filter: blur(4px);
+		opacity: 0.7;
+	}
+
+	.highlight-a {
+		width: 18rem;
+		height: 1.2rem;
+		left: -8%;
+		top: 30%;
+		transform: rotate(22deg);
+		animation: sheenSweep 7s ease-in-out infinite;
+	}
+
+	.highlight-b {
+		width: 15rem;
+		height: 1rem;
+		right: -5%;
+		bottom: 26%;
+		transform: rotate(-18deg);
+		animation: sheenSweep 8.5s ease-in-out infinite reverse;
+	}
+
+	.mist {
+		inset: auto -10% -16% -10%;
+		height: 48%;
+		background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+		filter: blur(18px);
+		animation: mistRise 9s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.liquid-chrome .chrome-blob,
+	.liquid-chrome .highlight,
+	.liquid-chrome .mist {
+		animation: none;
+	}
+}
+
+@keyframes chromeFloatA {
+	0%,
+	100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+	50% { transform: translate3d(8%, -4%, 0) rotate(12deg); }
+}
+
+@keyframes chromeFloatB {
+	0%,
+	100% { transform: translate3d(0, 0, 0) rotate(8deg); }
+	50% { transform: translate3d(-7%, 7%, 0) rotate(-10deg); }
+}
+
+@keyframes chromeFloatC {
+	0%,
+	100% { transform: translate3d(0, 0, 0) rotate(-6deg); }
+	50% { transform: translate3d(-5%, -8%, 0) rotate(8deg); }
+}
+
+@keyframes sheenSweep {
+	0%,
+	100% { opacity: 0.18; transform: translate3d(-4%, 0, 0) rotate(22deg); }
+	50% { opacity: 0.82; transform: translate3d(8%, 0, 0) rotate(22deg); }
+}
+
+@keyframes mistRise {
+	0%,
+	100% { transform: translate3d(0, 6%, 0) scaleY(1); opacity: 0.45; }
+	50% { transform: translate3d(0, -4%, 0) scaleY(1.12); opacity: 0.76; }
+}

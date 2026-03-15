@@ -1,0 +1,160 @@
+:host {
+	display: contents;
+}
+
+.paper-cut-scene {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background:
+		linear-gradient(180deg, #f8d98a 0%, #f39d6a 44%, #5b325f 100%);
+
+	.sky-glow,
+	.sun-disc,
+	.cloud,
+	.strata,
+	.edge-shadow {
+		position: absolute;
+	}
+
+	.sky-glow {
+		inset: -18% -10% auto;
+		height: 70%;
+		background: radial-gradient(circle at 50% 18%, rgba(255, 250, 221, 0.85) 0%, rgba(255, 250, 221, 0) 58%);
+		animation: glowDrift 10s ease-in-out infinite;
+	}
+
+	.sun-disc {
+		width: 7.5rem;
+		height: 7.5rem;
+		top: 16%;
+		right: 18%;
+		border-radius: 50%;
+		background: radial-gradient(circle at 35% 35%, #fff7d6 0%, #ffe284 48%, #ffaf5c 100%);
+		box-shadow: 0 0 40px rgba(255, 210, 118, 0.45);
+		animation: sunBob 12s ease-in-out infinite;
+	}
+
+	.cloud {
+		width: 8rem;
+		height: 2.4rem;
+		border-radius: 999px;
+		background: rgba(255, 243, 228, 0.5);
+		filter: blur(1px);
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			border-radius: 999px;
+			background: inherit;
+		}
+
+		&::before {
+			width: 3.6rem;
+			height: 3rem;
+			left: 1rem;
+			bottom: 0.6rem;
+		}
+
+		&::after {
+			width: 4rem;
+			height: 2.5rem;
+			right: 0.8rem;
+			bottom: 0.5rem;
+		}
+	}
+
+	.cloud-a {
+		top: 18%;
+		left: 12%;
+		animation: cloudDrift 18s linear infinite;
+	}
+
+	.cloud-b {
+		top: 30%;
+		right: 34%;
+		transform: scale(0.8);
+		opacity: 0.78;
+		animation: cloudDrift 24s linear infinite reverse;
+	}
+
+	.strata {
+		inset: auto -12% -12% -12%;
+		height: 68%;
+		border-radius: 46% 54% 0 0 / 18% 22% 0 0;
+		box-shadow: 0 -10px 0 rgba(255, 240, 226, 0.12), 0 -22px 40px rgba(61, 20, 51, 0.18);
+	}
+
+	.strata-back {
+		background: #8e4f68;
+		clip-path: polygon(0% 50%, 10% 46%, 22% 54%, 34% 42%, 48% 52%, 61% 40%, 74% 49%, 88% 38%, 100% 46%, 100% 100%, 0% 100%);
+		animation: strataDriftBack 18s ease-in-out infinite;
+	}
+
+	.strata-mid {
+		background: #d26c60;
+		height: 56%;
+		clip-path: polygon(0% 52%, 14% 40%, 26% 47%, 39% 35%, 54% 48%, 67% 34%, 80% 44%, 100% 29%, 100% 100%, 0% 100%);
+		animation: strataDriftMid 14s ease-in-out infinite;
+	}
+
+	.strata-front {
+		background: #f3b55d;
+		height: 42%;
+		clip-path: polygon(0% 52%, 16% 30%, 32% 45%, 47% 24%, 63% 38%, 78% 20%, 100% 36%, 100% 100%, 0% 100%);
+		animation: strataDriftFront 10s ease-in-out infinite;
+	}
+
+	.edge-shadow {
+		inset: auto 0 0;
+		height: 32%;
+		background: linear-gradient(180deg, rgba(86, 36, 64, 0) 0%, rgba(70, 25, 50, 0.22) 100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.paper-cut-scene .sky-glow,
+	.paper-cut-scene .sun-disc,
+	.paper-cut-scene .cloud,
+	.paper-cut-scene .strata {
+		animation: none;
+	}
+}
+
+@keyframes glowDrift {
+	0%,
+	100% { transform: translate3d(0, 0, 0) scale(1); }
+	50% { transform: translate3d(0, 3%, 0) scale(1.05); }
+}
+
+@keyframes sunBob {
+	0%,
+	100% { transform: translate3d(0, 0, 0); }
+	50% { transform: translate3d(-2%, 3%, 0); }
+}
+
+@keyframes cloudDrift {
+	0% { transform: translate3d(-6%, 0, 0); }
+	50% { transform: translate3d(5%, 1%, 0); }
+	100% { transform: translate3d(-6%, 0, 0); }
+}
+
+@keyframes strataDriftBack {
+	0%,
+	100% { transform: translate3d(-1.5%, 0, 0); }
+	50% { transform: translate3d(1.5%, -1%, 0); }
+}
+
+@keyframes strataDriftMid {
+	0%,
+	100% { transform: translate3d(1.2%, 0, 0); }
+	50% { transform: translate3d(-1.8%, -1.5%, 0); }
+}
+
+@keyframes strataDriftFront {
+	0%,
+	100% { transform: translate3d(-2.2%, 0, 0); }
+	50% { transform: translate3d(2.6%, 1.5%, 0); }
+}

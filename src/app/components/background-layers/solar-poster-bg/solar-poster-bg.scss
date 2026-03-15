@@ -1,0 +1,113 @@
+:host {
+	display: contents;
+}
+
+.solar-poster {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: linear-gradient(180deg, #26123e 0%, #f05053 58%, #f7d776 100%);
+
+	.poster-sun,
+	.sun-lines,
+	.horizon,
+	.grain {
+		position: absolute;
+	}
+
+	.poster-sun {
+		width: 11rem;
+		height: 11rem;
+		left: 50%;
+		top: 16%;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		background: radial-gradient(circle at 50% 35%, #fff6d7 0%, #ffcf77 34%, #ff7a5f 70%, #0000 71%);
+		box-shadow: 0 0 40px rgba(255, 196, 104, 0.28);
+		animation: posterSunPulse 9s ease-in-out infinite;
+	}
+
+	.sun-lines {
+		left: 50%;
+		top: 16%;
+		width: 11rem;
+		height: 11rem;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		background: repeating-linear-gradient(180deg, rgba(255, 242, 217, 0.88) 0 0.45rem, rgba(255, 242, 217, 0) 0.45rem 0.9rem);
+		clip-path: inset(0 round 50%);
+		mix-blend-mode: overlay;
+		animation: posterLines 8s ease-in-out infinite;
+	}
+
+	.horizon {
+		left: -10%;
+		right: -10%;
+		bottom: -8%;
+		border-radius: 50% 50% 0 0;
+	}
+
+	.horizon-back {
+		height: 42%;
+		background: #48235f;
+		clip-path: polygon(0 60%, 15% 52%, 30% 62%, 46% 40%, 60% 50%, 75% 34%, 100% 48%, 100% 100%, 0 100%);
+		animation: horizonShiftBack 15s ease-in-out infinite;
+	}
+
+	.horizon-front {
+		height: 28%;
+		background: #1a1233;
+		clip-path: polygon(0 62%, 18% 38%, 34% 52%, 51% 22%, 67% 40%, 83% 18%, 100% 30%, 100% 100%, 0 100%);
+		animation: horizonShiftFront 11s ease-in-out infinite;
+	}
+
+	.grain {
+		inset: 0;
+		opacity: 0.18;
+		background-image:
+			radial-gradient(circle at 20% 20%, rgba(36, 17, 53, 0.55) 0 0.05rem, transparent 0.06rem),
+			radial-gradient(circle at 80% 72%, rgba(255, 241, 220, 0.32) 0 0.04rem, transparent 0.05rem),
+			radial-gradient(circle at 50% 44%, rgba(42, 20, 58, 0.32) 0 0.05rem, transparent 0.06rem);
+		background-size: 4rem 4rem, 5rem 5rem, 6rem 6rem;
+		animation: grainMove 12s linear infinite;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.solar-poster .poster-sun,
+	.solar-poster .sun-lines,
+	.solar-poster .horizon,
+	.solar-poster .grain {
+		animation: none;
+	}
+}
+
+@keyframes posterSunPulse {
+	0%,
+	100% { transform: translateX(-50%) scale(0.96); }
+	50% { transform: translateX(-50%) scale(1.04); }
+}
+
+@keyframes posterLines {
+	0%,
+	100% { transform: translateX(-50%) translateY(0); opacity: 0.78; }
+	50% { transform: translateX(-50%) translateY(0.4rem); opacity: 1; }
+}
+
+@keyframes horizonShiftBack {
+	0%,
+	100% { transform: translate3d(-1%, 0, 0); }
+	50% { transform: translate3d(1.5%, -1%, 0); }
+}
+
+@keyframes horizonShiftFront {
+	0%,
+	100% { transform: translate3d(2%, 0, 0); }
+	50% { transform: translate3d(-2%, 1%, 0); }
+}
+
+@keyframes grainMove {
+	0% { transform: translate3d(0, 0, 0); }
+	100% { transform: translate3d(-2%, 2%, 0); }
+}
