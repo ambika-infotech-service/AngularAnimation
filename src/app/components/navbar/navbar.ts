@@ -16,10 +16,11 @@ export class Navbar {
   }
 
   readonly navLinks = [
-    { path: '/',         label: 'Home',     icon: 'bi-house-fill' },
-    { path: '/fade',     label: 'Fade',     icon: 'bi-eye-fill' },
-    { path: '/slide',    label: 'Slide',    icon: 'bi-arrows-move' },
-    { path: '/stagger',  label: 'Stagger',  icon: 'bi-list-ul' },
-    { path: '/keyframe', label: 'Keyframe', icon: 'bi-stars' },
+    { path: '/',             label: 'Home',        icon: 'bi-house-fill' },
+    { path: '/fade',         label: 'Fade',        icon: 'bi-eye-fill' },
+    { path: '/slide',        label: 'Slide',       icon: 'bi-arrows-move' },
+    { path: '/stagger',      label: 'Stagger',     icon: 'bi-list-ul' },
+    { path: '/keyframe',     label: 'Keyframe',    icon: 'bi-stars' },
+    { path: '/backgrounds',  label: 'Backgrounds', icon: 'bi-layers-fill' },
   ];
 }
